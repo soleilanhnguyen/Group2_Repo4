@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Suite" parallel="none">
+
+	<test name="FirefoxTest">
+
+		<parameter name="browser" value="firefox" />
+
+		<classes>
+
+<!-- 			<class name="article.TM_Article_001" />
+			<class name="article.TM_Article_002" />
+			<class name="article.TM_Article_003" />
+			<class name="article.TM_Article_004" />
+			<class name="article.TM_Article_005" /> -->
+			<class name="banners.TM_Banners_003" />
+<!-- 			<class name="banners.TM_Banners_002" />
+			<class name="banners.TM_Banners_001" /> -->
+
+
+		</classes>
+
+	</test>
+
+</suite>

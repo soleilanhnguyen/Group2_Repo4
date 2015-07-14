@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Suite" parallel="none">
+
+	<test name="FirefoxTest">
+
+		<parameter name="browser" value="firefox" />
+
+		<classes>
+
+			<class name="article.TM_Article_001" />
+			<class name="article.TM_Article_002" />
+			<class name="article.TM_Article_003" />
+			<class name="article.TM_Article_004" />
+			<class name="article.TM_Article_005" />
+
+			<class name="banners.TM_Banners_003" />
+			<class name="banners.TM_Banners_002" />
+			<class name="banners.TM_Banners_001" />
+
+			<class name="bannerclients.TM_BannerClient_001" />
+			<class name="bannerclients.TM_BannerClient_002" />
+			<class name="bannerclients.TM_BannerClient_003" />
+
+			<class name="categorymanager.TM_CategoryManager_001" />
+			<class name="categorymanager.TM_CategoryManager_002" />
+			<class name="categorymanager.TM_CategoryManager_003" />
+			<class name="categorymanager.TM_CategoryManager_004" />
+
+
+			<class name="contacts.TM_Contact_001" />
+			<class name="contacts.TM_Contact_002" />
+			<class name="contacts.TM_Contact_003" />
+			<class name="contacts.TM_Contact_004" />
+
+			<class name="weblinks.TM_Weblink_001" />
+			<class name="weblinks.TM_Weblink_002" />
+			<class name="weblinks.TM_Weblink_003" />
+			<class name="weblinks.TM_Weblink_004" />
+			<class name="weblinks.TM_Weblink_005" />
+
+		</classes>
+
+	</test>
+
+</suite>

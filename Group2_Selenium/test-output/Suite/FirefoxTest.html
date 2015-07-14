@@ -1,0 +1,344 @@
+<html>
+<head>
+<title>TestNG:  FirefoxTest</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>FirefoxTest</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>53/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Jul 14 07:09:02 ICT 2015</td>
+</tr>
+<tr><td>Total time:</td><td>950 seconds (950505 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='article.TM_Article_001.TC_Article_001()'><b>TC_Article_001</b><br>Test class: article.TM_Article_001<br>Test method: Verify user can create new article with valid information</td>
+<td></td>
+<td>17</td>
+<td>article.TM_Article_001@16c0663d</td></tr>
+<tr>
+<td title='article.TM_Article_001.TC_Article_002()'><b>TC_Article_002</b><br>Test class: article.TM_Article_001<br>Test method: Verify user can edit an article</td>
+<td></td>
+<td>14</td>
+<td>article.TM_Article_001@16c0663d</td></tr>
+<tr>
+<td title='article.TM_Article_004.TC_Article_003()'><b>TC_Article_003</b><br>Test class: article.TM_Article_004<br>Test method: Verify user can publish an unpublished article</td>
+<td></td>
+<td>25</td>
+<td>article.TM_Article_004@3c5a99da</td></tr>
+<tr>
+<td title='article.TM_Article_003.TC_Article_004()'><b>TC_Article_004</b><br>Test class: article.TM_Article_003<br>Test method: Verify user can unpublish a published article</td>
+<td></td>
+<td>24</td>
+<td>article.TM_Article_003@2a18f23c</td></tr>
+<tr>
+<td title='article.TM_Article_002.TC_Article_005()'><b>TC_Article_005</b><br>Test class: article.TM_Article_002<br>Test method: User can move an article to the archive</td>
+<td></td>
+<td>32</td>
+<td>article.TM_Article_002@28f67ac7</td></tr>
+<tr>
+<td title='article.TM_Article_003.TC_Article_007()'><b>TC_Article_007</b><br>Test class: article.TM_Article_003<br>Test method: Verify user can move an article to trash section</td>
+<td></td>
+<td>9</td>
+<td>article.TM_Article_003@2a18f23c</td></tr>
+<tr>
+<td title='article.TM_Article_005.TC_Article_008()'><b>TC_Article_008</b><br>Test class: article.TM_Article_005<br>Test method: Verify user can access article's help section</td>
+<td></td>
+<td>11</td>
+<td>article.TM_Article_005@256216b3</td></tr>
+<tr>
+<td title='article.TM_Article_001.TC_Article_009()'><b>TC_Article_009</b><br>Test class: article.TM_Article_001<br>Test method: User can search for articles using the filter text field</td>
+<td></td>
+<td>18</td>
+<td>article.TM_Article_001@16c0663d</td></tr>
+<tr>
+<td title='article.TM_Article_004.TC_Article_015()'><b>TC_Article_015</b><br>Test class: article.TM_Article_004<br>Test method: Verify user can change the status of articles using the Status column</td>
+<td></td>
+<td>6</td>
+<td>article.TM_Article_004@3c5a99da</td></tr>
+<tr>
+<td title='bannerclients.TM_BannerClient_001.TC_BannerClient_001()'><b>TC_BannerClient_001</b><br>Test class: bannerclients.TM_BannerClient_001<br>Test method: Verify that user can create a new client</td>
+<td></td>
+<td>15</td>
+<td>bannerclients.TM_BannerClient_001@4ec6a292</td></tr>
+<tr>
+<td title='bannerclients.TM_BannerClient_002.TC_BannerClient_002()'><b>TC_BannerClient_002</b><br>Test class: bannerclients.TM_BannerClient_002<br>Test method: Verify that user can edit a client</td>
+<td></td>
+<td>20</td>
+<td>bannerclients.TM_BannerClient_002@19bb089b</td></tr>
+<tr>
+<td title='bannerclients.TM_BannerClient_001.TC_BannerClient_003()'><b>TC_BannerClient_003</b><br>Test class: bannerclients.TM_BannerClient_001<br>Test method: Verify that user can publish a client</td>
+<td></td>
+<td>3</td>
+<td>bannerclients.TM_BannerClient_001@4ec6a292</td></tr>
+<tr>
+<td title='bannerclients.TM_BannerClient_002.TC_BannerClient_004()'><b>TC_BannerClient_004</b><br>Test class: bannerclients.TM_BannerClient_002<br>Test method: Verify that user can unpublish a client</td>
+<td></td>
+<td>3</td>
+<td>bannerclients.TM_BannerClient_002@19bb089b</td></tr>
+<tr>
+<td title='bannerclients.TM_BannerClient_001.TC_BannerClient_005()'><b>TC_BannerClient_005</b><br>Test class: bannerclients.TM_BannerClient_001<br>Test method: Verify that user can archive a client</td>
+<td></td>
+<td>5</td>
+<td>bannerclients.TM_BannerClient_001@4ec6a292</td></tr>
+<tr>
+<td title='bannerclients.TM_BannerClient_002.TC_BannerClient_006()'><b>TC_BannerClient_006</b><br>Test class: bannerclients.TM_BannerClient_002<br>Test method: Verify that user can send a client to trash</td>
+<td></td>
+<td>5</td>
+<td>bannerclients.TM_BannerClient_002@19bb089b</td></tr>
+<tr>
+<td title='bannerclients.TM_BannerClient_001.TC_BannerClient_007()'><b>TC_BannerClient_007</b><br>Test class: bannerclients.TM_BannerClient_001<br>Test method: Verify that user can browse Banner client help page</td>
+<td></td>
+<td>5</td>
+<td>bannerclients.TM_BannerClient_001@4ec6a292</td></tr>
+<tr>
+<td title='bannerclients.TM_BannerClient_002.TC_BannerClient_008()'><b>TC_BannerClient_008</b><br>Test class: bannerclients.TM_BannerClient_002<br>Test method: Verify that user can search a client  by using filter textbox</td>
+<td></td>
+<td>2</td>
+<td>bannerclients.TM_BannerClient_002@19bb089b</td></tr>
+<tr>
+<td title='bannerclients.TM_BannerClient_003.TC_BannerClient_009()'><b>TC_BannerClient_009</b><br>Test class: bannerclients.TM_BannerClient_003<br>Test method: Verify that user can search a client by using filter dropdown lists</td>
+<td></td>
+<td>18</td>
+<td>bannerclients.TM_BannerClient_003@5a01ccaa</td></tr>
+<tr>
+<td title='banners.TM_Banners_001.TC_Banner_001()'><b>TC_Banner_001</b><br>Test class: banners.TM_Banners_001<br>Test method: Verify that user can create new banner</td>
+<td></td>
+<td>36</td>
+<td>banners.TM_Banners_001@4563e9ab</td></tr>
+<tr>
+<td title='banners.TM_Banners_002.TC_Banner_002()'><b>TC_Banner_002</b><br>Test class: banners.TM_Banners_002<br>Test method: Verify that user can edit a banner</td>
+<td></td>
+<td>40</td>
+<td>banners.TM_Banners_002@23223dd8</td></tr>
+<tr>
+<td title='banners.TM_Banners_003.TC_Banner_003()'><b>TC_Banner_003</b><br>Test class: banners.TM_Banners_003<br>Test method: Verify that user can create a new banner with unpublished status</td>
+<td></td>
+<td>39</td>
+<td>banners.TM_Banners_003@1fbc7afb</td></tr>
+<tr>
+<td title='banners.TM_Banners_001.TC_Banner_004()'><b>TC_Banner_004</b><br>Test class: banners.TM_Banners_001<br>Test method: Verify that user can unpublish a banner</td>
+<td></td>
+<td>9</td>
+<td>banners.TM_Banners_001@4563e9ab</td></tr>
+<tr>
+<td title='banners.TM_Banners_002.TC_Banner_005()'><b>TC_Banner_005</b><br>Test class: banners.TM_Banners_002<br>Test method: Verify that user can edit a banner</td>
+<td></td>
+<td>11</td>
+<td>banners.TM_Banners_002@23223dd8</td></tr>
+<tr>
+<td title='banners.TM_Banners_003.TC_Banner_006()'><b>TC_Banner_006</b><br>Test class: banners.TM_Banners_003<br>Test method: Verify that user can send a banner to trash</td>
+<td></td>
+<td>9</td>
+<td>banners.TM_Banners_003@1fbc7afb</td></tr>
+<tr>
+<td title='banners.TM_Banners_003.TC_Banner_007()'><b>TC_Banner_007</b><br>Test class: banners.TM_Banners_003<br>Test method: Verify that user can browse Banner help page</td>
+<td></td>
+<td>7</td>
+<td>banners.TM_Banners_003@1fbc7afb</td></tr>
+<tr>
+<td title='categorymanager.TM_CategoryManager_001.TC_CategoryManager_001()'><b>TC_CategoryManager_001</b><br>Test class: categorymanager.TM_CategoryManager_001<br>Test method: TC_CategoryManager_001: Verify that user can create a new category with valid information</td>
+<td></td>
+<td>16</td>
+<td>categorymanager.TM_CategoryManager_001@47f37ef1</td></tr>
+<tr>
+<td title='categorymanager.TM_CategoryManager_001.TC_CategoryManager_002()'><b>TC_CategoryManager_002</b><br>Test class: categorymanager.TM_CategoryManager_001<br>Test method: TC_CategoryManager_002: Verify that user can edit a category</td>
+<td></td>
+<td>9</td>
+<td>categorymanager.TM_CategoryManager_001@47f37ef1</td></tr>
+<tr>
+<td title='categorymanager.TM_CategoryManager_002.TC_CategoryManager_003()'><b>TC_CategoryManager_003</b><br>Test class: categorymanager.TM_CategoryManager_002<br>Test method: TC_CategoryManager_003: Verify that user can publish a category</td>
+<td></td>
+<td>20</td>
+<td>categorymanager.TM_CategoryManager_002@6adca536</td></tr>
+<tr>
+<td title='categorymanager.TM_CategoryManager_002.TC_CategoryManager_004()'><b>TC_CategoryManager_004</b><br>Test class: categorymanager.TM_CategoryManager_002<br>Test method: TC_CategoryManager_004: User can unpublish a category</td>
+<td></td>
+<td>9</td>
+<td>categorymanager.TM_CategoryManager_002@6adca536</td></tr>
+<tr>
+<td title='categorymanager.TM_CategoryManager_001.TC_CategoryManager_005()'><b>TC_CategoryManager_005</b><br>Test class: categorymanager.TM_CategoryManager_001<br>Test method: TC_CategoryManager_005: Verify that user can archive a category</td>
+<td></td>
+<td>5</td>
+<td>categorymanager.TM_CategoryManager_001@47f37ef1</td></tr>
+<tr>
+<td title='categorymanager.TM_CategoryManager_001.TC_CategoryManager_006()'><b>TC_CategoryManager_006</b><br>Test class: categorymanager.TM_CategoryManager_001<br>Test method: TC_CategoryManager_006: Verify that User can send a category to trash</td>
+<td></td>
+<td>7</td>
+<td>categorymanager.TM_CategoryManager_001@47f37ef1</td></tr>
+<tr>
+<td title='categorymanager.TM_CategoryManager_003.TC_CategoryManager_010()'><b>TC_CategoryManager_010</b><br>Test class: categorymanager.TM_CategoryManager_003<br>Test method: TC_CategoryManager_010: User can create many categories by using Save & New button</td>
+<td></td>
+<td>23</td>
+<td>categorymanager.TM_CategoryManager_003@1b40d5f0</td></tr>
+<tr>
+<td title='categorymanager.TM_CategoryManager_002.TC_CategoryManager_012()'><b>TC_CategoryManager_012</b><br>Test class: categorymanager.TM_CategoryManager_002<br>Test method: TC_CategoryManager_012: User can cancel adding action while adding a new create</td>
+<td></td>
+<td>19</td>
+<td>categorymanager.TM_CategoryManager_002@6adca536</td></tr>
+<tr>
+<td title='categorymanager.TM_CategoryManager_004.TC_CategoryManager_013()'><b>TC_CategoryManager_013</b><br>Test class: categorymanager.TM_CategoryManager_004<br>Test method: TC_CategoryManager_013: User can creat a new category by using Save as Copy button</td>
+<td></td>
+<td>18</td>
+<td>categorymanager.TM_CategoryManager_004@649d209a</td></tr>
+<tr>
+<td title='contacts.TM_Contact_001.TC_Contact_001()'><b>TC_Contact_001</b><br>Test class: contacts.TM_Contact_001<br>Test method: TC_Contact_001:User can create new contact with valid information</td>
+<td></td>
+<td>17</td>
+<td>contacts.TM_Contact_001@45c8e616</td></tr>
+<tr>
+<td title='contacts.TM_Contact_001.TC_Contact_002()'><b>TC_Contact_002</b><br>Test class: contacts.TM_Contact_001<br>Test method: TC_Contact_002: User can edit a contact</td>
+<td></td>
+<td>9</td>
+<td>contacts.TM_Contact_001@45c8e616</td></tr>
+<tr>
+<td title='contacts.TM_Contact_002.TC_Contact_003()'><b>TC_Contact_003</b><br>Test class: contacts.TM_Contact_002<br>Test method: TC_Contact_003:Verify user can publish an unpublished contact</td>
+<td></td>
+<td>20</td>
+<td>contacts.TM_Contact_002@ea4a92b</td></tr>
+<tr>
+<td title='contacts.TM_Contact_002.TC_Contact_004()'><b>TC_Contact_004</b><br>Test class: contacts.TM_Contact_002<br>Test method: TC_Contact_004: User can unpublish a published contact</td>
+<td></td>
+<td>3</td>
+<td>contacts.TM_Contact_002@ea4a92b</td></tr>
+<tr>
+<td title='contacts.TM_Contact_001.TC_Contact_005()'><b>TC_Contact_005</b><br>Test class: contacts.TM_Contact_001<br>Test method: TC_Contact_005: User can move a contact to the archive</td>
+<td></td>
+<td>11</td>
+<td>contacts.TM_Contact_001@45c8e616</td></tr>
+<tr>
+<td title='contacts.TM_Contact_002.TC_Contact_007()'><b>TC_Contact_007</b><br>Test class: contacts.TM_Contact_002<br>Test method: TC_Contact_007: User can move a contact to trash section</td>
+<td></td>
+<td>5</td>
+<td>contacts.TM_Contact_002@ea4a92b</td></tr>
+<tr>
+<td title='contacts.TM_Contact_004.TC_Contact_009()'><b>TC_Contact_009</b><br>Test class: contacts.TM_Contact_004<br>Test method: TC_Contact_009:User can search for contacts using the filter text field</td>
+<td></td>
+<td>22</td>
+<td>contacts.TM_Contact_004@71c7db30</td></tr>
+<tr>
+<td title='contacts.TM_Contact_003.TC_Contact_010()'><b>TC_Contact_010</b><br>Test class: contacts.TM_Contact_003<br>Test method: TC_Contact_010:User can search for contacts using the filter dropdown lists</td>
+<td></td>
+<td>24</td>
+<td>contacts.TM_Contact_003@66d33a</td></tr>
+<tr>
+<td title='weblinks.TM_Weblink_001.TC_Weblink_001()'><b>TC_Weblink_001</b><br>Test class: weblinks.TM_Weblink_001<br>Test method: Verify user can create new web link with valid information</td>
+<td></td>
+<td>17</td>
+<td>weblinks.TM_Weblink_001@d7b1517</td></tr>
+<tr>
+<td title='weblinks.TM_Weblink_001.TC_Weblink_002()'><b>TC_Weblink_002</b><br>Test class: weblinks.TM_Weblink_001<br>Test method: Verify user can edit a web link</td>
+<td></td>
+<td>18</td>
+<td>weblinks.TM_Weblink_001@d7b1517</td></tr>
+<tr>
+<td title='weblinks.TM_Weblink_002.TC_Weblink_003()'><b>TC_Weblink_003</b><br>Test class: weblinks.TM_Weblink_002<br>Test method: Verify user can publish an unpublished web link</td>
+<td></td>
+<td>20</td>
+<td>weblinks.TM_Weblink_002@2b80d80f</td></tr>
+<tr>
+<td title='weblinks.TM_Weblink_003.TC_Weblink_004()'><b>TC_Weblink_004</b><br>Test class: weblinks.TM_Weblink_003<br>Test method: Verify user can unpublish a published web link</td>
+<td></td>
+<td>20</td>
+<td>weblinks.TM_Weblink_003@11531931</td></tr>
+<tr>
+<td title='weblinks.TM_Weblink_003.TC_Weblink_005()'><b>TC_Weblink_005</b><br>Test class: weblinks.TM_Weblink_003<br>Test method: Verify user can move a web link to the archive</td>
+<td></td>
+<td>13</td>
+<td>weblinks.TM_Weblink_003@11531931</td></tr>
+<tr>
+<td title='weblinks.TM_Weblink_002.TC_Weblink_007()'><b>TC_Weblink_007</b><br>Test class: weblinks.TM_Weblink_002<br>Test method: Verify user can move a web link to trash section</td>
+<td></td>
+<td>7</td>
+<td>weblinks.TM_Weblink_002@2b80d80f</td></tr>
+<tr>
+<td title='weblinks.TM_Weblink_001.TC_Weblink_008()'><b>TC_Weblink_008</b><br>Test class: weblinks.TM_Weblink_001<br>Test method: Verify user can access weblink's help section</td>
+<td></td>
+<td>6</td>
+<td>weblinks.TM_Weblink_001@d7b1517</td></tr>
+<tr>
+<td title='weblinks.TM_Weblink_004.TC_Weblink_009()'><b>TC_Weblink_009</b><br>Test class: weblinks.TM_Weblink_004<br>Test method: Verify user can search for weblinks using the filter text field</td>
+<td></td>
+<td>19</td>
+<td>weblinks.TM_Weblink_004@357246de</td></tr>
+<tr>
+<td title='weblinks.TM_Weblink_004.TC_Weblink_010()'><b>TC_Weblink_010</b><br>Test class: weblinks.TM_Weblink_004<br>Test method: Verify user can search for weblinks using the filter dropdown lists</td>
+<td></td>
+<td>10</td>
+<td>weblinks.TM_Weblink_004@357246de</td></tr>
+<tr>
+<td title='weblinks.TM_Weblink_005.TC_Weblink_015()'><b>TC_Weblink_015</b><br>Test class: weblinks.TM_Weblink_005<br>Test method: User can change the status of weblinks using the Status column</td>
+<td></td>
+<td>24</td>
+<td>weblinks.TM_Weblink_005@5e025e70</td></tr>
+<tr>
+<td title='weblinks.TM_Weblink_005.TC_Weblink_016()'><b>TC_Weblink_016</b><br>Test class: weblinks.TM_Weblink_005<br>Test method: Verify user can create a copied version of an existed weblink</td>
+<td></td>
+<td>13</td>
+<td>weblinks.TM_Weblink_005@5e025e70</td></tr>
+</table><p>
+</body>
+</html>

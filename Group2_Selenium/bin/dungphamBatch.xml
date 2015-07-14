@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Suite" parallel="none">
+
+	<test name="FirefoxTest">
+
+		<parameter name="browser" value= "firefox" />
+
+		<classes>
+
+			<class name="weblinks.TM_Weblink_001" />
+			<class name="weblinks.TM_Weblink_002" />
+			<class name="weblinks.TM_Weblink_003" />
+			<class name="weblinks.TM_Weblink_004" />
+			<class name="weblinks.TM_Weblink_005" />
+
+		</classes>
+
+	</test>
+
+	</suite>

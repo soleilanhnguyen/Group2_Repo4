@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" parallel="none">
+  <parameter name="browser" value="firefox"/>
+  <test name="FirefoxTest(failed)" parallel="none">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="banners.TM_Banners_003">
+        <methods>
+          <include name="TC_Banner_007"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- banners.TM_Banners_003 -->
+    </classes>
+  </test> <!-- FirefoxTest(failed) -->
+</suite> <!-- Failed suite [Suite] -->
