@@ -1,6 +1,7 @@
 package categorymanager;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -96,11 +97,11 @@ public class TM_CategoryManager_002 extends AbstractTest {
 
 	}
 
-	@AfterTest(alwaysRun = true)
+	@AfterClass(alwaysRun = true)
 	public void tearDown() {
 		closeBrowser(driver);
 	}
-
+	
 	private WebDriver driver;
 	private LoginPage objLoginPage;
 	private HomePage objHomePage;

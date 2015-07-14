@@ -1,6 +1,7 @@
 package contacts;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -51,13 +52,15 @@ public class TM_Contact_003 extends AbstractTest {
 		objContactsPage.selectOptionFromCategoryDropdown(optCategory);
 
 		objContactsPage.selectOptionFromStatusDropdown(optStatus);
+		
+		objContactsPage.searchContactName(contactName);
 
 		AssertTrue(objContactsPage.isContactExist(contactName));
 
 		objContactsPage.deleteContact(contactName);
 	}
 
-	@AfterTest(alwaysRun = true)
+	@AfterClass(alwaysRun = true)
 	public void tearDown() {
 		closeBrowser(driver);
 	}

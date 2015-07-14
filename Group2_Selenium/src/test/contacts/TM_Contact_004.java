@@ -1,6 +1,7 @@
 package contacts;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -11,7 +12,6 @@ import pages.CreateNewContactPage;
 import pages.HomePage;
 import pages.LoginPage;
 import abtract.AbstractTest;
-
 import common.Common;
 import common.Constant;
 
@@ -53,8 +53,7 @@ public class TM_Contact_004 extends AbstractTest {
 
 	}
 
-
-	@AfterTest(alwaysRun = true)
+	@AfterClass(alwaysRun = true)
 	public void tearDown() {
 		closeBrowser(driver);
 	}

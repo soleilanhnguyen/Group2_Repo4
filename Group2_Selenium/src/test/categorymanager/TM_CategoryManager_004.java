@@ -1,6 +1,7 @@
 package categorymanager;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -49,7 +50,7 @@ public class TM_CategoryManager_004 extends AbstractTest {
 
 	}
 
-	@AfterTest(alwaysRun = true)
+	@AfterClass(alwaysRun = true)
 	public void tearDown() {
 		closeBrowser(driver);
 	}
