@@ -101,6 +101,7 @@ public class TM_Article_001 extends AbstractTest {
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
+		logOut(driver);
 		closeBrowser(driver);
 	}
 

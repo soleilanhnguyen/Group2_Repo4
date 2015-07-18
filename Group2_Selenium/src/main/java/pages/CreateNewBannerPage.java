@@ -16,10 +16,9 @@ public class CreateNewBannerPage extends AbstractPage {
 			type(TXT_NAME, bannername);
 	}
 
-	
 	public void selectCategory(String category) {
-		String bannercategory = "- "+category;
-		if (category != null)			
+		String bannercategory = "- " + category;
+		if (category != null)
 			selectDropDownListItemByText(DDL_CATEGORY, bannercategory);
 	}
 
@@ -32,30 +31,32 @@ public class CreateNewBannerPage extends AbstractPage {
 		if (status != null)
 			selectDropDownListItemByText(DDL_STATUS, status);
 	}
-	
-	public void enterValueInToCreateBannerForm(Banner banner) {
-		String name = banner.getName();
-		String category = banner.getCategory();
-		String client = banner.getClient();
 
-		typeBannerName(name);
-		selectCategory(category);
-		selectClient(client);
+	public BannersPage createBannerBySaveAndClose(Banner banner) {
 
-	}
-	
-	public BannersPage createBannerBySaveAndClose() {
-//		enterValueInToCreateBannerForm(banner);
+		enterValueIntoCreateNewBannerForm(banner);
 		click(BTN_SAVEANDCLOSE);
 		return new BannersPage(driver);
 	}
-	
-	public EditBannerPage createBannerBySave() {
-//		enterValueInToCreateBannerForm(banner);
+
+	public EditBannerPage createBannerBySave(Banner banner) {
+		enterValueIntoCreateNewBannerForm(banner);
 		click(BTN_SAVE);
 		return new EditBannerPage(driver);
 	}
-	
+
+	public void enterValueIntoCreateNewBannerForm(Banner banner) {
+		String bannerName = banner.getBannerName();
+		String bannerCategory = banner.getBannerCategory();
+		String bannerClient = banner.getBannerClient();
+		String bannerStatus = banner.getBannerStatus();
+
+		typeBannerName(bannerName);
+		selectCategory(bannerCategory);
+		selectClient(bannerClient);
+		selectStatus(bannerStatus);
+
+	}
 
 	private WebDriver driver;
 
@@ -64,7 +65,7 @@ public class CreateNewBannerPage extends AbstractPage {
 
 	@FindBy(xpath = ".//*[@id='jform_catid']")
 	WebElement DDL_CATEGORY;
-	
+
 	@FindBy(xpath = ".//*[@id='jform_cid']")
 	WebElement DDL_CLIENT;
 
@@ -73,7 +74,7 @@ public class CreateNewBannerPage extends AbstractPage {
 
 	@FindBy(xpath = ".//*[@id='toolbar-apply']/a")
 	WebElement BTN_SAVE;
-	
+
 	@FindBy(xpath = ".//*[@id='jform_state']")
 	WebElement DDL_STATUS;
 }

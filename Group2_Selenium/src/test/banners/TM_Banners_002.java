@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import pages.Banner;
 import pages.BannerClientsPage;
 import pages.BannersPage;
 import pages.CategoryBanner;
@@ -33,6 +34,7 @@ public class TM_Banners_002 extends AbstractTest {
 		editBannerName = Common.getUniqueString("editname");
 		archivedStatus = "Archived";
 		contactStatus = "Published";
+		objBanner = new Banner();
 	}
 
 	@Test(description = "Verify that user can edit a banner")
@@ -67,10 +69,11 @@ public class TM_Banners_002 extends AbstractTest {
 
 		objCreateNewBannerPage = objBannerPage.selectNewbutton();
 
-		objCreateNewBannerPage.typeBannerName(name);
-		objCreateNewBannerPage.selectCategory(titleCategory);
-		objCreateNewBannerPage.selectClient(clientName);
-		objEditBannerPage = objCreateNewBannerPage.createBannerBySave();
+	
+		objBanner.setBannerName(name);
+		objBanner.setBannerCategory(titleCategory);
+		objBanner.setBannerClient(clientName);
+		objEditBannerPage = objCreateNewBannerPage.createBannerBySave(objBanner);
 
 		AssertTrue(objEditBannerPage
 				.isMessageSaveBannerDisplayed(objEditBannerPage.successfullySaveBanner));
@@ -97,6 +100,7 @@ public class TM_Banners_002 extends AbstractTest {
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
+		logOut(driver);
 		closeBrowser(driver);
 	}
 
@@ -110,6 +114,7 @@ public class TM_Banners_002 extends AbstractTest {
 	private CategoryBanner objCategoryBannerPage;
 	private CreateCategoryBannerPage objCreateCategoryBannerPage;
 	private EditBannerPage objEditBannerPage;
+	private Banner objBanner;
 	private String clientName;
 	private String contactName;
 	private String contactEmail;

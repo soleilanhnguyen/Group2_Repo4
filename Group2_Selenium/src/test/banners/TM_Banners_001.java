@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import pages.Banner;
 import pages.BannerClientsPage;
 import pages.BannersPage;
 import pages.CategoryBanner;
@@ -15,7 +16,6 @@ import pages.CreateNewBannerPage;
 import pages.HomePage;
 import pages.LoginPage;
 import abtract.AbstractTest;
-
 import common.Common;
 import common.Constant;
 
@@ -33,7 +33,8 @@ public class TM_Banners_001 extends AbstractTest {
 		titleCategory = Common.getUniqueString("title");
 		name = Common.getUniqueString("name");
 		unpublishedStatus = "Unpublished";
-			}
+		objBanner = new Banner();
+	}
 
 	@Test(description = "Verify that user can create new banner")
 	public void TC_Banner_001() {
@@ -67,10 +68,10 @@ public class TM_Banners_001 extends AbstractTest {
 
 		objCreateNewBannerPage = objBannerPage.selectNewbutton();
 
-		objCreateNewBannerPage.typeBannerName(name);
-		objCreateNewBannerPage.selectCategory(titleCategory);
-		objCreateNewBannerPage.selectClient(clientName);
-		objCreateNewBannerPage.createBannerBySaveAndClose();
+		objBanner.setBannerName(name);
+		objBanner.setBannerCategory(titleCategory);
+		objBanner.setBannerClient(clientName);
+		objCreateNewBannerPage.createBannerBySaveAndClose(objBanner);
 
 		AssertTrue(objBannerPage
 				.isMessageBannerDisplayed(objBannerPage.successfullyCreateBanner));
@@ -80,28 +81,35 @@ public class TM_Banners_001 extends AbstractTest {
 		AssertTrue(objBannerPage.isBannerExist(name));
 
 	}
-	
+
+	@Test(description = "Verify that user can search a banner by using filter textbox")
+	public void TC_Banner_008() {
+		objBannerPage.searchBanner(name);
+
+		AssertTrue(objBannerPage.isBannerExist(name));
+
+	}
+
 	@Test(description = "Verify that user can unpublish a banner")
-	public void TC_Banner_004(){
-		
+	public void TC_Banner_004() {
+
 		objBannerPage.unPublishedBanner(name);
-		
+
 		AssertTrue(objBannerPage
 				.isMessageBannerDisplayed(objBannerPage.successfullyUnpublishBanner));
-		
+
 		objBannerPage.selectStatus(unpublishedStatus);
-		
+
 		objBannerPage.searchBanner(name);
 
 		AssertTrue(objBannerPage.isBannerExist(name));
 	}
-	
-	
 
-	 @AfterClass(alwaysRun = true)
-	 public void tearDown() {
-	 closeBrowser(driver);
-	 }
+	@AfterClass(alwaysRun = true)
+	public void tearDown() {
+		logOut(driver);
+		closeBrowser(driver);
+	}
 
 	private WebDriver driver;
 	private LoginPage objLoginPage;
@@ -112,6 +120,7 @@ public class TM_Banners_001 extends AbstractTest {
 	private CreateNewBannerClients objCreateNewBannerClients;
 	private CategoryBanner objCategoryBannerPage;
 	private CreateCategoryBannerPage objCreateCategoryBannerPage;
+	private Banner objBanner;
 	private String clientName;
 	private String contactName;
 	private String contactEmail;

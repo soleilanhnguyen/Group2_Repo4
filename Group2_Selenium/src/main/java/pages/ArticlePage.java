@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,8 +28,8 @@ public class ArticlePage extends AbstractPage {
 
 	public ArticlePage searchArticle(String title) {
 		TXT_FILTER.clear();
-		TXT_FILTER.sendKeys(title);
-		BTN_SUBMIT.click();
+		type(TXT_FILTER, title);
+		click(BTN_SUBMIT);
 		return new ArticlePage(driver);
 	}
 
@@ -77,6 +78,19 @@ public class ArticlePage extends AbstractPage {
 
 	}
 
+	public boolean isArticleCheckIn(String title) {
+
+		try {
+
+			WebElement element = findElementByXPath(driver, linkCheckIn, title);
+			element.isDisplayed();
+			return false;
+		} catch (NoSuchElementException ex) {
+			return true;
+		}
+
+	}
+
 	public void clickOnCheckBoxArticle(String title) {
 		WebElement webElement = findElementByXPath(driver, linkArticle, title);
 		click(webElement);
@@ -89,6 +103,14 @@ public class ArticlePage extends AbstractPage {
 		click(BTN_DELETE);
 		return new ArticlePage(driver);
 
+	}
+
+	public ArticlePage checkInArticle(String title) {
+
+		searchArticle(title);
+		clickOnCheckBoxArticle(title);
+		click(BTN_CHECKIN);
+		return new ArticlePage(driver);
 	}
 
 	public ArticlePage archiveArticle(String title) {
@@ -139,13 +161,16 @@ public class ArticlePage extends AbstractPage {
 	public String messageText = "Article successfully saved";
 	public String messageTrashText = "1 article trashed.";
 	public String messageArchiveText = "1 article archived.";
+	public String messageCheckinText = "1 article successfully checked in";
 	public String messageUnpublishText = "1 article unpublished.";
 	public String messagePublishText = "1 article published.";
 	private String initialArticleLink = "//a[contains(text(),'%s')]";
 	private String statusIcon = "//a[contains(text(),'%s')]/../following-sibling::td/a/span/span";
 	private String linkStatusIcon = "//a[contains(text(),'%s')]/../following-sibling::td/a";
 	private String linkArticle = "//a[contains(text(),'%s')]/../preceding-sibling::td/input";
-	
+	private String linkCheckIn = "//td[a[contains(text(),'%s')]]/../td/a/span[@class='state checkedout']";
+	public String checkInState = "checkin";
+	public String notCheckInState = "notcheckin";
 	@FindBy(xpath = "//li[@id='toolbar-new']/a/span")
 	WebElement BTN_NEW;
 
@@ -181,4 +206,8 @@ public class ArticlePage extends AbstractPage {
 
 	@FindBy(xpath = ".//*[@id='toolbar-help']/a/span")
 	WebElement BTN_HELP;
+
+	@FindBy(xpath = ".//*[@id='toolbar-checkin']/a/span")
+	WebElement BTN_CHECKIN;
+
 }

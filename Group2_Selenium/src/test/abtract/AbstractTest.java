@@ -40,8 +40,7 @@ public class AbstractTest {
 	 */
 	protected void closeBrowser(WebDriver driver) {
 		try {
-			driver.close();
-
+			driver.quit();
 			if (driver.toString().toLowerCase().contains("chrome")) {
 				String cmd = "taskkill /IM chromedriver.exe /F";
 				Process process = Runtime.getRuntime().exec(cmd);
@@ -62,74 +61,74 @@ public class AbstractTest {
 		AbstractPage.click(LINK_LOGOUT);
 
 	}
+
+	/**
+	 * @author Dung Pham 07/06/2015
+	 * @param driver
+	 * @param windowTitle
+	 * @return
+	 */
+	public boolean checkWindownExist(WebDriver driver, String windowTitle) {
+		try {
+			handleMultipleWindows(driver, windowTitle);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+
+	}
+
+	/**
+	 * @author Dung Pham 07/07/2015
+	 * @param varBoolean
+	 * @description Use this method to verify True/ False
+	 */
+	public void AssertTrue(boolean varBoolean) {
+		Assert.assertTrue(varBoolean);
+	}
+
 	
-	 /**
-	  * @author Dung Pham 07/06/2015
-	  * @param driver
-	  * @param windowTitle
-	  * @return
-	  */
-	 public boolean checkWindownExist(WebDriver driver, String windowTitle) {
-	  try {
-	   handleMultipleWindows(driver, windowTitle);
-	   return true;
-	  } catch (Exception e) {
-	   return false;
-	  }
-
-	 }
-	 
-	 /**
-	  * @author Dung Pham 07/07/2015
-	  * @param varBoolean
-	  * @description Use this method to verify True/ False
-	  */
-	 public void AssertTrue(boolean varBoolean) {
-	  Assert.assertTrue(varBoolean);
-	 }
-
-	 /**
-	  * @author Dung Pham 07/06/2015
-	  * @param driver
-	  * @param windowTitle
-	  */
-	 public void handleMultipleWindows(WebDriver driver, String windowTitle) {
-	  Set<String> windows = driver.getWindowHandles();
-
-	  for (String window : windows) {
-	   driver.switchTo().window(window);
-	   if (driver.getTitle().contains(windowTitle)) {
-	    return;
-	   }
-	  }
-	 }
-
-	 /**
-	  * @author Ha Nguyen
-	  * @param varBoolean
-	  * @description Use this method to verify False
-	  */
-	 public void AssertFalse(boolean varBoolean) {
-	  Assert.assertFalse(varBoolean);
-	 }
-	 
-	 /**
-	  * @author Ha Nguyen
-	  * @description Use this method to get log
-	  */
-	 
-	 protected AbstractTest()
-	    {
-	        log = LogFactory.getLog(getClass());
-	    }
 	
-	 
-		
-		 protected final Log log;
+	
+	
+	
+	/**
+	 * @author Dung Pham 07/06/2015
+	 * @param driver
+	 * @param windowTitle
+	 */
+	public void handleMultipleWindows(WebDriver driver, String windowTitle) {
+		Set<String> windows = driver.getWindowHandles();
 
-	@FindBy(xpath = "//a[contains(@href,'logout')]")
+		for (String window : windows) {
+			driver.switchTo().window(window);
+			if (driver.getTitle().contains(windowTitle)) {
+				return;
+			}
+		}
+	}
+
+	/**
+	 * @author Ha Nguyen
+	 * @param varBoolean
+	 * @description Use this method to verify False
+	 */
+	public void AssertFalse(boolean varBoolean) {
+		Assert.assertFalse(varBoolean);
+	}
+
+	/**
+	 * @author Ha Nguyen
+	 * @description Use this method to get log
+	 */
+
+	protected AbstractTest() {
+		log = LogFactory.getLog(getClass());
+	}
+
+	protected final Log log;
+
+	@FindBy(xpath = ".//*[@id='module-status']/span[5]/a")
 	WebElement LINK_LOGOUT;
 
-	@FindBy(xpath = ".//*[@id='system-message']/dd/ul/li")
-	WebElement MESSAGE_SUCCESS;
 }

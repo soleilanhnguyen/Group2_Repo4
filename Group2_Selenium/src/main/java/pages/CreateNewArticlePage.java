@@ -134,6 +134,20 @@ public class CreateNewArticlePage extends AbstractPage {
 		return new ArticlePage(driver);
 	}
 
+	/**
+	 * @description create a new article by Save and Close button
+	 * @param article
+	 * @return ArticlePage
+	 * @author anh.nguyen 7/17
+	 */
+	public ArticlePage createArticleBySave(Article article) {
+		enterValueInToCreateArticleForm(article);
+		click(BTN_SAVE);
+		return new ArticlePage(driver);
+	}
+	
+	
+	
 	private WebDriver driver;
 
 	@FindBy(xpath = ".//*[@id='jform_title']")
@@ -164,5 +178,8 @@ public class CreateNewArticlePage extends AbstractPage {
 	WebElement BTN_SAVEANDCLOSE;
 
 	@FindBy(tagName = "iframe")
-	WebElement iFrame;;
+	WebElement iFrame;
+	
+	@FindBy(xpath = ".//*[@id='toolbar-apply']/a")
+	WebElement BTN_SAVE;
 }

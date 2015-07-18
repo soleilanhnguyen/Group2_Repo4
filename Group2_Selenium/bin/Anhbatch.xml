@@ -13,11 +13,11 @@
 <!-- 			<class name="article.TM_Article_001" />
 			<class name="article.TM_Article_002" />
 			<class name="article.TM_Article_003" />
-			<class name="article.TM_Article_004" />
-			<class name="article.TM_Article_005" /> -->
+			<class name="article.TM_Article_004" /> -->
+<!-- 			<class name="article.TM_Article_005" /> -->
 			<class name="banners.TM_Banners_003" />
-<!-- 			<class name="banners.TM_Banners_002" />
-			<class name="banners.TM_Banners_001" /> -->
+			<class name="banners.TM_Banners_002" />
+			<class name="banners.TM_Banners_001" />
 
 
 		</classes>
