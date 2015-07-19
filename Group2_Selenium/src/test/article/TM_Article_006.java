@@ -11,11 +11,10 @@ import pages.ArticlePage;
 import pages.CreateNewArticlePage;
 import pages.HomePage;
 import pages.LoginPage;
+import abtract.AbstractTest;
 
 import common.Common;
 import common.Constant;
-
-import abtract.AbstractTest;
 
 public class TM_Article_006 extends AbstractTest {
 	@Parameters("browser")
@@ -23,7 +22,6 @@ public class TM_Article_006 extends AbstractTest {
 	public void setup(String browser) {
 		driver = openUrl(browser, Constant.url);
 		objLoginPage = new LoginPage(driver);
-		windowHelpTitle = "Joomla! Help";
 		objArticle = new Article();
 		txtTitle = Common.getUniqueString("Title");
 		categoryValue = "- - Joomla!";
@@ -46,7 +44,7 @@ public class TM_Article_006 extends AbstractTest {
 		objArticle.setStatus(unpublishedStatus);
 		objArticlePage = objCreateNewArticlePage
 				.createArticleBySaveAndClose(objArticle);
-		
+
 		AssertTrue(objArticlePage
 				.isMessageArticleDisplayed(objArticlePage.messageText));
 
@@ -56,14 +54,14 @@ public class TM_Article_006 extends AbstractTest {
 
 		objArticlePage.clickOnFeatureIcon(txtTitle);
 
-		AssertTrue(objArticlePage.isCorrectFeatureIconDisplayed(objArticlePage.featuredState,
-				txtTitle));
+		AssertTrue(objArticlePage.isCorrectFeatureIconDisplayed(
+				objArticlePage.featuredState, txtTitle));
 
 		objArticlePage.clickOnFeatureIcon(txtTitle);
 
-		AssertTrue(objArticlePage.isCorrectFeatureIconDisplayed(objArticlePage.unfeaturedState,
-				txtTitle));
-		
+		AssertTrue(objArticlePage.isCorrectFeatureIconDisplayed(
+				objArticlePage.unfeaturedState, txtTitle));
+
 	}
 
 	@AfterClass(alwaysRun = true)
@@ -76,7 +74,6 @@ public class TM_Article_006 extends AbstractTest {
 	private LoginPage objLoginPage;
 	private HomePage objHomePage;
 	private ArticlePage objArticlePage;
-	private String windowHelpTitle;
 	private CreateNewArticlePage objCreateNewArticlePage;
 	private Article objArticle;
 	private String txtTitle;
