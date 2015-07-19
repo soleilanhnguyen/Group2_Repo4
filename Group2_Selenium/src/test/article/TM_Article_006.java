@@ -29,9 +29,9 @@ public class TM_Article_006 extends AbstractTest {
 		unpublishedStatus = "Unpublished";
 	}
 
-	@Parameters("browser")
-	@Test(description = "Verify user can change the feature property of articles using the Featured column")
-	public void TC_Article_016(String browser) throws Exception {
+
+	@Test(description = "Verify user can create a new article with 'Public' Access Level property")
+	public void TC_Article_017(){
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
 		objArticlePage = objHomePage.gotoArticlePage(driver);
@@ -52,17 +52,27 @@ public class TM_Article_006 extends AbstractTest {
 
 		AssertTrue(objArticlePage.isArticleExist(txtTitle));
 
-		objArticlePage.clickOnFeatureIcon(txtTitle);
-
-		AssertTrue(objArticlePage.isCorrectFeatureIconDisplayed(
-				objArticlePage.featuredState, txtTitle));
-
-		objArticlePage.clickOnFeatureIcon(txtTitle);
-
-		AssertTrue(objArticlePage.isCorrectFeatureIconDisplayed(
-				objArticlePage.unfeaturedState, txtTitle));
-
+		AssertTrue(objArticlePage.isArticlePublicAccess(txtTitle));
 	}
+		
+		@Test(description = "Verify user can create a new article with 'Public' Access Level property", priority = 1)
+		public void TC_Article_016(){
+			
+			objArticlePage.clickOnFeatureIcon(txtTitle);
+			
+					AssertTrue(objArticlePage.isCorrectFeatureIconDisplayed(
+							objArticlePage.featuredState, txtTitle));
+			
+					objArticlePage.clickOnFeatureIcon(txtTitle);
+			
+					AssertTrue(objArticlePage.isCorrectFeatureIconDisplayed(
+							objArticlePage.unfeaturedState, txtTitle));
+			
+		}
+		
+
+
+	
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {

@@ -7,8 +7,9 @@
     <classes>
       <class name="article.TM_Article_006">
         <methods>
-          <include name="TC_Article_016" invocation-numbers="0"/>
+          <include name="tearDown"/>
           <include name="setup"/>
+          <include name="TC_Article_017"/>
         </methods>
       </class> <!-- article.TM_Article_006 -->
     </classes>

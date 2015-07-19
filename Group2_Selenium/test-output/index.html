@@ -90,7 +90,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">2 methods,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -101,7 +101,12 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="article.TM_Article_006" hash-for-method="TC_Article_016(firefox)">TC_Article_016(firefox)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="article.TM_Article_006" hash-for-method="TC_Article_016">TC_Article_016</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="article.TM_Article_006" hash-for-method="TC_Article_017">TC_Article_017</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -124,12 +129,20 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="TC_Article_016(firefox)">
-                  </a> <!-- TC_Article_016(firefox) -->
+                  <a name="TC_Article_016">
+                  </a> <!-- TC_Article_016 -->
                   <span class="method-name">TC_Article_016</span>
-                  <span class="parameters">(firefox)</span>
                   <em>
-(Verify user can change the feature property of articles using the Featured column)                  </em>
+(Verify user can create a new article with 'Public' Access Level property)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC_Article_017">
+                  </a> <!-- TC_Article_017 -->
+                  <span class="method-name">TC_Article_017</span>
+                  <em>
+(Verify user can create a new article with 'Public' Access Level property)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -187,16 +200,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'TC_Article_016')
+data.setCell(0, 1, 'TC_Article_017')
 data.setCell(0, 2, 'article.TM_Article_006')
-data.setCell(0, 3, 25302);
+data.setCell(0, 3, 19275);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'TC_Article_016')
+data.setCell(1, 2, 'article.TM_Article_006')
+data.setCell(1, 3, 6757);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 25 seconds</span>
+              <span class="suite-total-time">Total running time: 26 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -228,12 +245,16 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">TC_Article_016(firefox)</span>
-                <span class="method-start">7170 ms</span>
+                <span class="method-name">TC_Article_017</span>
+                <span class="method-start">9652 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">TC_Article_016</span>
+                <span class="method-start">28929 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">32473 ms</span>
+                <span class="method-start">35687 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

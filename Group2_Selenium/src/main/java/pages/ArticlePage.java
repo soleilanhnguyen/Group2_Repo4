@@ -95,6 +95,20 @@ public class ArticlePage extends AbstractPage {
 
 	}
 
+	public boolean isArticlePublicAccess(String title){
+		
+		WebElement element = findElementByXPath(driver, accessStatus, title);
+		String temp = element.getText();
+		boolean isPublic = false;
+		if (temp.equals("Public"))
+			isPublic = true;
+		return isPublic;
+		
+	}
+	
+	
+	
+	
 	public boolean isArticleCheckIn(String title) {
 
 		try {
@@ -188,6 +202,7 @@ public class ArticlePage extends AbstractPage {
 	private String linkArticle = "//a[contains(text(),'%s')]/../preceding-sibling::td/input";
 	private String linkCheckIn = "//td[a[contains(text(),'%s')]]/../td/a/span[@class='state checkedout']";
 	private String linkFeatureIcon = "//a[contains(text(),'%s')]/../following-sibling::td[2]/a";
+	private String accessStatus = "//a[contains(text(),'%s')]/../following-sibling::td[5]";	
 	public String checkInState = "checkin";
 	public String notCheckInState = "notcheckin";
 	public String featuredState = "Featured article";
