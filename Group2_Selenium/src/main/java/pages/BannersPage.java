@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,6 +28,20 @@ public class BannersPage extends AbstractPage {
 		return isShow;
 	}
 
+	public boolean isBannerCheckIn(String name) {
+
+		try {
+
+			WebElement element = findElementByXPath(driver, linkCheckIn, name);
+			element.isDisplayed();
+			return false;
+		} catch (NoSuchElementException ex) {
+			return true;
+		}
+
+	}
+	
+	
 	public void clickOnCheckBoxBanner(String name) {
 		WebElement webElement = findElementByXPath(driver, linkBanner, name);
 		click(webElement);
@@ -68,6 +83,16 @@ public class BannersPage extends AbstractPage {
 		return new BannersPage(driver);
 	}
 	
+	public BannersPage checkInBanner(String name) {
+
+		searchBanner(name);
+		clickOnCheckBoxBanner(name);
+		click(BTN_CHECKIN);
+		return new BannersPage(driver);
+	}
+	
+	
+	
 	public WebDriver getBannerPageDriver() {
 		return this.driver;
 	}
@@ -97,7 +122,8 @@ public class BannersPage extends AbstractPage {
 	public String successfullyUnpublishBanner = "1 banner successfully unpublished";
 	private String initialBannerLink = "//a[contains(text(),'%s')]";
 	private String linkBanner = "//a[contains(text(),'%s')]/../preceding-sibling::td/input";
-
+	public String messageCheckinText = "1 banner successfully checked in";
+	private String linkCheckIn = "//td[a[contains(text(),'%s')]]/../td/a/span[@class='state checkedout']";
 	@FindBy(xpath = "//li[@id='toolbar-new']/a/span")
 	WebElement BTN_NEW;
 
@@ -133,4 +159,8 @@ public class BannersPage extends AbstractPage {
 
 	@FindBy(xpath = ".//*[@id='toolbar-help']/a/span")
 	WebElement BTN_HELP;
+	
+	@FindBy(xpath = ".//*[@id='toolbar-checkin']/a/span")
+	WebElement BTN_CHECKIN;
+
 }

@@ -58,9 +58,26 @@ public class ArticlePage extends AbstractPage {
 
 	}
 
+	public boolean isCorrectFeatureIconDisplayed(String status, String title) {
+
+		WebElement element = findElementByXPath(driver, featureIcon, title);
+		String temp = element.getAttribute("alt");
+		boolean isShow = false;
+		if (status.equals(temp))
+			isShow = true;
+		return isShow;
+
+	}
+
 	public void clickOnStatusIcon(String title) {
 		clickOnCheckBoxArticle(title);
 		WebElement element = findElementByXPath(driver, linkStatusIcon, title);
+		click(element);
+	}
+
+	public void clickOnFeatureIcon(String title) {
+		clickOnCheckBoxArticle(title);
+		WebElement element = findElementByXPath(driver, linkFeatureIcon, title);
 		click(element);
 	}
 
@@ -166,11 +183,15 @@ public class ArticlePage extends AbstractPage {
 	public String messagePublishText = "1 article published.";
 	private String initialArticleLink = "//a[contains(text(),'%s')]";
 	private String statusIcon = "//a[contains(text(),'%s')]/../following-sibling::td/a/span/span";
+	private String featureIcon = linkFeatureIcon = "//a[contains(text(),'%s')]/../following-sibling::td[2]/a/img";
 	private String linkStatusIcon = "//a[contains(text(),'%s')]/../following-sibling::td/a";
 	private String linkArticle = "//a[contains(text(),'%s')]/../preceding-sibling::td/input";
 	private String linkCheckIn = "//td[a[contains(text(),'%s')]]/../td/a/span[@class='state checkedout']";
+	private String linkFeatureIcon = "//a[contains(text(),'%s')]/../following-sibling::td[2]/a";
 	public String checkInState = "checkin";
 	public String notCheckInState = "notcheckin";
+	public String featuredState = "Featured article";
+	public String unfeaturedState = "Unfeatured article";
 	@FindBy(xpath = "//li[@id='toolbar-new']/a/span")
 	WebElement BTN_NEW;
 

@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="article.TM_Article_002">
+      <class name="banners.TM_Banners_002">
         <methods>
-          <include name="TC_Article_005"/>
           <include name="tearDown"/>
-          <include name="TC_Article_007"/>
+          <include name="TC_Banner_005"/>
+          <include name="TC_Banner_002"/>
         </methods>
-      </class> <!-- article.TM_Article_002 -->
+      </class> <!-- banners.TM_Banners_002 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

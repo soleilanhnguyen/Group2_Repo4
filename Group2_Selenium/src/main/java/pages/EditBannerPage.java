@@ -20,18 +20,49 @@ public class EditBannerPage extends AbstractPage {
 		return isShow;
 	}
 	
-	public void editBannerName(String editName){
-		TXT_NAME.clear();
-		type(TXT_NAME, editName);
-		
+
+	public void typeBannerName(String bannername) {
+		if (bannername != null)
+			TXT_NAME.clear();
+			type(TXT_NAME, bannername);
+	}
+
+	public void selectCategory(String category) {
+		String bannercategory = "- " + category;
+		if (category != null)
+			selectDropDownListItemByText(DDL_CATEGORY, bannercategory);
+	}
+
+	public void selectClient(String client) {
+		if (client != null)
+			selectDropDownListItemByText(DDL_CLIENT, client);
+	}
+
+	public void selectStatus(String status) {
+		if (status != null)
+			selectDropDownListItemByText(DDL_STATUS, status);
 	}
 	
-	public BannersPage createBannerBySaveAndClose() {
+
+	
+	public BannersPage editBannerBySaveAndClose(Banner banner) {
+		enterValueIntoCreateNewBannerForm(banner);
 		click(BTN_SAVEANDCLOSE);
 		return new BannersPage(driver);
 	}
 	
-	
+	public void enterValueIntoCreateNewBannerForm(Banner banner) {
+		String bannerName = banner.getBannerName();
+		String bannerCategory = banner.getBannerCategory();
+		String bannerClient = banner.getBannerClient();
+		String bannerStatus = banner.getBannerStatus();
+
+		typeBannerName(bannerName);
+		selectCategory(bannerCategory);
+		selectClient(bannerClient);
+		selectStatus(bannerStatus);
+
+	}
 	
 	private WebDriver driver;
 	public String successfullySaveBanner = "Banner successfully saved";
@@ -44,4 +75,17 @@ public class EditBannerPage extends AbstractPage {
 	
 	@FindBy(xpath = ".//*[@id='toolbar-save']/a")
 	WebElement BTN_SAVEANDCLOSE;
+
+	@FindBy(xpath = ".//*[@id='jform_catid']")
+	WebElement DDL_CATEGORY;
+
+	@FindBy(xpath = ".//*[@id='jform_cid']")
+	WebElement DDL_CLIENT;
+
+
+	@FindBy(xpath = ".//*[@id='toolbar-apply']/a")
+	WebElement BTN_SAVE;
+
+	@FindBy(xpath = ".//*[@id='jform_state']")
+	WebElement DDL_STATUS;
 }

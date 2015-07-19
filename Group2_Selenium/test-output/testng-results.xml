@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="8" passed="8">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="193379" started-at="2015-07-18T06:46:10Z" finished-at="2015-07-18T06:49:24Z">
+  <suite name="Suite" duration-ms="35649" started-at="2015-07-19T15:40:11Z" finished-at="2015-07-19T15:40:47Z">
     <groups>
     </groups>
-    <test name="FirefoxTest" duration-ms="193379" started-at="2015-07-18T06:46:10Z" finished-at="2015-07-18T06:49:24Z">
-      <class name="banners.TM_Banners_001">
-        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:banners.TM_Banners_001@7bb11784]" name="setup" is-config="true" duration-ms="5413" started-at="2015-07-18T13:48:22Z" finished-at="2015-07-18T13:48:27Z">
+    <test name="FirefoxTest" duration-ms="35649" started-at="2015-07-19T15:40:11Z" finished-at="2015-07-19T15:40:47Z">
+      <class name="article.TM_Article_006">
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:article.TM_Article_006@21a06946]" name="setup" is-config="true" duration-ms="7168" started-at="2015-07-19T22:40:11Z" finished-at="2015-07-19T22:40:19Z">
           <params>
             <param index="0">
               <value>
@@ -18,25 +18,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="TC_Banner_001()[pri:0, instance:banners.TM_Banners_001@7bb11784]" name="TC_Banner_001" duration-ms="39903" started-at="2015-07-18T13:48:27Z" description="Verify that user can create new banner" finished-at="2015-07-18T13:49:07Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_Banner_001 -->
-        <test-method status="PASS" signature="TC_Banner_004()[pri:0, instance:banners.TM_Banners_001@7bb11784]" name="TC_Banner_004" duration-ms="11119" started-at="2015-07-18T13:49:07Z" description="Verify that user can unpublish a banner" finished-at="2015-07-18T13:49:18Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_Banner_004 -->
-        <test-method status="PASS" signature="TC_Banner_008()[pri:0, instance:banners.TM_Banners_001@7bb11784]" name="TC_Banner_008" duration-ms="2228" started-at="2015-07-18T13:49:18Z" description="Verify that user can search a banner by using filter textbox" finished-at="2015-07-18T13:49:21Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_Banner_008 -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:banners.TM_Banners_001@7bb11784]" name="tearDown" is-config="true" duration-ms="2913" started-at="2015-07-18T13:49:21Z" finished-at="2015-07-18T13:49:24Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- banners.TM_Banners_001 -->
-      <class name="banners.TM_Banners_002">
-        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:banners.TM_Banners_002@326de728]" name="setup" is-config="true" duration-ms="5453" started-at="2015-07-18T13:47:20Z" finished-at="2015-07-18T13:47:26Z">
+        <test-method status="PASS" signature="TC_Article_016(java.lang.String)[pri:0, instance:article.TM_Article_006@21a06946]" name="TC_Article_016" duration-ms="25302" started-at="2015-07-19T22:40:19Z" description="Verify user can change the feature property of articles using the Featured column" finished-at="2015-07-19T22:40:44Z">
           <params>
             <param index="0">
               <value>
@@ -46,49 +28,12 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="TC_Banner_002()[pri:0, instance:banners.TM_Banners_002@326de728]" name="TC_Banner_002" duration-ms="43161" started-at="2015-07-18T13:47:26Z" description="Verify that user can edit a banner" finished-at="2015-07-18T13:48:09Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_Banner_002 -->
-        <test-method status="PASS" signature="TC_Banner_005()[pri:0, instance:banners.TM_Banners_002@326de728]" name="TC_Banner_005" duration-ms="10023" started-at="2015-07-18T13:48:09Z" description="Verify that user can edit a banner" finished-at="2015-07-18T13:48:19Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_Banner_005 -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:banners.TM_Banners_002@326de728]" name="tearDown" is-config="true" duration-ms="3001" started-at="2015-07-18T13:48:19Z" finished-at="2015-07-18T13:48:22Z">
+        </test-method> <!-- TC_Article_016 -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:article.TM_Article_006@21a06946]" name="tearDown" is-config="true" duration-ms="3158" started-at="2015-07-19T22:40:44Z" finished-at="2015-07-19T22:40:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- banners.TM_Banners_002 -->
-      <class name="banners.TM_Banners_003">
-        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:banners.TM_Banners_003@7006c658]" name="setup" is-config="true" duration-ms="6965" started-at="2015-07-18T13:46:10Z" finished-at="2015-07-18T13:46:17Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[firefox]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="TC_Banner_003()[pri:0, instance:banners.TM_Banners_003@7006c658]" name="TC_Banner_003" duration-ms="41468" started-at="2015-07-18T13:46:17Z" description="Verify that user can create a new banner with unpublished status" finished-at="2015-07-18T13:46:59Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_Banner_003 -->
-        <test-method status="PASS" signature="TC_Banner_006()[pri:0, instance:banners.TM_Banners_003@7006c658]" name="TC_Banner_006" duration-ms="10075" started-at="2015-07-18T13:46:59Z" description="Verify that user can send a banner to trash" finished-at="2015-07-18T13:47:09Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_Banner_006 -->
-        <test-method status="PASS" signature="TC_Banner_007()[pri:0, instance:banners.TM_Banners_003@7006c658]" name="TC_Banner_007" duration-ms="7839" started-at="2015-07-18T13:47:09Z" description="Verify that user can browse Banner help page" finished-at="2015-07-18T13:47:17Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_Banner_007 -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:banners.TM_Banners_003@7006c658]" name="tearDown" is-config="true" duration-ms="3795" started-at="2015-07-18T13:47:17Z" finished-at="2015-07-18T13:47:20Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- banners.TM_Banners_003 -->
+      </class> <!-- article.TM_Article_006 -->
     </test> <!-- FirefoxTest -->
   </suite> <!-- Suite -->
 </testng-results>
