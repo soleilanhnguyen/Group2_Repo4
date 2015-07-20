@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="38937" started-at="2015-07-19T16:21:36Z" finished-at="2015-07-19T16:22:15Z">
+  <suite name="Suite" duration-ms="54597" started-at="2015-07-20T00:39:03Z" finished-at="2015-07-20T00:39:58Z">
     <groups>
     </groups>
-    <test name="FirefoxTest" duration-ms="38937" started-at="2015-07-19T16:21:36Z" finished-at="2015-07-19T16:22:15Z">
-      <class name="article.TM_Article_006">
-        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:article.TM_Article_006@21a06946]" name="setup" is-config="true" duration-ms="9650" started-at="2015-07-19T23:21:36Z" finished-at="2015-07-19T23:21:46Z">
+    <test name="FirefoxTest" duration-ms="54597" started-at="2015-07-20T00:39:03Z" finished-at="2015-07-20T00:39:58Z">
+      <class name="banners.TM_Banners_006">
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:banners.TM_Banners_006@21a06946]" name="setup" is-config="true" duration-ms="6888" started-at="2015-07-20T07:39:03Z" finished-at="2015-07-20T07:39:10Z">
           <params>
             <param index="0">
               <value>
@@ -18,19 +18,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="TC_Article_017()[pri:0, instance:article.TM_Article_006@21a06946]" name="TC_Article_017" duration-ms="19275" started-at="2015-07-19T23:21:46Z" description="Verify user can create a new article with &#039;Public&#039; Access Level property" finished-at="2015-07-19T23:22:05Z">
+        <test-method status="PASS" signature="TC_Banner_09()[pri:0, instance:banners.TM_Banners_006@21a06946]" name="TC_Banner_09" duration-ms="44511" started-at="2015-07-20T07:39:10Z" description="Verify that user can check in a banner" finished-at="2015-07-20T07:39:54Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC_Article_017 -->
-        <test-method status="PASS" signature="TC_Article_016()[pri:0, instance:article.TM_Article_006@21a06946]" name="TC_Article_016" duration-ms="6757" started-at="2015-07-19T23:22:05Z" description="Verify user can create a new article with &#039;Public&#039; Access Level property" finished-at="2015-07-19T23:22:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_Article_016 -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:article.TM_Article_006@21a06946]" name="tearDown" is-config="true" duration-ms="3235" started-at="2015-07-19T23:22:12Z" finished-at="2015-07-19T23:22:15Z">
+        </test-method> <!-- TC_Banner_09 -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:banners.TM_Banners_006@21a06946]" name="tearDown" is-config="true" duration-ms="3177" started-at="2015-07-20T07:39:54Z" finished-at="2015-07-20T07:39:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- article.TM_Article_006 -->
+      </class> <!-- banners.TM_Banners_006 -->
     </test> <!-- FirefoxTest -->
   </suite> <!-- Suite -->
 </testng-results>

@@ -38,6 +38,13 @@ public class CreateNewBannerPage extends AbstractPage {
 		click(BTN_SAVEANDCLOSE);
 		return new BannersPage(driver);
 	}
+	
+	public CreateNewBannerPage createBannerBySaveAndNew(Banner banner) {
+
+		enterValueIntoCreateNewBannerForm(banner);
+		click(BTN_SAVEANDNEW);
+		return new CreateNewBannerPage(driver);
+	}
 
 	public EditBannerPage createBannerBySave(Banner banner) {
 		enterValueIntoCreateNewBannerForm(banner);
@@ -57,11 +64,23 @@ public class CreateNewBannerPage extends AbstractPage {
 		selectStatus(bannerStatus);
 
 	}
+	
+	public boolean isMessageBannerDisplayed(String messageText) {
+		waitForControl(driver, MESSAGE_SUCCESS, timeout);
+		String message = MESSAGE_SUCCESS.getText();
+		boolean isShow = false;
+		if (message.equals(messageText))
+			isShow = true;
+		return isShow;
+	}
 
 	private WebDriver driver;
 
 	@FindBy(xpath = ".//*[@id='jform_name']")
 	WebElement TXT_NAME;
+	
+	@FindBy(xpath = ".//*[@id='system-message']/dd/ul/li")
+	WebElement MESSAGE_SUCCESS;
 
 	@FindBy(xpath = ".//*[@id='jform_catid']")
 	WebElement DDL_CATEGORY;
@@ -71,6 +90,9 @@ public class CreateNewBannerPage extends AbstractPage {
 
 	@FindBy(xpath = ".//*[@id='toolbar-save']/a")
 	WebElement BTN_SAVEANDCLOSE;
+	
+	@FindBy(xpath = ".//*[@id='toolbar-save-new']/a")
+	WebElement BTN_SAVEANDNEW;
 
 	@FindBy(xpath = ".//*[@id='toolbar-apply']/a")
 	WebElement BTN_SAVE;

@@ -116,6 +116,18 @@ public class BannersPage extends AbstractPage {
 		selectDropDownListItemByText(DDL_STATUS, status);
 		return new BannersPage(driver);
 	}
+	
+	public BannersPage selectClient(String client) {
+
+		selectDropDownListItemByText(DDL_CLIENT, client);
+		return new BannersPage(driver);
+	}
+	
+	public BannersPage selectCategory(String category) {
+
+		selectDropDownListItemByText(DDL_CATEGORY, category);
+		return new BannersPage(driver);
+	}
 
 	private WebDriver driver;
 	public String successfullyCreateBanner = "Banner successfully saved";
@@ -147,6 +159,12 @@ public class BannersPage extends AbstractPage {
 
 	@FindBy(xpath = "//select[@name='filter_state']")
 	WebElement DDL_STATUS;
+	
+	@FindBy(xpath = "//select[@name='filter_client_id']")
+	WebElement DDL_CLIENT;
+	
+	@FindBy(xpath = "//select[@name='filter_category_id']")
+	WebElement DDL_CATEGORY;
 
 	@FindBy(xpath = ".//*[@id='toolbar-trash']/a/span")
 	WebElement BTN_TRASH;
