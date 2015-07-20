@@ -38,8 +38,8 @@ public class TM_Banners_005 extends AbstractTest {
 	}
 
 	@Parameters("browser")
-	@Test(description = "Verify that user can check in a banner")
-	public void TC_Banner_09() {
+	@Test(description = "Verify that user can search a banner by using filter dropdown lists")
+	public void TC_Banner_009() {
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
 

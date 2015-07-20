@@ -13,33 +13,34 @@ import pages.CategoryBanner;
 import pages.CreateCategoryBannerPage;
 import pages.CreateNewBannerClients;
 import pages.CreateNewBannerPage;
+import pages.EditBannerPage;
 import pages.HomePage;
 import pages.LoginPage;
-
+import abtract.AbstractTest;
 import common.Common;
 import common.Constant;
 
-import abtract.AbstractTest;
-
-public class TM_Banners_006 extends AbstractTest {
+public class TM_Banners_007 extends AbstractTest {
 	@Parameters("browser")
 	@BeforeClass(alwaysRun = true)
 	public void setup(String browser) throws Exception {
 		driver = openUrl(browser, Constant.url);
 		objLoginPage = new LoginPage(driver);
+		windowHelpTitle = "Joomla! Help";
 		clientName = Common.getUniqueString("Client");
 		contactName = Common.getUniqueString("Client");
 		contactEmail = Common.getUniqueString("Client") + "@yahoo.com";
 		contactStatus = "Published";
 		titleCategory = Common.getUniqueString("title");
-		name1 = Common.getUniqueString("bannername1");
-		name2 = Common.getUniqueString("bannername2");
+		name = Common.getUniqueString("name");
+		name2 = Common.getUniqueString("name2");
 		objBanner = new Banner();
+
 	}
 
-	@Parameters("browser")
-	@Test(description = "Verify that user can create many banners by using Save & New button")
-	public void TC_Banner_011() {
+	@Test(description = "Verify that user can browse New Banner help page in New banner page")
+	public void TC_Banner_013() {
+
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
 
@@ -70,30 +71,51 @@ public class TM_Banners_006 extends AbstractTest {
 
 		objCreateNewBannerPage = objBannerPage.selectNewbutton();
 
-		objBanner.setBannerName(name1);
+		objBanner.setBannerName(name);
 		objBanner.setBannerCategory(titleCategory);
 		objBanner.setBannerClient(clientName);
-		objCreateNewBannerPage.createBannerBySaveAndNew(objBanner);
-		
-		AssertTrue(objCreateNewBannerPage
-				.isMessageBannerDisplayed(objBannerPage.successfullyCreateBanner));
-		
-		objBanner.setBannerName(name2);
-		objBanner.setBannerCategory(titleCategory);
-		objBanner.setBannerClient(clientName);
-		objCreateNewBannerPage.createBannerBySaveAndClose(objBanner);
-		
-		AssertTrue(objBannerPage
-				.isMessageBannerDisplayed(objBannerPage.successfullyCreateBanner));
-		
-		objBannerPage.searchBanner(name1);
+		objEditBannerPage = objCreateNewBannerPage
+				.createBannerBySave(objBanner);
 
-		AssertTrue(objBannerPage.isBannerExist(name1));
-		
+		AssertTrue(objEditBannerPage
+				.isMessageSaveBannerDisplayed(objEditBannerPage.successfullySaveBanner));
+
+		objBanner.setBannerName(name2);
+		objEditBannerPage = objCreateNewBannerPage
+				.createBannerBySaveAsCopy(objBanner);
+
+		AssertTrue(objEditBannerPage
+				.isMessageSaveBannerDisplayed(objEditBannerPage.successfullySaveBanner));
+
+		objBannerPage = objEditBannerPage.cancel();
+
+		objBannerPage.searchBanner(name);
+
+		AssertTrue(objBannerPage.isBannerExist(name));
+
 		objBannerPage.searchBanner(name2);
 
 		AssertTrue(objBannerPage.isBannerExist(name2));
-		
+	}
+
+	@Test(description = "Verify that user can browse New Banner help page in New banner page")
+	public void TC_Banners_012() {
+
+		objCreateNewBannerPage = objBannerPage.selectNewbutton();
+		objCreateNewBannerPage.openHelp();
+
+		this.driver = objCreateNewBannerPage.getNewBannerPageDriver();
+
+		String windownBannerTitle = driver.getWindowHandle();
+
+		AssertTrue(checkWindownExist(driver, windowHelpTitle));
+
+		driver.close();
+
+		driver.switchTo().window(windownBannerTitle);
+
+		objCreateNewBannerPage.cancel();
+
 	}
 
 	@AfterClass(alwaysRun = true)
@@ -106,18 +128,20 @@ public class TM_Banners_006 extends AbstractTest {
 	private LoginPage objLoginPage;
 	private HomePage objHomePage;
 	private BannersPage objBannerPage;
-	private BannerClientsPage objBannerClientsPage;
 	private CreateNewBannerPage objCreateNewBannerPage;
+	private String windowHelpTitle;
+	private BannerClientsPage objBannerClientsPage;
 	private CreateNewBannerClients objCreateNewBannerClients;
 	private CategoryBanner objCategoryBannerPage;
 	private CreateCategoryBannerPage objCreateCategoryBannerPage;
+	private EditBannerPage objEditBannerPage;
 	private Banner objBanner;
 	private String clientName;
 	private String contactName;
 	private String contactEmail;
 	private String titleCategory;
-	private String name1;
+	private String name;
 	private String name2;
 	private String contactStatus;
-	
+
 }

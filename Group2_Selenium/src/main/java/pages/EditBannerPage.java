@@ -64,6 +64,12 @@ public class EditBannerPage extends AbstractPage {
 
 	}
 	
+	public BannersPage cancel()
+	{
+		click(BTN_CANCEL);
+		return new BannersPage(driver);
+	}
+	
 	private WebDriver driver;
 	public String successfullySaveBanner = "Banner successfully saved";
 	
@@ -88,4 +94,7 @@ public class EditBannerPage extends AbstractPage {
 
 	@FindBy(xpath = ".//*[@id='jform_state']")
 	WebElement DDL_STATUS;
+	
+	@FindBy(xpath = ".//*[@id='toolbar-cancel']/a/span")
+	WebElement BTN_CANCEL;
 }

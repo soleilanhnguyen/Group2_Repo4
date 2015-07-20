@@ -51,6 +51,12 @@ public class CreateNewBannerPage extends AbstractPage {
 		click(BTN_SAVE);
 		return new EditBannerPage(driver);
 	}
+	
+	public EditBannerPage createBannerBySaveAsCopy(Banner banner) {
+		enterValueIntoCreateNewBannerForm(banner);
+		click(BTN_SAVEASCOPY);
+		return new EditBannerPage(driver);
+	}
 
 	public void enterValueIntoCreateNewBannerForm(Banner banner) {
 		String bannerName = banner.getBannerName();
@@ -74,6 +80,20 @@ public class CreateNewBannerPage extends AbstractPage {
 		return isShow;
 	}
 
+	public void openHelp() {
+		click(BTN_HELP);
+
+	}
+	
+	public void cancel()
+	{
+		click(BTN_CANCEL);
+		
+	}
+	public WebDriver getNewBannerPageDriver() {
+		return this.driver;
+	}
+	
 	private WebDriver driver;
 
 	@FindBy(xpath = ".//*[@id='jform_name']")
@@ -93,10 +113,19 @@ public class CreateNewBannerPage extends AbstractPage {
 	
 	@FindBy(xpath = ".//*[@id='toolbar-save-new']/a")
 	WebElement BTN_SAVEANDNEW;
+	
+	@FindBy(xpath = ".//*[@id='toolbar-save-copy']/a")
+	WebElement BTN_SAVEASCOPY;
 
 	@FindBy(xpath = ".//*[@id='toolbar-apply']/a")
 	WebElement BTN_SAVE;
 
 	@FindBy(xpath = ".//*[@id='jform_state']")
 	WebElement DDL_STATUS;
+	
+	@FindBy(xpath = ".//*[@id='toolbar-help']/a/span")
+	WebElement BTN_HELP;
+	
+	@FindBy(xpath = ".//*[@id='toolbar-cancel']/a/span")
+	WebElement BTN_CANCEL;
 }

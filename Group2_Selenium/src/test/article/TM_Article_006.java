@@ -29,9 +29,8 @@ public class TM_Article_006 extends AbstractTest {
 		unpublishedStatus = "Unpublished";
 	}
 
-
 	@Test(description = "Verify user can create a new article with 'Public' Access Level property")
-	public void TC_Article_017(){
+	public void TC_Article_017() {
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
 		objArticlePage = objHomePage.gotoArticlePage(driver);
@@ -54,25 +53,21 @@ public class TM_Article_006 extends AbstractTest {
 
 		AssertTrue(objArticlePage.isArticlePublicAccess(txtTitle));
 	}
-		
-		@Test(description = "Verify user can create a new article with 'Public' Access Level property", priority = 1)
-		public void TC_Article_016(){
-			
-			objArticlePage.clickOnFeatureIcon(txtTitle);
-			
-					AssertTrue(objArticlePage.isCorrectFeatureIconDisplayed(
-							objArticlePage.featuredState, txtTitle));
-			
-					objArticlePage.clickOnFeatureIcon(txtTitle);
-			
-					AssertTrue(objArticlePage.isCorrectFeatureIconDisplayed(
-							objArticlePage.unfeaturedState, txtTitle));
-			
-		}
-		
 
+	@Test(description = "Verify user can create a new article with 'Public' Access Level property")
+	public void TC_Articles_016() {
 
-	
+		objArticlePage.clickOnFeatureIcon(txtTitle);
+
+		AssertTrue(objArticlePage.isCorrectFeatureIconDisplayed(
+				objArticlePage.featuredState, txtTitle));
+
+		objArticlePage.clickOnFeatureIcon(txtTitle);
+
+		AssertTrue(objArticlePage.isCorrectFeatureIconDisplayed(
+				objArticlePage.unfeaturedState, txtTitle));
+
+	}
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {

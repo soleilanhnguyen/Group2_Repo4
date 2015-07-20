@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="54597" started-at="2015-07-20T00:39:03Z" finished-at="2015-07-20T00:39:58Z">
+  <suite name="Suite" duration-ms="72518" started-at="2015-07-20T16:01:21Z" finished-at="2015-07-20T16:02:34Z">
     <groups>
     </groups>
-    <test name="FirefoxTest" duration-ms="54597" started-at="2015-07-20T00:39:03Z" finished-at="2015-07-20T00:39:58Z">
-      <class name="banners.TM_Banners_006">
-        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:banners.TM_Banners_006@21a06946]" name="setup" is-config="true" duration-ms="6888" started-at="2015-07-20T07:39:03Z" finished-at="2015-07-20T07:39:10Z">
+    <test name="FirefoxTest" duration-ms="72518" started-at="2015-07-20T16:01:21Z" finished-at="2015-07-20T16:02:34Z">
+      <class name="banners.TM_Banners_007">
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:banners.TM_Banners_007@21a06946]" name="setup" is-config="true" duration-ms="8453" started-at="2015-07-20T23:01:21Z" finished-at="2015-07-20T23:01:30Z">
           <params>
             <param index="0">
               <value>
@@ -18,15 +18,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="TC_Banner_09()[pri:0, instance:banners.TM_Banners_006@21a06946]" name="TC_Banner_09" duration-ms="44511" started-at="2015-07-20T07:39:10Z" description="Verify that user can check in a banner" finished-at="2015-07-20T07:39:54Z">
+        <test-method status="PASS" signature="TC_Banner_013()[pri:0, instance:banners.TM_Banners_007@21a06946]" name="TC_Banner_013" duration-ms="49598" started-at="2015-07-20T23:01:30Z" description="Verify that user can browse New Banner help page in New banner page" finished-at="2015-07-20T23:02:19Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC_Banner_09 -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:banners.TM_Banners_006@21a06946]" name="tearDown" is-config="true" duration-ms="3177" started-at="2015-07-20T07:39:54Z" finished-at="2015-07-20T07:39:58Z">
+        </test-method> <!-- TC_Banner_013 -->
+        <test-method status="PASS" signature="TC_Banners_012()[pri:0, instance:banners.TM_Banners_007@21a06946]" name="TC_Banners_012" duration-ms="10687" started-at="2015-07-20T23:02:19Z" description="Verify that user can browse New Banner help page in New banner page" finished-at="2015-07-20T23:02:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_Banners_012 -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:banners.TM_Banners_007@21a06946]" name="tearDown" is-config="true" duration-ms="3755" started-at="2015-07-20T23:02:30Z" finished-at="2015-07-20T23:02:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- banners.TM_Banners_006 -->
+      </class> <!-- banners.TM_Banners_007 -->
     </test> <!-- FirefoxTest -->
   </suite> <!-- Suite -->
 </testng-results>
