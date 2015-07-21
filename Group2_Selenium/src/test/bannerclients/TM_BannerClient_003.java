@@ -32,47 +32,33 @@ public class TM_BannerClient_003 extends AbstractTest {
 
 	@Test(description = "Verify that user can search a client by using filter dropdown lists")
 	public void TC_BannerClient_009() {
-		// Step 1: Navigate Joomla login page
-		// Step 2: Login with User Name : "lctp" and password : "lctp"
-		// Step 3: Click "Login in" button
+
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
 
-		// Step 4: Select Components -> Banners -> Clients
 		objBannerClientsPage = objHomePage.gotoBannerClient(driver);
 
-		// Step 5: Click "New" button in the right top corner
 		objCreateNewBannerClients = objBannerClientsPage.clickNewButton();
 
-		// Step 6: Enter valid Client Name to Client Name textbox
-		// Step 7: Enter valid Contact Name to Contact Name textbox
-		// Step 8: Enter valid Contact Email to Contact Email textbox
-		// Step 9: Select "Unpublished" in Status drop downlist
 		objCreateNewBannerClients.typeANewBannerClients(clientName,
 				contactName, contactEmail, contactStatus);
 
-		// Step 10: Click on 'Save & Close' button
 		objBannerClientsPage = objCreateNewBannerClients.clickSaveCloseButton();
 
-		// Step 11: A message : "Client successfully saved" shows and new client
-		// is created
-		// VP: 1. _ A message : "Client successfully saved" shows.
 		AssertTrue(objBannerClientsPage.isBannerClientSavedSuccessfully());
 
-		// VP: 2. _ New client is created and matched with entered data
 		objBannerClientsPage.searchBannerClient(clientName);
 		AssertTrue(objBannerClientsPage.isBannerClientExist(clientName));
 
-		// Step 12: Select "Unpublished" in Status drop downlist
 		objBannerClientsPage.selectOptionFromStatusDropdown(option);
 
-		// Step 13: Recently created client displays
 		AssertTrue(objBannerClientsPage.isBannerClientExist(clientName));
 
 	}
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
+		logOut(driver);
 		closeBrowser(driver);
 	}
 

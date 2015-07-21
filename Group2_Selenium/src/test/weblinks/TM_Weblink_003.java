@@ -25,11 +25,6 @@ public class TM_Weblink_003 extends AbstractTest {
 		weblinkURL = "http://www.joomla.org";
 		weblinkStatus = "Published";
 
-		weblinkStatusOfTable = "Unpublished";
-		textNeedToBeTested = "1 weblink successfully unpublished";
-		textArchiveSuccessfully = "1 weblink successfully archived";
-		button = "unpublish";
-		buttonArchive = "archive";
 		optionArchive = "Archived";
 	}
 
@@ -56,13 +51,11 @@ public class TM_Weblink_003 extends AbstractTest {
 
 		objWeblinksPage.clickOnCheckBoxWebLink(weblinkTitle);
 
-		objWeblinksPage.clickButtonOnTopRightToolbar(button);
+		objWeblinksPage.clickUnpublishButton();
 
-		AssertTrue(objWeblinksPage.isWeblinkIsPublishedOrNot(weblinkTitle,
-				weblinkStatusOfTable));
+		AssertTrue(objWeblinksPage.isWeblinkUnpublished(weblinkTitle));
 
-		AssertTrue(objWeblinksPage
-				.isTextDisPlayOnPopupMessage(textNeedToBeTested));
+		AssertTrue(objWeblinksPage.isWeblinkUnpublishedSuccessfully());
 
 	}
 
@@ -70,22 +63,22 @@ public class TM_Weblink_003 extends AbstractTest {
 	public void TC_Weblink_005() {
 
 		objWeblinksPage.searchWeblink(weblinkTitle);
+
 		objWeblinksPage.clickOnCheckBoxWebLink(weblinkTitle);
 
-		objWeblinksPage.clickButtonOnTopRightToolbar(buttonArchive);
+		objWeblinksPage.clickArchiveButton();
 
-		AssertTrue(objWeblinksPage
-				.isTextDisPlayOnPopupMessage(textArchiveSuccessfully));
+		AssertTrue(objWeblinksPage.isWeblinkArchivedSuccessfully());
 
 		objWeblinksPage.selectOptionFromStatusDropdown(optionArchive);
 
 		AssertTrue(objWeblinksPage.isWeblinkExist(weblinkTitle));
 
-		objWeblinksPage.deleteWeblink(weblinkTitle);
 	}
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
+		logOut(driver);
 		closeBrowser(driver);
 	}
 
@@ -99,10 +92,5 @@ public class TM_Weblink_003 extends AbstractTest {
 	private String weblinkURL;
 	private String weblinkStatus;
 
-	private String weblinkStatusOfTable;
-	private String textNeedToBeTested;
-	private String textArchiveSuccessfully;
-	private String button;
-	private String buttonArchive;
 	private String optionArchive;
 }

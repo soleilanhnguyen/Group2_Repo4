@@ -28,7 +28,7 @@ public class TM_Weblink_001 extends AbstractTest {
 		webLinkTitle2 = Common.getUniqueString("TM_Weblink_001_edit");
 		webLinkUrl2 = "http://www.google.com";
 		windowHelpTitle = "Joomla! Help";
-		button = "help";
+
 	}
 
 	@Test(description = "Verify user can create new web link with valid information")
@@ -68,6 +68,7 @@ public class TM_Weblink_001 extends AbstractTest {
 		AssertTrue(objCreateWebLinkPage.isWebLinkSavedSuccessfully());
 
 		objWeblinksPage = objCreateWebLinkPage.clickCloseButton();
+
 		objWeblinksPage.searchWeblink(webLinkTitle2);
 
 		AssertTrue(objWeblinksPage.isWeblinkExist(webLinkTitle2));
@@ -77,22 +78,37 @@ public class TM_Weblink_001 extends AbstractTest {
 	@Test(description = "Verify user can access weblink's help section")
 	public void TC_Weblink_008() {
 
-		objWeblinksPage.clickButtonOnTopRightToolbar(button);
-
-		this.driver = objWeblinksPage.getWeblinksPageDriver();
+		objWeblinksPage.clickHelpButton();
 
 		String windownWeblinkTitle = driver.getWindowHandle();
 
-		checkWindownExist(driver, windowHelpTitle);
+		AssertTrue(checkWindownExist(driver, windowHelpTitle));
 
 		driver.close();
 
-		driver.switchTo().window(windownWeblinkTitle);
+		handleMultipleWindows(driver, windownWeblinkTitle);
+
+	}
+
+	@Test(description = "Verify user can sort the weblinks table by ID column")
+	public void TC_Weblink_011() {
+
+		objWeblinksPage.selectDisplayDropdown("All");
+
+		objWeblinksPage.clickIDColumn();
+
+		AssertTrue(objWeblinksPage.isSortedAscending());
+
+		objWeblinksPage.clickIDColumn();
+
+		AssertTrue(objWeblinksPage.isSortedDescending());
 
 	}
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
+		logOut(driver);
+
 		closeBrowser(driver);
 	}
 
@@ -109,8 +125,5 @@ public class TM_Weblink_001 extends AbstractTest {
 	private String webLinkTitle2;
 	private String webLinkUrl2;
 	private String windowHelpTitle;
-	private String button;
-	private boolean windownHelpExist;
-	private String windownWeblinkTitle;
 
 }

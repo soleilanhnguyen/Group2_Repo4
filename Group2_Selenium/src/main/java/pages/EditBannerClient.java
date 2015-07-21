@@ -18,6 +18,25 @@ public class EditBannerClient extends AbstractPage {
 	}
 
 	/**
+	 * @author Dung Pham 7/19/2015
+	 */
+	public void clickSaveCopyButton() {
+		click(BTN_SAVECOPY);
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @return BannerClientsPage
+	 */
+	public BannerClientsPage clickCloseButton() {
+		click(BTN_CLOSE);
+
+		return new BannerClientsPage(driver);
+
+	}
+
+	/**
 	 * @author Dung Pham 07/12/2015
 	 */
 	public boolean isBannerClientSavedSuccessfully() {
@@ -101,6 +120,12 @@ public class EditBannerClient extends AbstractPage {
 
 	@FindBy(xpath = "//li[@id='toolbar-save']/a")
 	private WebElement BTN_SAVECLOSE;
+
+	@FindBy(xpath = "//li[@id='toolbar-save-copy']/a")
+	private WebElement BTN_SAVECOPY;
+
+	@FindBy(xpath = "//li[@id='toolbar-cancel']/a")
+	private WebElement BTN_CLOSE;
 
 	@FindBy(xpath = "//dl[@id='system-message']/dd/ul")
 	private WebElement POPUP_MESSAGE;
