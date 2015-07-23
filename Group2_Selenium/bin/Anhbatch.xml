@@ -13,30 +13,21 @@
 			<!-- <class name="article.TM_Article_001" /> <class name="article.TM_Article_002" 
 				/> <class name="article.TM_Article_003" /> <class name="article.TM_Article_004" 
 				/> -->
-<!-- 			<class name="article.TM_Article_001" />
+			<class name="article.TM_Article_001" />
 			<class name="article.TM_Article_002" />
 			<class name="article.TM_Article_003" />
 			<class name="article.TM_Article_004" />
 			<class name="article.TM_Article_005" />
-			<class name="article.TM_Article_006" /> -->
-		<!-- 	<class name="article.TM_Article_007" /> -->
-<!-- 			<class name="article.TM_Article_008" />
-			<class name="article.TM_Article_009" />
-			<class name="article.TM_Article_015" />
-			<class name="article.TM_Article_016" />
-			<class name="article.TM_Article_017" /> -->
-<!-- 			<class name="banners.TM_Banners_001" />
+			<class name="article.TM_Article_006" />
+
+		<class name="banners.TM_Banners_001" />
 			<class name="banners.TM_Banners_002" />
-			<class name="banners.TM_Banners_003" />
+			<class name="banners.TM_Banners_003" /> 
 			<class name="banners.TM_Banners_004" />
 			<class name="banners.TM_Banners_005" />
-			<class name="banners.TM_Banners_006" /> -->
+			<class name="banners.TM_Banners_006" />
 			<class name="banners.TM_Banners_007" />
-<!-- 			<class name="banners.TM_Banners_008" />
-			<class name="banners.TM_Banners_009" />
-			<class name="banners.TM_Banners_010" />
-			<class name="banners.TM_Banners_011" />
-			<class name="banners.TM_Banners_012" /> -->
+
 
 
 			<!-- <class name="article.TM_Article_006" /> -->
