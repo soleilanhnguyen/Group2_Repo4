@@ -46,7 +46,8 @@ public class TM_Article_003 extends AbstractTest {
 		objArticlePage = objCreateNewArticlePage
 				.createArticleBySaveAndClose(objArticle);
 
-		AssertTrue(objArticlePage.isMessageArticleDisplayed(objArticlePage.messageText));
+		AssertTrue(objArticlePage
+				.isMessageArticleDisplayed(objArticlePage.messageText));
 
 		objArticlePage.searchArticle(txtTitle);
 
@@ -54,11 +55,13 @@ public class TM_Article_003 extends AbstractTest {
 
 		objArticlePage.unpublishArticle(txtTitle);
 
-		AssertTrue(objArticlePage.isMessageArticleDisplayed(objArticlePage.messageUnpublishText));
-		
+		AssertTrue(objArticlePage
+				.isMessageArticleDisplayed(objArticlePage.messageUnpublishText));
+
 		objArticlePage.searchArticle(txtTitle);
- 
-		AssertTrue(objArticlePage.isCorrectStatusIconDisplayed(status, txtTitle));
+
+		AssertTrue(objArticlePage
+				.isCorrectStatusIconDisplayed(status, txtTitle));
 
 	}
 
@@ -71,6 +74,8 @@ public class TM_Article_003 extends AbstractTest {
 		AssertTrue(objArticlePage.isArticleExist(txtTitle));
 
 	}
+
+	
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {

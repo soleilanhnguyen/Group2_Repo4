@@ -62,7 +62,20 @@ public class TM_Article_002 extends AbstractTest {
 		objArticlePage.deleteArticle(txtTitle);
 	}
 	
-		
+	@Test(description = "Verify user can sort the article table by ID column")
+	public void TC_Article_011() {
+		objArticlePage.searchArticle("");
+		objArticlePage.selectQuantity("All");
+
+		objArticlePage.clickIDColumn();
+
+		AssertTrue(objArticlePage.isSortedAscending());
+
+		objArticlePage.clickIDColumn();
+
+		AssertTrue(objArticlePage.isSortedDescending());
+
+	}
 	
 	
 	

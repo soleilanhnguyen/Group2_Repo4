@@ -1,5 +1,7 @@
 package pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -293,7 +295,49 @@ public class ArticlePage extends AbstractPage {
 		click(BTN_CATEGORIES);
 		return new CategoryManagerPage(driver);
 	}
+	
+	
+	public void selectQuantity(String quantity) {
 
+		selectDropDownListItemByText(DDL_QUANTITY, quantity);
+
+	}
+	
+	public void clickIDColumn() {
+		click(ID_COLUMN_ICON);
+	}
+	
+	public boolean isSortedDescending() {
+
+		List<WebElement> cells = TBL_ARTICLE.findElements(By
+				.xpath("tr/td[12]/a"));
+
+		for (int i = 1; i < (cells.size()); i++) {
+			if (Integer.parseInt(cells.get(i - 1).getText()) < Integer
+					.parseInt(cells.get(i).getText()))
+				return false;
+		}
+
+		return true;
+
+	}
+
+	public boolean isSortedAscending() {
+
+		List<WebElement> cells = TBL_ARTICLE.findElements(By
+				.xpath("tr/td[12]/a"));
+
+		for (int i = 1; i < (cells.size()); i++) {
+			if (Integer.parseInt(cells.get(i - 1).getText()) > Integer
+					.parseInt(cells.get(i).getText()))
+				return false;
+		}
+
+		return true;
+
+	}
+	
+	
 	private WebDriver driver;
 	public String messageText = "Article successfully saved";
 	public String messageTrashText = "1 article trashed.";
@@ -373,5 +417,14 @@ public class ArticlePage extends AbstractPage {
 
 	@FindBy(xpath = "//*[@id='submenu']/li[2]/a")
 	WebElement BTN_CATEGORIES;
+	
+	@FindBy(xpath = ".//*[@id='limit']")
+	WebElement DDL_QUANTITY;
+	
+	@FindBy(xpath = ".//*[@id='adminForm']/table/thead/tr/th[12]/a")
+	private WebElement ID_COLUMN_ICON;
 
+	@FindBy(xpath = "//table[@class='adminlist']/tbody")
+	WebElement TBL_ARTICLE;
+	
 }

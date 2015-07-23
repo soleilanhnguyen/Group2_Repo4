@@ -6,7 +6,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import abtract.AbstractTest;
 import pages.Banner;
 import pages.BannerClientsPage;
 import pages.BannersPage;
@@ -16,6 +15,8 @@ import pages.CreateNewBannerClients;
 import pages.CreateNewBannerPage;
 import pages.HomePage;
 import pages.LoginPage;
+import abtract.AbstractTest;
+
 import common.Common;
 import common.Constant;
 
@@ -30,12 +31,10 @@ public class TM_Banners_008 extends AbstractTest {
 		contactEmail = Common.getUniqueString("Client") + "@yahoo.com";
 		contactStatus = "Published";
 		titleCategory = Common.getUniqueString("title");
-		name = Common.getUniqueString("name");
-		unpublishedStatus = "Unpublished";
 		objBanner = new Banner();
 		quantity1 = "5";
 		quantity2 = "10";
-				
+
 	}
 
 	@Test(description = "Verify that user cannot create a new banner without entering the name of the banner")
@@ -83,10 +82,31 @@ public class TM_Banners_008 extends AbstractTest {
 	@Test(description = "Verify that user can change the quantity of items displayed in banner table")
 	public void TC_Banner_015() {
 
-		objBannerPage.isQuantityChangeable(quantity1,quantity2);
-		
-		
-		
+		objBannerPage.isQuantityChangeable(quantity1, quantity2);
+
+	}
+
+	@Test(description = "Verify that user can sort items displayed in banner table by ID")
+	public void TC_Banner_016() {
+
+		objBannerPage.selectQuantity("All");
+
+		objBannerPage.clickIDColumn();
+
+		AssertTrue(objBannerPage.isSortedAscending());
+
+		objBannerPage.clickIDColumn();
+
+		AssertTrue(objBannerPage.isSortedDescending());
+
+	}
+
+	@Test(description = "Verify that user can access Banner clients page while browsing Banner page")
+	public void TC_Banner_017() {
+
+		objBannerClientsPage = objBannerPage.gotoClientPage();
+		AssertTrue(objBannerClientsPage.isClientPageDisplayed());
+
 	}
 
 	@AfterClass(alwaysRun = true)
@@ -109,8 +129,7 @@ public class TM_Banners_008 extends AbstractTest {
 	private String contactName;
 	private String contactEmail;
 	private String titleCategory;
-	private String name;
-	private String unpublishedStatus;
+
 	private String contactStatus;
 	private String quantity1;
 	private String quantity2;

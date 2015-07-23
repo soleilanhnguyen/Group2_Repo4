@@ -79,6 +79,9 @@ public class TM_Article_004 extends AbstractTest {
 
 	}
 
+	
+	
+	
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
 		logOut(driver);

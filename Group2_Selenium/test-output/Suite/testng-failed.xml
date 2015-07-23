@@ -5,13 +5,13 @@
   <test name="FirefoxTest(failed)" parallel="none">
     <parameter name="browser" value="firefox"/>
     <classes>
-      <class name="banners.TM_Banners_004">
+      <class name="article.TM_Article_002">
         <methods>
-          <include name="TC_Banner_010" invocation-numbers="0"/>
+          <include name="TC_Article_011"/>
           <include name="tearDown"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- banners.TM_Banners_004 -->
+      </class> <!-- article.TM_Article_002 -->
     </classes>
   </test> <!-- FirefoxTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

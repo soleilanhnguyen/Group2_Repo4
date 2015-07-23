@@ -1,5 +1,7 @@
 package pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -183,6 +185,46 @@ public class BannersPage extends AbstractPage {
 		return new BannersPage(driver);
 	}
 
+	public boolean isSortedAscending() {
+
+		List<WebElement> cells = TBL_BANNER.findElements(By
+				.xpath("tr/td[13]/a"));
+
+		for (int i = 1; i < (cells.size()); i++) {
+			if (Integer.parseInt(cells.get(i - 1).getText()) > Integer
+					.parseInt(cells.get(i).getText()))
+				return false;
+		}
+
+		return true;
+
+	}
+	
+	public boolean isSortedDescending() {
+
+		List<WebElement> cells = TBL_BANNER.findElements(By
+				.xpath("tr/td[13]/a"));
+
+		for (int i = 1; i < (cells.size()); i++) {
+			if (Integer.parseInt(cells.get(i - 1).getText()) < Integer
+					.parseInt(cells.get(i).getText()))
+				return false;
+		}
+
+		return true;
+
+	}
+	
+	public void clickIDColumn() {
+		click(ID_COLUMN_ICON);
+	}
+	
+	public BannerClientsPage gotoClientPage(){
+		
+		click(MNU_CLIENTS);
+		return new BannerClientsPage(driver);
+	}
+	
 	private WebDriver driver;
 	public String successfullyCreateBanner = "Banner successfully saved";
 	public String successfullyUnpublishBanner = "1 banner successfully unpublished";
@@ -242,5 +284,14 @@ public class BannersPage extends AbstractPage {
 
 	@FindBy(xpath = ".//*[@id='limit']")
 	WebElement DDL_QUANTITY;
+	
+	@FindBy(xpath = "//table[@class='adminlist']/tbody")
+	WebElement TBL_BANNER;
+	
+	@FindBy(xpath = ".//*[@id='adminForm']/table/thead/tr/th[13]/a")
+	private WebElement ID_COLUMN_ICON;
 
+	@FindBy(xpath = ".//*[@id='submenu']/li[3]/a")
+	WebElement MNU_CLIENTS;
+	
 }
