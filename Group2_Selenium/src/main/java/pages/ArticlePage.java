@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -95,20 +96,17 @@ public class ArticlePage extends AbstractPage {
 
 	}
 
-	public boolean isArticlePublicAccess(String title){
-		
+	public boolean isArticlePublicAccess(String title) {
+
 		WebElement element = findElementByXPath(driver, accessStatus, title);
 		String temp = element.getText();
 		boolean isPublic = false;
 		if (temp.equals("Public"))
 			isPublic = true;
 		return isPublic;
-		
+
 	}
-	
-	
-	
-	
+
 	public boolean isArticleCheckIn(String title) {
 
 		try {
@@ -188,6 +186,114 @@ public class ArticlePage extends AbstractPage {
 		return new ArticlePage(driver);
 	}
 
+	/**
+	 * @author Ha Nguyen
+	 * @description Click on Button Process
+	 * 
+	 */
+	public void clickOnbuttonProcess() {
+		click(BTN_PROCESS);
+	}
+
+	/**
+	 * @author Ha Nguyen
+	 * @param categoryOption
+	 * @description Select option for Move or Copy
+	 * 
+	 */
+
+	public void selectCategoryForMoveOrCopy(String categoryOption) {
+		selectOptionFromDropdownList(OPT_MOVECOPY, categoryOption);
+	}
+
+	/**
+	 * @author Ha Nguyen
+	 * @param articleName
+	 * @description Get category of Article
+	 * 
+	 */
+	public String getCategoryOfArticle(String articleName) {
+		String control = "(//a[contains(text(),'%s')]/../../td)[5]";
+		control = String.format(control, articleName);
+		return driver.findElement(By.xpath(control)).getText().trim();
+
+	}
+
+	/**
+	 * @author Ha Nguyen
+	 * @param articleName
+	 * @description Get Access of Article
+	 * 
+	 */
+
+	public String getAcessOfArticle(String articleName) {
+		String control = "(//a[contains(text(),'%s')]/../../td)[7]";
+		control = String.format(control, articleName);
+		return driver.findElement(By.xpath(control)).getText().trim();
+
+	}
+
+	/**
+	 * @author Ha Nguyen
+	 * @description Verify the message "Batch process completed successfully."
+	 *              display
+	 * 
+	 */
+	public boolean isMsgProcessCompeletedSuccessfullyDisplayed() {
+		waitForControl(driver, POPUP_MESSAGE, timeout);
+		String message = POPUP_MESSAGE.getText();
+		boolean isShow = false;
+		if (message.equals(textProcessSuccessfully))
+			isShow = true;
+		return isShow;
+	}
+
+	/**
+	 * @author Ha Nguyen
+	 * @description Select the copy Check box
+	 * 
+	 */
+
+	public void selectCopyCheckbox() {
+		click(CHB_COPY);
+	}
+
+	/**
+	 * @author Ha Nguyen
+	 * @param title
+	 *            , category
+	 * @description Search Article by title and category
+	 * 
+	 */
+
+	public ArticlePage searchArticle(String title, String category) {
+		TXT_FILTER.clear();
+		TXT_FILTER.sendKeys(title);
+		selectDropDownListItemByText(OPT_FILTER_CATEGORY, category);
+		BTN_SUBMIT.click();
+		return new ArticlePage(driver);
+	}
+
+	/**
+	 * @author Ha Nguyen
+	 * @param levelValue
+	 * @description Select Level Access Option
+	 * 
+	 */
+	public void selectSetLevelAccessOption(String levelValue) {
+		selectOptionFromDropdownList(OPT_SETACCESS, levelValue);
+	}
+
+	/**
+	 * @author Ha Nguyen
+	 * @description click on button Category
+	 * 
+	 */
+	public CategoryManagerPage clickButtonCategories() {
+		click(BTN_CATEGORIES);
+		return new CategoryManagerPage(driver);
+	}
+
 	private WebDriver driver;
 	public String messageText = "Article successfully saved";
 	public String messageTrashText = "1 article trashed.";
@@ -195,6 +301,7 @@ public class ArticlePage extends AbstractPage {
 	public String messageCheckinText = "1 article successfully checked in";
 	public String messageUnpublishText = "1 article unpublished.";
 	public String messagePublishText = "1 article published.";
+	private String textProcessSuccessfully = "Batch process completed successfully.";
 	private String initialArticleLink = "//a[contains(text(),'%s')]";
 	private String statusIcon = "//a[contains(text(),'%s')]/../following-sibling::td/a/span/span";
 	private String featureIcon = linkFeatureIcon = "//a[contains(text(),'%s')]/../following-sibling::td[2]/a/img";
@@ -202,7 +309,7 @@ public class ArticlePage extends AbstractPage {
 	private String linkArticle = "//a[contains(text(),'%s')]/../preceding-sibling::td/input";
 	private String linkCheckIn = "//td[a[contains(text(),'%s')]]/../td/a/span[@class='state checkedout']";
 	private String linkFeatureIcon = "//a[contains(text(),'%s')]/../following-sibling::td[2]/a";
-	private String accessStatus = "//a[contains(text(),'%s')]/../following-sibling::td[5]";	
+	private String accessStatus = "//a[contains(text(),'%s')]/../following-sibling::td[5]";
 	public String checkInState = "checkin";
 	public String notCheckInState = "notcheckin";
 	public String featuredState = "Featured article";
@@ -245,5 +352,26 @@ public class ArticlePage extends AbstractPage {
 
 	@FindBy(xpath = ".//*[@id='toolbar-checkin']/a/span")
 	WebElement BTN_CHECKIN;
+
+	@FindBy(xpath = "//select[@id='batch-category-id']")
+	WebElement OPT_MOVECOPY;
+
+	@FindBy(xpath = "//button[contains(text(),'Process')]")
+	WebElement BTN_PROCESS;
+
+	@FindBy(xpath = "//dl[@id='system-message']/dd/ul/li")
+	private WebElement POPUP_MESSAGE;
+
+	@FindBy(id = "batch[move_copy]c")
+	private WebElement CHB_COPY;
+
+	@FindBy(name = "filter_category_id")
+	private WebElement OPT_FILTER_CATEGORY;
+
+	@FindBy(xpath = "//*[@id='batch-access']")
+	WebElement OPT_SETACCESS;
+
+	@FindBy(xpath = "//*[@id='submenu']/li[2]/a")
+	WebElement BTN_CATEGORIES;
 
 }

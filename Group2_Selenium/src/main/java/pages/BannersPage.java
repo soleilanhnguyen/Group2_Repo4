@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,6 +29,62 @@ public class BannersPage extends AbstractPage {
 		return isShow;
 	}
 
+	public boolean isNameTextboxTurnRed() {
+
+		boolean rightborder = isBorderRed("border-right-color");
+		boolean topborder = isBorderRed("border-top-color");
+		boolean bottomborder = isBorderRed("border-bottom-color");
+		boolean leftborder = isBorderRed("border-left-color");
+
+		if (rightborder == true && topborder == true && bottomborder == true
+				&& leftborder == true)
+			return true;
+
+		else
+			return false;
+
+	}
+
+	public boolean isQuantityChangeable(String quantity1, String quantity2) {
+		boolean isChangeable = false;
+
+		selectQuantity(quantity1);
+		int countRow1 = getNumberofRow(tableXpath);
+
+		selectQuantity(quantity2);
+
+		int countRow2 = getNumberofRow(tableXpath);
+
+		if (countRow1 != countRow2)
+			isChangeable = true;
+
+		return isChangeable;
+	}
+
+	public void selectQuantity(String quantity) {
+
+		selectDropDownListItemByText(DDL_QUANTITY, quantity);
+
+	}
+
+	public int getNumberofRow(String tableXpath) {
+
+		int countRow = driver.findElements(By.xpath(tableXpath)).size();
+
+		return countRow;
+	}
+
+	public boolean isBorderRed(String border) {
+
+		boolean isRed = false;
+		String rgb[] = TXT_NAME.getCssValue(border)
+				.replaceAll("(rgba)|(rgb)|(\\()|(\\s)|(\\))", "").split(",");
+		if (rgb[0].equals("255") && rgb[1].equals("0") && rgb[2].equals("0"))
+			isRed = true;
+		return isRed;
+
+	}
+
 	public boolean isBannerCheckIn(String name) {
 
 		try {
@@ -40,8 +97,7 @@ public class BannersPage extends AbstractPage {
 		}
 
 	}
-	
-	
+
 	public void clickOnCheckBoxBanner(String name) {
 		WebElement webElement = findElementByXPath(driver, linkBanner, name);
 		click(webElement);
@@ -54,8 +110,7 @@ public class BannersPage extends AbstractPage {
 		click(BTN_UNPUBLISH);
 		return new BannersPage(driver);
 	}
-	
-	
+
 	public BannersPage archiveBanner(String name) {
 		searchBanner(name);
 		clickOnCheckBoxBanner(name);
@@ -71,18 +126,19 @@ public class BannersPage extends AbstractPage {
 		return new BannersPage(driver);
 
 	}
-	
+
 	public void openHelp() {
 		click(BTN_HELP);
 
 	}
+
 	public BannersPage searchBanner(String name) {
 		TXT_FILTER.clear();
 		TXT_FILTER.sendKeys(name);
 		BTN_SUBMIT.click();
 		return new BannersPage(driver);
 	}
-	
+
 	public BannersPage checkInBanner(String name) {
 
 		searchBanner(name);
@@ -90,9 +146,7 @@ public class BannersPage extends AbstractPage {
 		click(BTN_CHECKIN);
 		return new BannersPage(driver);
 	}
-	
-	
-	
+
 	public WebDriver getBannerPageDriver() {
 		return this.driver;
 	}
@@ -116,13 +170,13 @@ public class BannersPage extends AbstractPage {
 		selectDropDownListItemByText(DDL_STATUS, status);
 		return new BannersPage(driver);
 	}
-	
+
 	public BannersPage selectClient(String client) {
 
 		selectDropDownListItemByText(DDL_CLIENT, client);
 		return new BannersPage(driver);
 	}
-	
+
 	public BannersPage selectCategory(String category) {
 
 		selectDropDownListItemByText(DDL_CATEGORY, category);
@@ -136,6 +190,8 @@ public class BannersPage extends AbstractPage {
 	private String linkBanner = "//a[contains(text(),'%s')]/../preceding-sibling::td/input";
 	public String messageCheckinText = "1 banner successfully checked in";
 	private String linkCheckIn = "//td[a[contains(text(),'%s')]]/../td/a/span[@class='state checkedout']";
+	private String tableXpath = ".//*[@id='adminForm']/table/tbody/tr";
+
 	@FindBy(xpath = "//li[@id='toolbar-new']/a/span")
 	WebElement BTN_NEW;
 
@@ -159,10 +215,10 @@ public class BannersPage extends AbstractPage {
 
 	@FindBy(xpath = "//select[@name='filter_state']")
 	WebElement DDL_STATUS;
-	
+
 	@FindBy(xpath = "//select[@name='filter_client_id']")
 	WebElement DDL_CLIENT;
-	
+
 	@FindBy(xpath = "//select[@name='filter_category_id']")
 	WebElement DDL_CATEGORY;
 
@@ -177,8 +233,14 @@ public class BannersPage extends AbstractPage {
 
 	@FindBy(xpath = ".//*[@id='toolbar-help']/a/span")
 	WebElement BTN_HELP;
-	
+
 	@FindBy(xpath = ".//*[@id='toolbar-checkin']/a/span")
 	WebElement BTN_CHECKIN;
+
+	@FindBy(xpath = ".//*[@id='jform_name']")
+	WebElement TXT_NAME;
+
+	@FindBy(xpath = ".//*[@id='limit']")
+	WebElement DDL_QUANTITY;
 
 }
