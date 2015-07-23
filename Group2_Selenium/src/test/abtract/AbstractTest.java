@@ -40,7 +40,7 @@ public class AbstractTest {
 	 */
 	protected void closeBrowser(WebDriver driver) {
 		try {
-			driver.quit();
+			driver.close();
 			if (driver.toString().toLowerCase().contains("chrome")) {
 				String cmd = "taskkill /IM chromedriver.exe /F";
 				Process process = Runtime.getRuntime().exec(cmd);
