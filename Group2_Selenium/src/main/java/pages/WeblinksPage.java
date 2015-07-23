@@ -1,6 +1,10 @@
 package pages;
 
+import java.util.List;
+
+import org.apache.xalan.xsltc.compiler.sym;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,6 +20,331 @@ public class WeblinksPage extends AbstractPage {
 	public WeblinksPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @param weblinkTitle
+	 * @return boolean
+	 * @description check the status of weblink is published
+	 */
+	public boolean isWeblinkPublished(String weblinkTitle) {
+		try {
+			WebElement element = findElementByXPath(driver,
+					initialStringStatusxOfWeblink, weblinkTitle);
+
+			String text = element.getAttribute("innerHTML");
+
+			return text.equals(weblinkStatusPublished);
+
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @return boolean
+	 * @description check the popup text to make sure weblink is published
+	 */
+	public boolean isWeblinkPublishedSuccessfully() {
+
+		try {
+			return POPUP_MESSAGE.getText().contains(
+					textWeblinkPublishedSuccessfully);
+		} catch (Exception e) {
+			return false;
+		}
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 */
+	public void clickTrashButton() {
+		click(BTN_TRASH);
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @return boolean
+	 * @description check the popup text to make sure weblink is trashed
+	 */
+	public boolean isWeblinkTrashedSuccessfully() {
+
+		try {
+			return POPUP_MESSAGE.getText().contains(
+					textWeblinkTrashedSuccessfully);
+		} catch (Exception e) {
+			return false;
+		}
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 */
+	public void clickUnpublishButton() {
+		click(BTN_UNPUBLISH);
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @param weblinkTitle
+	 * @return boolean
+	 * @description check the status weblink is unpublished
+	 */
+	public boolean isWeblinkUnpublished(String weblinkTitle) {
+		try {
+			WebElement element = findElementByXPath(driver,
+					initialStringStatusxOfWeblink, weblinkTitle);
+
+			String text = element.getAttribute("innerHTML");
+
+			return text.equals(weblinkStatusUnpublished);
+
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @return boolean
+	 * @description check the text of popup to make sure weblink is unpublished
+	 */
+	public boolean isWeblinkUnpublishedSuccessfully() {
+
+		try {
+			return POPUP_MESSAGE.getText().contains(
+					textWeblinkUnpublishedSuccessfully);
+		} catch (Exception e) {
+			return false;
+		}
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 */
+	public void clickArchiveButton() {
+		click(BTN_ARCHIVE);
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @return boolean
+	 * @description check the text of popup to make sure weblink is archived
+	 */
+	public boolean isWeblinkArchivedSuccessfully() {
+
+		try {
+			return POPUP_MESSAGE.getText().contains(
+					textWeblinkArchivedSuccessfully);
+		} catch (Exception e) {
+			return false;
+		}
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 */
+	public void clickCheckinButton() {
+		click(BTN_CHECKIN);
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @return boolean
+	 * @description check the text of popup to make sure weblink is checked in
+	 */
+	public boolean isWebLinkCheckinSuccessfully() {
+
+		try {
+			return POPUP_MESSAGE.getText().contains(
+					textWeblinkCheckinSuccessfully);
+		} catch (Exception e) {
+			return false;
+		}
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @param weblinkTitle
+	 * @return boolean
+	 * @description check the lock icon does not display beside weblink
+	 */
+	public boolean isWeblinkCheckin(String weblinkTitle) {
+
+		try {
+
+			WebElement element = findElementByXPath(driver, initialLinkCheckIn,
+					weblinkTitle);
+			element.isDisplayed();
+			return false;
+		} catch (NoSuchElementException ex) {
+			return true;
+		}
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @param option
+	 * @description select a option from display dropdown
+	 */
+	public void selectDisplayDropdown(String option) {
+		selectOptionFromDropdownList(OPT_DISPLAY, option);
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @return boolean
+	 * @description check the 5 weblinks are displays
+	 */
+	public boolean is5WeblinksDisplaying() {
+		try {
+			List<WebElement> rows = TBL_WEBLINK.findElements(By.tagName("tr"));
+
+			boolean result = (rows.size() == 5) ? true : false;
+
+			return result;
+		} catch (Exception e) {
+
+			return false;
+		}
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @return boolean
+	 * @description check all weblink display > 100
+	 */
+	public boolean isAllWeblinksDisplaying() {
+		try {
+			List<WebElement> rows = TBL_WEBLINK.findElements(By.tagName("tr"));
+
+			boolean result = (rows.size() > 100) ? true : false;
+			return result;
+
+		} catch (Exception e) {
+
+			return false;
+		}
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 */
+	public void clickIDColumn() {
+		click(ID_COLUMN_ICON);
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @return boolean
+	 * @description check all weblinks are sort ascending
+	 */
+	public boolean isSortedAscending() {
+
+		List<WebElement> cells = TBL_WEBLINK.findElements(By
+				.xpath("tr/td[9]/a"));
+
+		for (int i = 1; i < (cells.size()); i++) {
+			if (Integer.parseInt(cells.get(i - 1).getText()) > Integer
+					.parseInt(cells.get(i).getText()))
+				return false;
+		}
+
+		return true;
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @return boolean
+	 * @description check all weblinks are sort descending
+	 */
+	public boolean isSortedDescending() {
+
+		List<WebElement> cells = TBL_WEBLINK.findElements(By
+				.xpath("tr/td[9]/a"));
+
+		for (int i = 1; i < (cells.size()); i++) {
+			if (Integer.parseInt(cells.get(i - 1).getText()) < Integer
+					.parseInt(cells.get(i).getText()))
+				return false;
+		}
+
+		return true;
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 */
+	public void clickOrderingColumn() {
+		click(ID_COLUMN_ORDERING);
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @param weblinkTitle
+	 * @description click the down arrow in ordering column
+	 */
+	public void clickDownArrowOrderingColumn(String weblinkTitle) {
+
+		WebElement webElement = findElementByXPath(driver,
+				initialDownArrowOrderingColumn, weblinkTitle);
+		click(webElement);
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @param weblinkTitle
+	 * @return boolean
+	 * @description check the weblink is the last of table
+	 */
+	public boolean isWeblinkLast(String weblinkTitle) {
+
+		List<WebElement> rows = TBL_WEBLINK.findElements(By.tagName("tr"));
+
+		int rowsInt = rows.size();
+
+		try {
+
+			return TBL_WEBLINK
+					.findElement(By.xpath("tr[" + rowsInt + "]/td[2]"))
+					.getText().contains(weblinkTitle);
+
+		} catch (Exception e) {
+			return false;
+		}
+
+	}
+
+	/**
+	 * @author Dung Pham 07/18/2015
+	 */
+	public void clickPublishButton() {
+		click(BTN_PUBLISH);
+
+	}
+
+	/**
+	 * @author Dung Pham 07/18/2015
+	 */
+	public void clickHelpButton() {
+		click(BTN_HELP);
+
 	}
 
 	/**
@@ -37,7 +366,7 @@ public class WeblinksPage extends AbstractPage {
 		try {
 			return POPUP_MESSAGE.getText().contains(textNeedToBeTested);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			return false;
 		}
 
@@ -241,9 +570,39 @@ public class WeblinksPage extends AbstractPage {
 	private String initialStatusWeblink = "//a[contains(text(),'%s')]/../following-sibling::td/a/span";
 	private String initialStringButtonOnTopRightBar = "//li[@id='toolbar-%s']/a/span";
 	private String initialStringStatusxOfWeblink = "//a[contains(text(),'%s')]/../following-sibling::td/a/span/span";
+	private String initialLinkCheckIn = "//td[a[contains(text(),'%s')]]/../td/a/span[@class='state checkedout']";
+	private String initialDownArrowOrderingColumn = "//td[a[contains(text(),'%s')]]/../td//span[@class='state downarrow']";
+	private String initialCellID = "//table[@class='adminlist']/tbody/tr[%s]/td[9]/a";
+
+	private String weblinkStatusPublished = "Published";
+	private String weblinkStatusUnpublished = "Unpublished";
+	private String textWeblinkSavedSuccessfully = "Weblink successfully saved";
+	private String textWeblinkPublishedSuccessfully = "1 weblink successfully published";
+	private String textWeblinkTrashedSuccessfully = "1 weblink successfully trashed";
+	private String textWeblinkUnpublishedSuccessfully = "1 weblink successfully unpublished";
+	private String textWeblinkArchivedSuccessfully = "1 weblink successfully archived";
+	private String textWeblinkCheckinSuccessfully = "1 weblink successfully checked in";
 
 	@FindBy(xpath = "//li[@id='toolbar-new']/a/span")
 	private WebElement BTN_NEW;
+
+	@FindBy(xpath = "//li[@id='toolbar-help']/a/span")
+	private WebElement BTN_HELP;
+
+	@FindBy(xpath = "//li[@id='toolbar-trash']/a/span")
+	private WebElement BTN_TRASH;
+
+	@FindBy(xpath = "//li[@id='toolbar-checkin']/a/span")
+	private WebElement BTN_CHECKIN;
+
+	@FindBy(xpath = "//li[@id='toolbar-archive']/a/span")
+	private WebElement BTN_ARCHIVE;
+
+	@FindBy(xpath = "//li[@id='toolbar-publish']/a/span")
+	private WebElement BTN_PUBLISH;
+
+	@FindBy(xpath = "//li[@id='toolbar-unpublish']/a/span")
+	private WebElement BTN_UNPUBLISH;
 
 	@FindBy(xpath = "//li[@id='toolbar-edit']/a/span")
 	private WebElement BTN_EDIT;
@@ -257,11 +616,22 @@ public class WeblinksPage extends AbstractPage {
 	@FindBy(xpath = "//button[@type='submit']")
 	private WebElement BTN_SEARCH;
 
-	@FindBy(xpath = "//*[@id='filter-bar']/div[2]/select[1]")
+	@FindBy(xpath = "//select[@name='filter_published']")
 	private WebElement OPT_STATUS;
 
-	@FindBy(xpath = "//*[@id='filter-bar']/div[2]/select[2]")
+	@FindBy(xpath = "//select[@id='limit' and @name='limit']")
+	private WebElement OPT_DISPLAY;
+
+	@FindBy(xpath = "//table[@class='adminlist']/tbody")
+	private WebElement TBL_WEBLINK;
+
+	@FindBy(xpath = "//table[@class='adminlist']/thead/tr/th[9]/a")
+	private WebElement ID_COLUMN_ICON;
+
+	@FindBy(xpath = "//table[@class='adminlist']/thead/tr/th[5]/a")
+	private WebElement ID_COLUMN_ORDERING;
+
+	@FindBy(xpath = "//select[@name='filter_category_id']")
 	private WebElement OPT_CATEGORY;
 
-	private String textWeblinkSavedSuccessfully = "Weblink successfully saved";
 }

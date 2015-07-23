@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,6 +13,7 @@ public class BannerClientsPage extends AbstractPage {
 	/**
 	 * @author Dung Pham
 	 * @param driver
+	 * @description This is a contructor of page
 	 */
 	public BannerClientsPage(WebDriver driver) {
 		this.driver = driver;
@@ -19,8 +21,205 @@ public class BannerClientsPage extends AbstractPage {
 	}
 
 	/**
+	 * @author Dung Pham 7/19/2015
+	 * @description Click on Check In Button
+	 */
+	public void clickCheckinButton() {
+		click(BTN_CHECKIN);
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @return boolean
+	 * @description Check the text of Pop-up to make sure that banner is checked
+	 *              in successfully
+	 */
+	public boolean isBannerClientCheckinSuccessfully() {
+
+		try {
+			return POPUP_MESSAGE.getText().contains(
+					textBannerClientCheckinSuccessfully);
+		} catch (Exception e) {
+			return false;
+		}
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @param clientName
+	 * @return boolean
+	 * @description Check the status of banner to make sure it is checked in
+	 */
+	public boolean isBannerClientCheckin(String clientName) {
+
+		try {
+
+			WebElement element = findElementByXPath(driver, initialLinkCheckIn,
+					clientName);
+			element.isDisplayed();
+			return false;
+		} catch (NoSuchElementException ex) {
+			return true;
+		}
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @description Click on Publish button
+	 */
+	public void clickPublishButton() {
+		click(BTN_PUBLISH);
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @return boolean
+	 * @description Check the text of popup to make sure client is published
+	 *              successfully
+	 */
+	public boolean isBannerClientPublishedSuccessfully() {
+		try {
+			return POPUP_MESSAGE.getText().contains(
+					textBannerClientPublishedSuccessfully);
+		} catch (Exception e) {
+			return false;
+		}
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @param clientName
+	 * @return boolean
+	 * @description Check the status of banner client to make sure it is
+	 *              published
+	 */
+	public boolean isBannerClientPublished(String clientName) {
+		try {
+			WebElement element = findElementByXPath(driver,
+					initialStringStatusOfClient, clientName);
+
+			String text = element.getAttribute("innerHTML");
+
+			return text.equals(statusPublished);
+		} catch (Exception e) {
+			return false;
+		}
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @description Click Publish Button
+	 */
+	public void clickUnpublishButton() {
+		click(BTN_UNPUBLISH);
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @return boolean
+	 * @description Check the text of popup to make sure banner client is
+	 *              unpublished
+	 */
+	public boolean isBannerClientUnpublishedSuccessfully() {
+		try {
+			return POPUP_MESSAGE.getText().contains(
+					textBannerClientUnpublishedSuccessfully);
+		} catch (Exception e) {
+			return false;
+		}
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @param clientName
+	 * @return boolean
+	 * @description Check the status of banner client to make sure it is
+	 *              unpublished
+	 */
+	public boolean isBannerClientUnpublished(String clientName) {
+		try {
+			WebElement element = findElementByXPath(driver,
+					initialStringStatusOfClient, clientName);
+
+			String text = element.getAttribute("innerHTML");
+
+			return text.equals(statusUnpublished);
+		} catch (Exception e) {
+			return false;
+		}
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @description Click Archive button
+	 */
+	public void clickArchiveButton() {
+		click(BTN_ARCHIVE);
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @return boolean
+	 * @description Check the text of popup to make sure banner client is
+	 *              archived
+	 */
+	public boolean isBannerClientArchivedSuccessfully() {
+		try {
+			return POPUP_MESSAGE.getText().contains(
+					textBannerClientArchivedSuccessfully);
+		} catch (Exception e) {
+			return false;
+		}
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @description Click Trash button
+	 */
+	public void clickTrashButton() {
+		click(BTN_TRASH);
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @return boolean
+	 * @description check the text of pop up to make sure banner client is
+	 *              trashed
+	 */
+	public boolean isBannerClientTrashedSuccessfully() {
+		try {
+			return POPUP_MESSAGE.getText().contains(
+					textBannerClientTrashedSuccessfully);
+		} catch (Exception e) {
+			return false;
+		}
+
+	}
+
+	/**
+	 * @author Dung Pham 7/19/2015
+	 * @description click Help button
+	 */
+	public void clickHelpButton() {
+		click(BTN_HELP);
+
+	}
+
+	/**
 	 * @author Dung Pham
-	 * @return
+	 * @return WebDriver
 	 */
 	public WebDriver getBannerClientsPageDriver() {
 		return this.driver;
@@ -28,6 +227,8 @@ public class BannerClientsPage extends AbstractPage {
 
 	/**
 	 * @author DungPham 07/12/2015
+	 * @return boolean
+	 * @description check the text of popup to make sure banner client is saved
 	 */
 	public boolean isBannerClientSavedSuccessfully() {
 		try {
@@ -185,6 +386,21 @@ public class BannerClientsPage extends AbstractPage {
 	@FindBy(xpath = "//li[@id='toolbar-new']/a/span")
 	private WebElement BTN_NEW;
 
+	@FindBy(xpath = "//li[@id='toolbar-publish']/a/span")
+	private WebElement BTN_PUBLISH;
+
+	@FindBy(xpath = "//li[@id='toolbar-unpublish']/a/span")
+	private WebElement BTN_UNPUBLISH;
+
+	@FindBy(xpath = "//li[@id='toolbar-archive']/a/span")
+	private WebElement BTN_ARCHIVE;
+
+	@FindBy(xpath = "//li[@id='toolbar-trash']/a/span")
+	private WebElement BTN_TRASH;
+
+	@FindBy(xpath = "//li[@id='toolbar-help']/a/span")
+	private WebElement BTN_HELP;
+
 	@FindBy(xpath = "//dl[@id='system-message']/dd/ul")
 	private WebElement POPUP_MESSAGE;
 
@@ -194,13 +410,25 @@ public class BannerClientsPage extends AbstractPage {
 	@FindBy(xpath = "//button[@type='submit']")
 	private WebElement BTN_SEARCH;
 
-	@FindBy(xpath = "//*[@id='filter-bar']/div[2]/select[1]")
+	@FindBy(xpath = "//select[@name='filter_state']")
 	private WebElement OPT_STATUS;
+
+	@FindBy(xpath = "//li[@id='toolbar-checkin']/a/span")
+	private WebElement BTN_CHECKIN;
 
 	private String initialStringBannerClient = "//a[contains(text(),'%s')]";
 	private String initialStringButtonOnTopRightBar = "//li[@id='toolbar-%s']/a/span";
-	private String textBannerClientSavedSuccessfully = "Client successfully saved";
 	private String initialCheckBoxClient = "//a[contains(text(),'%s')]/../preceding-sibling::td/input";
 	private String initialStringStatusOfClient = "//a[contains(text(),'%s')]/../following-sibling::td/a/span/span";
+	private String initialLinkCheckIn = "//td[a[contains(text(),'%s')]]/../td/a/span[@class='state checkedout']";
 
+	private String textBannerClientSavedSuccessfully = "Client successfully saved";
+	private String textBannerClientPublishedSuccessfully = "1 client successfully published";
+	private String textBannerClientUnpublishedSuccessfully = "1 client successfully unpublished";
+	private String textBannerClientArchivedSuccessfully = "1 client successfully archived";
+	private String textBannerClientTrashedSuccessfully = "1 client successfully trashed";
+	private String textBannerClientCheckinSuccessfully = "1 client successfully checked in";
+
+	private String statusPublished = "Published";
+	private String statusUnpublished = "Unpublished";
 }

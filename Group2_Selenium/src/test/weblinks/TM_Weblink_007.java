@@ -1,8 +1,8 @@
 package weblinks;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -11,25 +11,28 @@ import pages.CreateWebLinkPage;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.WeblinksPage;
-import common.Common;
 import common.Constant;
+import common.Common;
 
-public class TM_Weblink_002 extends AbstractTest {
+public class TM_Weblink_007 extends AbstractTest {
 	@Parameters("browser")
 	@BeforeClass(alwaysRun = true)
 	public void setup(String browser) throws Exception {
 		driver = openUrl(browser, Constant.url);
 		objLoginPage = new LoginPage(driver);
 
-		weblinkTitle = Common.getUniqueString("TM_Weblink_002");
+		weblinkTitle = Common.getUniqueString("Test Weblink Order 1");
 		weblinkURL = "http://www.joomla.org";
-		weblinkStatus = "Unpublished";
-		optionTrash = "Trashed";
+		weblinkStatus = "Published";
+
+		webLinkTitle2 = Common.getUniqueString("Test Weblink Order 2");
+		webLinkUrl2 = "http://www.joomla.org";
+		windowHelpTitle = "Joomla! Help";
 
 	}
 
-	@Test(description = "Verify user can publish an unpublished web link")
-	public void TC_Weblink_003() {
+	@Test(description = "Verify user can change the order of weblinks using the Ordering column")
+	public void TC_Weblink_014() {
 
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
@@ -45,40 +48,39 @@ public class TM_Weblink_002 extends AbstractTest {
 
 		AssertTrue(objWeblinksPage.isWebLinkSavedSuccessfully());
 
-		objWeblinksPage.searchWeblink(weblinkTitle);
+		objWeblinksPage.selectDisplayDropdown("All");
 
 		AssertTrue(objWeblinksPage.isWeblinkExist(weblinkTitle));
 
-		objWeblinksPage.clickOnCheckBoxWebLink(weblinkTitle);
+		objCreateWebLinkPage = objWeblinksPage.clickNewButton();
 
-		objWeblinksPage.clickPublishButton();
+		objCreateWebLinkPage.typeANewWeblink(webLinkTitle2, webLinkUrl2,
+				weblinkStatus);
 
-		AssertTrue(objWeblinksPage.isWeblinkPublished(weblinkTitle));
+		objWeblinksPage = objCreateWebLinkPage.clickSaveCloseButton();
 
-		AssertTrue(objWeblinksPage.isWeblinkPublishedSuccessfully());
+		AssertTrue(objWeblinksPage.isWebLinkSavedSuccessfully());
 
-	}
+		objWeblinksPage.selectDisplayDropdown("All");
 
-	@Test(description = "Verify user can move a web link to trash section")
-	public void TC_Weblink_007() {
-
-		objWeblinksPage.searchWeblink(weblinkTitle);
+		AssertTrue(objWeblinksPage.isWeblinkExist(webLinkTitle2));
+		
+		objWeblinksPage.selectDisplayDropdown("All");
+		
+		objWeblinksPage.clickOrderingColumn();
 		
 		objWeblinksPage.clickOnCheckBoxWebLink(weblinkTitle);
-
-		objWeblinksPage.clickTrashButton();
-
-		AssertTrue(objWeblinksPage.isWeblinkTrashedSuccessfully());
-
-		objWeblinksPage.selectOptionFromStatusDropdown(optionTrash);
-
-		AssertTrue(objWeblinksPage.isWeblinkExist(weblinkTitle));
+		
+		objWeblinksPage.clickDownArrowOrderingColumn(weblinkTitle);
+		
+		AssertTrue(objWeblinksPage.isWeblinkLast(weblinkTitle));
 
 	}
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
 		logOut(driver);
+
 		closeBrowser(driver);
 	}
 
@@ -91,6 +93,9 @@ public class TM_Weblink_002 extends AbstractTest {
 	private String weblinkTitle;
 	private String weblinkURL;
 	private String weblinkStatus;
-	private String optionTrash;
+
+	private String webLinkTitle2;
+	private String webLinkUrl2;
+	private String windowHelpTitle;
 
 }

@@ -28,10 +28,6 @@ public class TM_Weblink_005 extends AbstractTest {
 		weblinkURLEdit = "http://www.google.com";
 		weblinkStatus = "Published";
 
-		weblinkStatusPublish = "Published";
-		weblinkStatusUnpublish = "Unpublished";
-		textPublish = "1 weblink successfully published";
-		textUnpublish = "1 weblink successfully unpublished";
 	}
 
 	@Test(description = "User can change the status of weblinks using the Status column")
@@ -52,25 +48,24 @@ public class TM_Weblink_005 extends AbstractTest {
 		AssertTrue(objWeblinksPage.isWebLinkSavedSuccessfully());
 
 		objWeblinksPage.searchWeblink(weblinkTitle);
+		
 		AssertTrue(objWeblinksPage.isWeblinkExist(weblinkTitle));
 
 		objWeblinksPage.clickOnCheckBoxWebLink(weblinkTitle);
 
 		objWeblinksPage.clickOnStatusWebLink(weblinkTitle);
 
-		AssertTrue(objWeblinksPage.isWeblinkIsPublishedOrNot(weblinkTitle,
-				weblinkStatusUnpublish));
+		AssertTrue(objWeblinksPage.isWeblinkUnpublished(weblinkTitle));
 
-		AssertTrue(objWeblinksPage.isTextDisPlayOnPopupMessage(textUnpublish));
+		AssertTrue(objWeblinksPage.isWeblinkUnpublishedSuccessfully());
 
 		objWeblinksPage.clickOnCheckBoxWebLink(weblinkTitle);
 
 		objWeblinksPage.clickOnStatusWebLink(weblinkTitle);
 
-		AssertTrue(objWeblinksPage.isWeblinkIsPublishedOrNot(weblinkTitle,
-				weblinkStatusPublish));
+		AssertTrue(objWeblinksPage.isWeblinkPublished(weblinkTitle));
 
-		AssertTrue(objWeblinksPage.isTextDisPlayOnPopupMessage(textPublish));
+		AssertTrue(objWeblinksPage.isWeblinkPublishedSuccessfully());
 
 	}
 
@@ -91,12 +86,14 @@ public class TM_Weblink_005 extends AbstractTest {
 		objWeblinksPage = objCreateWebLinkPage.clickCloseButton();
 
 		objWeblinksPage.searchWeblink(weblinkTitleEdit);
+
 		AssertTrue(objWeblinksPage.isWeblinkExist(weblinkTitleEdit));
 
 	}
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
+		logOut(driver);
 		closeBrowser(driver);
 	}
 
@@ -106,15 +103,11 @@ public class TM_Weblink_005 extends AbstractTest {
 	private WeblinksPage objWeblinksPage;
 	private CreateWebLinkPage objCreateWebLinkPage;
 
-	private String weblinkStatusUnpublish;
-	private String weblinkStatusPublish;
 	private String weblinkTitle;
 	private String weblinkURL;
 	private String weblinkTitleEdit;
 	private String weblinkURLEdit;
 	private String weblinkStatus;
-	private String textUnpublish;
-	private String textPublish;
 	private String weblinkAlias;
 
 }
