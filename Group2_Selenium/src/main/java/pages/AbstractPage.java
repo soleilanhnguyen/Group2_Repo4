@@ -161,7 +161,31 @@ else{
 		Select select = new Select(ddlName);
 		select.selectByVisibleText(text);;
 	}
+		
 	
+	/**
+	 * @description  get Attribute of ddl
+	 * @param ddlName
+	 * @param att
+	 * @author Ha Nguyen
+	  */
+	
+	public String getAttribute(WebElement ddlName, String att)
+	{		
+		return ddlName.getAttribute(att);
+	}
+	
+	/**
+	 * @description  get Css of ddl
+	 * @param ddlName
+	 * @param att
+	 * @author Ha Nguyen
+	  */
+	
+	public String getControlCss(WebElement ddlName, String css)
+	{		
+		return ddlName.getCssValue(css);
+	}
 	
 	public final static int timeout = 15;
 	
