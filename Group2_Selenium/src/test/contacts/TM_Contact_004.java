@@ -160,7 +160,6 @@ public class TM_Contact_004 extends AbstractTest {
 		AssertTrue(objContactsPage.isCorrectFeatureIconDisplayed(
 				objContactsPage.unfeaturedState, contactName4));
 		
-		
 	}
 	
 	@AfterClass(alwaysRun = true)

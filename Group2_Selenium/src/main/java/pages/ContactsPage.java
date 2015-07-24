@@ -384,6 +384,36 @@ public class ContactsPage extends AbstractPage {
 
 	}
 
+	/**
+	 * @author Ha Nguyen
+	 * @param status, contactName
+	 * @return boolean
+	 * @description check the contact is the last of table
+	 */
+		
+	public boolean isCorrectFeatureIconDisplayed(String status, String contactName) {
+
+	WebElement element = findElementByXPath(driver, featureIcon, contactName);
+	String temp = element.getAttribute("alt");
+	boolean isShow = false;
+	if (status.equals(temp))
+		isShow = true;
+	return isShow;
+
+}
+	
+	/**
+	 * @author Ha Nguyen
+	 * @param contactName
+	 * @description check the contact is the last of table
+	 */
+		
+	
+	public void clickOnFeatureIcon(String contactName) {
+		clickOnCheckContactPage(contactName);
+		WebElement element = findElementByXPath(driver, linkFeatureIcon, contactName);
+		click(element);
+	}
 	
 	
 	private WebDriver driver;
@@ -403,6 +433,10 @@ public class ContactsPage extends AbstractPage {
 	private String initialFeatureContact = "//a[contains(text(),'%s')]/../following-sibling::td/a/span";
 	private String initialLinkCheckIn="//td[a[contains(text(),'%s')]]/../td/a/span[@class='state checkedout']";
 	private String initialDownArrowOrderingColumn ="//td[a[contains(text(),'%s')]]/../td//span[@class='state downarrow']";
+	private String featureIcon = "//a[contains(text(),'%s')]/../following-sibling::td[2]/a/img";
+	private String linkFeatureIcon = "//a[contains(text(),'%s')]/../following-sibling::td[2]/a";
+	public String featuredState = "Featured article";
+	public String unfeaturedState = "Unfeatured article";
 	
 	@FindBy(xpath = "//li[@id='toolbar-new']/a/span")
 	private WebElement BTN_NEW;
