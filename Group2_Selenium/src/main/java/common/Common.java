@@ -24,7 +24,7 @@ public class Common {
 	 * 
 	 * @param baseString
 	 * @author Ha Nguyen
-	 * @description: split a string using delimiter "/"
+	 * @description: Get Current time Year, Month, Hour, Minute, Second "/"
 	 */
 	 public static String getUniqueString(String baseString) {
 		  
