@@ -153,8 +153,6 @@ public class CreateNewCategory extends AbstractPage{
 		return this.driver;
 	}
 	
-	
-	
 	private WebDriver driver;
 	
 	@FindBy(xpath = "//input[@id='jform_title']")

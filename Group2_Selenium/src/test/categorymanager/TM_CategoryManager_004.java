@@ -33,6 +33,7 @@ public class TM_CategoryManager_004 extends AbstractTest {
 		Common.getUniqueString("COPY");
 		textsearch= Common.getUniqueString("");
 		levelValue="Special";
+		colorRed ="#FF0000";
 	}
 
 	@Test(description = "TC_CategoryManager_013: User can creat a new category by using Save as Copy button")
@@ -178,13 +179,15 @@ public class TM_CategoryManager_004 extends AbstractTest {
 	 
 	 String color = objCreateNewCategory.getColorOfTitle();	 
 	 
-	 AssertTrue(color.equalsIgnoreCase("#FF0000"));
+	 AssertTrue(color.equalsIgnoreCase("colorRed"));
  
  	}
 	
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
-		//closeBrowser(driver);
+		logOut(driver);
+
+		closeBrowser(driver);
 	}
 
 	private WebDriver driver;
@@ -201,4 +204,5 @@ public class TM_CategoryManager_004 extends AbstractTest {
 	private String levelValue;
 	private String article1;
 	private String article2;
+	private String colorRed;
 }

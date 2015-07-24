@@ -150,6 +150,8 @@ public class TM_CategoryManager_002 extends AbstractTest {
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
+		logOut(driver);
+
 		closeBrowser(driver);
 	}
 	

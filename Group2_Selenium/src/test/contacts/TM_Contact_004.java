@@ -158,13 +158,16 @@ public class TM_Contact_004 extends AbstractTest {
 
 		AssertTrue(objContactsPage.isCorrectFeatureIconDisplayed(
 				objContactsPage.unfeaturedState, contactName4));
+		
+		objContactsPage.searchContactName(contactName4);
+		
+		objContactsPage.deleteContact(contactName4);
 
 	}
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
 		logOut(driver);
-
 		closeBrowser(driver);
 	}
 
