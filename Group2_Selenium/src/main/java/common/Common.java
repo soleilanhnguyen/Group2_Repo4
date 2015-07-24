@@ -1,6 +1,7 @@
 package common;
 
 import java.util.Calendar;
+import org.openqa.selenium.support.Color;
 import java.util.GregorianCalendar;
 
 
@@ -42,9 +43,19 @@ public class Common {
 		  
 		  return baseString + day + month + year + second + minute + hour;
 		 }
-	
-	
-	
+		 
+	 /**
+	  * 
+	  * @param rgba
+	  * @author Ha Nguyen
+	  * @description: Convert rgba to hex
+	  */
+	 public static String convertRgbaToHex(String rgba)
+	 {
+	 	String hex = Color.fromString(rgba).asHex();
+	 	return hex;
+	 }
+
 }
 
 
