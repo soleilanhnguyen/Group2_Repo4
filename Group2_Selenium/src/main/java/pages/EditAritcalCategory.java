@@ -60,6 +60,18 @@ public class EditAritcalCategory extends AbstractPage {
 	}
 	
 	/**
+	 * 
+	 * @author Ha Nguyen
+	 * @Parameter titleCategory
+	 * @description: Type Title Category"/"
+	 */
+	
+	public void typeCategoryName(String titleCategory){
+		type(TXT_CATEGORYTITLE, titleCategory);
+	}
+	
+	
+	/**
 	 * @author: Ha Nguyen
 	 * 
 	 * @return
@@ -75,7 +87,6 @@ public class EditAritcalCategory extends AbstractPage {
 		}
 
 	}
-
 	
 	/**
 	 * @author Ha Nguyen
@@ -117,6 +128,9 @@ public class EditAritcalCategory extends AbstractPage {
 
 	@FindBy(xpath = "//select[@id='jform_state']")
 	private WebElement OPT_STATUS;
+	
+	@FindBy(xpath = "//input[@id='jform_title']")
+	private WebElement TXT_CATEGORYTITLE;
 
 	private String headerPage = "Category Manager: Edit An Articles Category";
 	private String textCategorySaved ="Category successfully saved";

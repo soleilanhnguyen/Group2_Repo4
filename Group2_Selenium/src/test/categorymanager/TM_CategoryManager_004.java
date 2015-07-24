@@ -51,23 +51,21 @@ public class TM_CategoryManager_004 extends AbstractTest {
 
 		objEditAritcalCategory = objCreateNewCategory.clickSaveButton();
 		
+		AssertTrue(objEditAritcalCategory.isCategorySavedSucessfyllyDisplayed());
 		
+		objEditAritcalCategory.typeCategoryName(categoryTitle2);
+		
+		objEditAritcalCategory.clickSaveAsCopyButton();
+		
+		AssertTrue(objEditAritcalCategory.isCategorySavedSucessfyllyDisplayed());
+		
+		objCategoryManagerPage = objEditAritcalCategory.clickCloseButton();
 
-//		AssertTrue(objCreateNewCategory.isCategorySavedSucessfyllyDisplayed());
-//
-//		objCreateNewCategory.typeCategoryName(categoryTitle2);
-//
-//		objCreateNewCategory.clickSaveAsButton();
-//		
-//		AssertTrue(objCreateNewCategory.isCategorySavedSucessfyllyDisplayed());
-//		
-//		objCreateNewCategory.clickCancelButton();
-//		
-//		objCategoryManagerPage.searchCategoryName(categoryTitle2);
-//
-//		AssertTrue(objCategoryManagerPage.isCategoryExist(categoryTitle2));
-//		
-//		objCategoryManagerPage.deleteCategory(categoryTitle2);
+		objCategoryManagerPage.searchCategoryName(categoryTitle2);
+
+		AssertTrue(objCategoryManagerPage.isCategoryExist(categoryTitle2));
+		
+		objCategoryManagerPage.deleteCategory(categoryTitle2);
 	}
 
 	@Test(description = "TC_CategoryManager_014: User can move may articles to another category")
