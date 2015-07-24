@@ -123,6 +123,26 @@ public class CreateNewArticlePage extends AbstractPage {
 
 	
 	/**
+	 * @description Click on Save and Close button
+	 * @return ArticlePage
+	 * @author Ha Nguyen
+	 */
+	public ArticlePage clickSaveAndClose (){
+			click(BTN_SAVEANDCLOSE);
+		return new ArticlePage(driver); 
+	}
+
+	/**
+	 * @description Click Save and New
+	 * @return CreateNewArticlePage
+	 * @author Ha Nguyen
+	 */
+	public CreateNewArticlePage clickSaveAndNew (){
+		click(BTN_SAVEANDNEW);
+		return new CreateNewArticlePage(driver);
+	}
+	
+	/**
 	 * @description create a new article by Save and Close button
 	 * @param article
 	 * @return ArticlePage
@@ -182,4 +202,8 @@ public class CreateNewArticlePage extends AbstractPage {
 	
 	@FindBy(xpath = ".//*[@id='toolbar-apply']/a")
 	WebElement BTN_SAVE;
+	
+	@FindBy(xpath = "//li[@id='toolbar-save-new']/a/span")
+	WebElement BTN_SAVEANDNEW;
+	
 }
