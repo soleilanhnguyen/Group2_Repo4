@@ -51,7 +51,6 @@ public class TM_CategoryManager_001 extends AbstractTest {
 		AssertTrue(objCategoryManagerPage.isCategoryExist(categoryTitle1));
 	}
 
-
 	@Test(description = "TC_CategoryManager_002: Verify that user can edit a category")
 	public void TC_CategoryManager_002() {
 
@@ -78,7 +77,8 @@ public class TM_CategoryManager_001 extends AbstractTest {
 
 		objCategoryManagerPage.clickButtonOnTopRightToolbar(buttonArchive);
 
-		AssertTrue(objCategoryManagerPage.isMsgCategorytArchivedSucessfyllyDisplayed());
+		AssertTrue(objCategoryManagerPage
+				.isMsgCategorytArchivedSucessfyllyDisplayed());
 
 		objCategoryManagerPage.selectOptionFromStatusDropdown(optionArchive);
 
@@ -88,10 +88,11 @@ public class TM_CategoryManager_001 extends AbstractTest {
 
 	@Test(description = "TC_CategoryManager_006: Verify that User can send a category to trash")
 	public void TC_CategoryManager_006() {
-		
+
 		objCategoryManagerPage.deleteCategory(categoryTitle2);
-		
-		AssertTrue(objCategoryManagerPage.isMsgCategoryTrashedSucessfyllyDisplayed());
+
+		AssertTrue(objCategoryManagerPage
+				.isMsgCategoryTrashedSucessfyllyDisplayed());
 
 		objCategoryManagerPage.selectOptionFromStatusDropdown(optionTrashed);
 

@@ -42,7 +42,7 @@ public class TM_CategoryManager_003 extends AbstractTest {
 		objCreateNewCategory = objCategoryManagerPage.clickOnNewbutton();
 
 		objCreateNewCategory.typeCategoryName(categoryTitle1);
-		
+
 		objCreateNewCategory.selectStatus(textUnpublished);
 
 		objCreateNewCategory.selectAccess(optionAcccess);
@@ -71,22 +71,23 @@ public class TM_CategoryManager_003 extends AbstractTest {
 	@Test(description = "TC_CategoryManager_009: User can search a category by using filter dropdown lists", dependsOnMethods = "TC_CategoryManager_010")
 	public void TC_CategoryManager_009() {
 
-		objCategoryManagerPage.selectOptionFromStatusDropdown(optionUnpublished);
+		objCategoryManagerPage
+				.selectOptionFromStatusDropdown(optionUnpublished);
 
 		objCategoryManagerPage
 				.selectAccessOptionFromAccessDropdown(optionAcccess);
 
 		objCategoryManagerPage
 				.selectLanguageOptionFromLanguageDropdown(optionLanguage);
-		
+
 		objCategoryManagerPage.searchCategoryName(categoryTitle1);
 
 		AssertTrue(objCategoryManagerPage.isCategoryExist(categoryTitle1));
-		
+
 		objCategoryManagerPage.deleteCategory(categoryTitle1);
-		
+
 	}
-	
+
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
 		logOut(driver);

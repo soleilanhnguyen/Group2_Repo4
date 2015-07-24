@@ -53,7 +53,7 @@ public class TM_Contact_003 extends AbstractTest {
 		objContactsPage.selectOptionFromCategoryDropdown(optCategory);
 
 		objContactsPage.selectOptionFromStatusDropdown(optStatus);
-		
+
 		objContactsPage.searchContactName(contactName);
 
 		AssertTrue(objContactsPage.isContactExist(contactName));
@@ -73,11 +73,11 @@ public class TM_Contact_003 extends AbstractTest {
 		objCreateNewContactPage.clickSaveCloseButton();
 
 		AssertTrue(objContactsPage.isMsgContactSavedSucessfyllyDisplayed());
-		
+
 		objContactsPage.searchContactName(contactName1);
 
 		AssertTrue(objContactsPage.isContactExist(contactName1));
-		
+
 		objContactsPage.deleteContact(contactName1);
 
 	}

@@ -60,9 +60,9 @@ public class TM_CategoryManager_002 extends AbstractTest {
 
 		AssertTrue(objCategoryManagerPage
 				.isMsgCategoryPublishedSucessfyllyDisplayed());
-		
-		AssertTrue(objCategoryManagerPage.isCategoryPublishedOrNot(categoryTitle,
-				categoryStatusOfTable1));
+
+		AssertTrue(objCategoryManagerPage.isCategoryPublishedOrNot(
+				categoryTitle, categoryStatusOfTable1));
 	}
 
 	@Test(description = "TC_CategoryManager_004: User can unpublish a category", dependsOnMethods = "TC_CategoryManager_003")
@@ -75,8 +75,8 @@ public class TM_CategoryManager_002 extends AbstractTest {
 		AssertTrue(objCategoryManagerPage
 				.isMsgCategorytUnpublishedSucessfyllyDisplayed());
 
-		AssertTrue(objCategoryManagerPage.isCategoryPublishedOrNot(categoryTitle,
-				categoryStatusOfTable2));
+		AssertTrue(objCategoryManagerPage.isCategoryPublishedOrNot(
+				categoryTitle, categoryStatusOfTable2));
 
 		objCategoryManagerPage.deleteCategory(categoryTitle);
 
@@ -96,9 +96,9 @@ public class TM_CategoryManager_002 extends AbstractTest {
 		AssertFalse(objCategoryManagerPage.isCategoryExist(categoryTitle1));
 
 	}
-	@Test(description = "TC_CategoryManager_008: User can search a category  by using filter textbox",  dependsOnMethods = "TC_CategoryManager_012")
-	public void TC_CategoryManager_008() {
 
+	@Test(description = "TC_CategoryManager_008: User can search a category  by using filter textbox", dependsOnMethods = "TC_CategoryManager_012")
+	public void TC_CategoryManager_008() {
 
 		objCreateNewCategory = objCategoryManagerPage.clickOnNewbutton();
 
@@ -115,38 +115,37 @@ public class TM_CategoryManager_002 extends AbstractTest {
 
 	@Test(description = "User can access contact's help section", dependsOnMethods = "TC_CategoryManager_008")
 	public void TC_CategoryManager_007() {
-	
+
 		objCategoryManagerPage.clickButtonOnTopRightToolbar(buttonHelp);
 
 		this.driver = objCategoryManagerPage.getCategoryManagerPageDriver();
-		String windownWeblinkTitle = driver.getWindowHandle();
 
-		checkWindownExist(driver, windowHelpTitle);
+		String windownCategoryManagerTitle = driver.getWindowHandle();
 
-		// close help //back main Window
+		AssertTrue(checkWindownExist(driver, windowHelpTitle));
+
 		driver.close();
 
-		driver.switchTo().window(windownWeblinkTitle);
+		driver.switchTo().window(windownCategoryManagerTitle);
 	}
 
-	@Test(description = "User can browse New Category help page",  dependsOnMethods = "TC_CategoryManager_007")
+	@Test(description = "User can browse New Category help page", dependsOnMethods = "TC_CategoryManager_007")
 	public void TC_CategoryManager_011() {
-	
+
 		objCreateNewCategory = objCategoryManagerPage.clickOnNewbutton();
-		
+
 		objCreateNewCategory.clickHelpButton();
 
 		this.driver = objCategoryManagerPage.getCategoryManagerPageDriver();
-		String windownCategoryTitle = driver.getWindowHandle();
 
-		checkWindownExist(driver, windowHelpTitle);
+		String windownCategoryManagerTitle = driver.getWindowHandle();
 
-		// close help //back main Window
+		AssertTrue(checkWindownExist(driver, windowHelpTitle));
+
 		driver.close();
 
-		driver.switchTo().window(windownCategoryTitle);
+		driver.switchTo().window(windownCategoryManagerTitle);
 	}
-
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
@@ -154,7 +153,7 @@ public class TM_CategoryManager_002 extends AbstractTest {
 
 		closeBrowser(driver);
 	}
-	
+
 	private WebDriver driver;
 	private LoginPage objLoginPage;
 	private HomePage objHomePage;

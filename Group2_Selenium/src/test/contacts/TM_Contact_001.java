@@ -98,20 +98,20 @@ public class TM_Contact_001 extends AbstractTest {
 		
 		objContactsPage.clickButtonOnTopRightToolbar(buttonHelp);
 
-		String windownWeblinkTitle = driver.getWindowHandle();
+		this.driver = objContactsPage.getContactsPageDriver();
+
+		String windownContactTitle = driver.getWindowHandle();
 
 		AssertTrue(checkWindownExist(driver, windowHelpTitle));
 
 		driver.close();
 
-		handleMultipleWindows(driver, windownWeblinkTitle);
-
+		driver.switchTo().window(windownContactTitle);
 	}
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
 		logOut(driver);
-
 		closeBrowser(driver);
 	}
 
