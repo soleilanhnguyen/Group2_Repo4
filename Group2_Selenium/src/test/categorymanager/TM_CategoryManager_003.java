@@ -24,9 +24,11 @@ public class TM_CategoryManager_003 extends AbstractTest {
 		objLoginPage = new LoginPage(driver);
 		categoryTitle1 = Common.getUniqueString("text_category1");
 		categoryTitle2 = Common.getUniqueString("text_category2");
+		Common.getUniqueString("");
 		textUnpublished = "Unpublished";
 		optionAcccess = "Registered";
 		optionLanguage = "English (UK)";
+		optionUnpublished = "Unpublished";
 	}
 
 	@Test(description = "TC_CategoryManager_010: User can create many categories by using Save & New button")
@@ -40,18 +42,18 @@ public class TM_CategoryManager_003 extends AbstractTest {
 		objCreateNewCategory = objCategoryManagerPage.clickOnNewbutton();
 
 		objCreateNewCategory.typeCategoryName(categoryTitle1);
+		
+		objCreateNewCategory.selectStatus(textUnpublished);
+
+		objCreateNewCategory.selectAccess(optionAcccess);
+
+		objCreateNewCategory.selectLanguage(optionLanguage);
 
 		objCreateNewCategory.clickSaveNewButton();
 
 		AssertTrue(objCategoryManagerPage.isCategorySavedSucessfyllyDisplayed());
 
 		objCreateNewCategory.typeCategoryName(categoryTitle2);
-
-		objCreateNewCategory.selectStatus(textUnpublished);
-
-		objCreateNewCategory.selectAccess(optionAcccess);
-
-		objCreateNewCategory.selectLanguage(optionLanguage);
 
 		objCreateNewCategory.clickSaveCloseButton();
 
@@ -66,6 +68,25 @@ public class TM_CategoryManager_003 extends AbstractTest {
 		AssertTrue(objCategoryManagerPage.isCategoryExist(categoryTitle2));
 	}
 
+	@Test(description = "TC_CategoryManager_009: User can search a category by using filter dropdown lists", dependsOnMethods = "TC_CategoryManager_010")
+	public void TC_CategoryManager_009() {
+
+		objCategoryManagerPage.selectOptionFromStatusDropdown(optionUnpublished);
+
+		objCategoryManagerPage
+				.selectAccessOptionFromAccessDropdown(optionAcccess);
+
+		objCategoryManagerPage
+				.selectLanguageOptionFromLanguageDropdown(optionLanguage);
+		
+		objCategoryManagerPage.searchCategoryName(categoryTitle1);
+
+		AssertTrue(objCategoryManagerPage.isCategoryExist(categoryTitle1));
+		
+		objCategoryManagerPage.deleteCategory(categoryTitle1);
+		
+	}
+	
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
 		closeBrowser(driver);
@@ -81,5 +102,6 @@ public class TM_CategoryManager_003 extends AbstractTest {
 	private String textUnpublished;
 	private String optionAcccess;
 	private String optionLanguage;
+	private String optionUnpublished;
 
 }

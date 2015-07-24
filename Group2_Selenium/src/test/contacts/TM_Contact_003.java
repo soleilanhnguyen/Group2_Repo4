@@ -23,6 +23,7 @@ public class TM_Contact_003 extends AbstractTest {
 		driver = openUrl(browser, Constant.url);
 		objLoginPage = new LoginPage(driver);
 		contactName = Common.getUniqueString("test_contact1");
+		contactName1 = Common.getUniqueString("test_contact2");
 		categoryValue = "- Sample Data-Contact";
 		statusPublishedtext = "Published";
 		optCategory = "Sample Data-Contact";
@@ -60,8 +61,31 @@ public class TM_Contact_003 extends AbstractTest {
 		objContactsPage.deleteContact(contactName);
 	}
 
+	@Test(description = "TC_Contact_009:User can search for contacts using the filter text field", dependsOnMethods = "TC_Contact_010")
+	public void TC_Contact_009() {
+
+		objCreateNewContactPage = objContactsPage.clickOnNewbutton();
+
+		objCreateNewContactPage.typeContactName(contactName1);
+
+		objCreateNewContactPage.selectCategoryinDroplist(categoryValue);
+
+		objCreateNewContactPage.clickSaveCloseButton();
+
+		AssertTrue(objContactsPage.isMsgContactSavedSucessfyllyDisplayed());
+		
+		objContactsPage.searchContactName(contactName1);
+
+		AssertTrue(objContactsPage.isContactExist(contactName1));
+		
+		objContactsPage.deleteContact(contactName1);
+
+	}
+
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
+		logOut(driver);
+
 		closeBrowser(driver);
 	}
 
@@ -75,5 +99,6 @@ public class TM_Contact_003 extends AbstractTest {
 	private String statusPublishedtext;
 	private String optStatus;
 	private String optCategory;
+	private String contactName1;
 
 }

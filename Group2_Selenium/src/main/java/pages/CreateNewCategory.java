@@ -1,9 +1,12 @@
 package pages;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import common.Common;
 
 public class CreateNewCategory extends AbstractPage{
 	
@@ -44,11 +47,17 @@ public class CreateNewCategory extends AbstractPage{
 	 * @author Ha Nguyen
 	 * @description: Click Save As button "/"
 	 */
-	public CategoryManagerPage clickSaveAsButton(){
+	public CreateNewCategory clickSaveAsButton(){
 		click(BTN_SAVE_AS);
-		return new CategoryManagerPage(driver);
+		return new CreateNewCategory(driver);
 	}
-		
+	
+	
+	public String getColorOfTitle()
+	{
+		String hex = Common.convertRgbaToHex(getControlCss(TXT_CATEGORYTITLE, "color"));
+		return hex;		
+	}
 	
 	/**
 	 * 
@@ -60,15 +69,14 @@ public class CreateNewCategory extends AbstractPage{
 		return new CategoryManagerPage(driver);
 	}
 	
-	
 	/**
 	 * 
 	 * @author Ha Nguyen
 	 * @description: Click Save and New button "/"
 	 */
-	public CategoryManagerPage clickSaveNewButton(){
+	public CreateNewCategory clickSaveNewButton(){
 		click(BTN_SAVE_NEW);
-		return new CategoryManagerPage(driver);
+		return new CreateNewCategory(driver);
 	}
 	
 	/**
@@ -81,10 +89,19 @@ public class CreateNewCategory extends AbstractPage{
 		return new CategoryManagerPage(driver);
 	}
 	
+	/**
+	 * 
+	 * @author Ha Nguyen
+	 * @description: Click Help button "/"
+	 */
+	public CreateNewCategory clickHelpButton(){
+		click(BTN_HELP);
+		return new CreateNewCategory(driver);
+	}
 	
 	/**
 	 * 
-	 * @author Ha Nguyen 7/8
+	 * @author Ha Nguyen
 	 * @paramenter: status
 	 * @description: Select a Staus in Droplist "/"
 	 */
@@ -92,12 +109,24 @@ public class CreateNewCategory extends AbstractPage{
 	public void selectStatus(String status) {
 		if (status != null)
 			selectDropDownListItemByText(DROPLIST_STATUS, status);
-
 	}
 	
 	/**
 	 * 
-	 * @author Ha Nguyen 7/8
+	 * @author Ha Nguyen
+	 * @description: Close warning pop up
+	 */
+	
+	public void closePopup()
+	{
+		Alert alert = driver.switchTo().alert();
+		alert.dismiss();
+		driver.switchTo().defaultContent();
+	}
+	
+	/**
+	 * 
+	 * @author Ha Nguyen
 	 * @paramenter: option
 	 * @description: Select a Access option in Droplist "/"
 	 */
@@ -107,7 +136,6 @@ public class CreateNewCategory extends AbstractPage{
 			selectDropDownListItemByText(DROPLIST_ACCESS, option);
 
 	}
-	
 	
 	/**
 	 * 
@@ -120,6 +148,11 @@ public class CreateNewCategory extends AbstractPage{
 		if (option != null)
 			selectDropDownListItemByText(DROPLIST_LANGUAGE, option);
 	}
+	
+	public WebDriver getNewCategroyPageDriver() {
+		return this.driver;
+	}
+	
 	
 	
 	private WebDriver driver;
@@ -140,7 +173,7 @@ public class CreateNewCategory extends AbstractPage{
 	@FindBy(xpath = "//li[@id='toolbar-cancel']/a/span")
 	private WebElement BTN_CANCEL;
 	
-	@FindBy(xpath = "//li[@id='toolbar-save-copy']/a/span")
+	@FindBy(xpath = "//li[@id='toolbar-save']/a/span")
 	private WebElement BTN_SAVE_AS;
 	
 	@FindBy(xpath = "//select[@id='jform_published']")
@@ -152,5 +185,7 @@ public class CreateNewCategory extends AbstractPage{
 	@FindBy(xpath = "//select[@id='jform_language']")
 	private WebElement DROPLIST_LANGUAGE;
 
+	@FindBy(xpath = "//li[@id='toolbar-help']/a/span")
+	private WebElement BTN_HELP;
 
 }

@@ -58,8 +58,6 @@ public class CategoryManagerPage extends AbstractPage {
 			isShow = true;
 		return isShow;
 	}
-
-	
 	
 	/**
 	 * 
@@ -107,6 +105,21 @@ public class CategoryManagerPage extends AbstractPage {
 	}
 
 	
+	/**
+	 * 
+	 * @author Ha Nguyen
+	 * @description: VP:  The "Batch process completed successfully message" is displayed
+	 */
+	
+	public boolean isMsgProcessCompeletedSuccessfullyDisplayed() {
+		waitForControl(driver, POPUP_MESSAGE, timeout);
+		String message = POPUP_MESSAGE.getText();
+		boolean isShow = false;
+		if (message.equals(textProcessSuccessfully))
+			isShow = true;
+		return isShow;
+	}
+
 	/**
 	 * 
 	 * @author Ha Nguyen
@@ -177,37 +190,43 @@ public class CategoryManagerPage extends AbstractPage {
 		/**
 		 * 
 		 * @author Ha Nguyen
-		 * @description: click on a button on top right toolbar
 		 * @param button
-		 *            
+		 * @description: click on a button on top right toolbar
 		 */
+		
 		public void clickButtonOnTopRightToolbar(String button) {
 			if (button != "options") {
-				driver.findElement(
-						By.xpath(beginningButtonOnTopRightBar + button
-								+ endingButtonOnTopRightBar)).click();
+
+				WebElement element = findElementByXPath(driver,
+						initialStringButtonOnTopRightBar, button);
+				click(element);
+
 			} else
 				// else: use for options button
 				driver.findElement(By.xpath("toolbar-popup-options")).click();
 		}
 
 		/**
-		 * @author Ha Nguyen
-		 * @description: Check the status Published or Unpublished
-		 * @param titleCategory
+		 * @author Ha Nguyen 7/15
+		 * @param categoryTitle, contactStatusOfTable
 		 * @param status
 		 */
-		public void verifyCategoryIsPublishedOrNot(String titleCategory,
-				String categoryStatusOfTable) {
-			// get webElement of span which is besides CategoryTitle
-			WebElement webElement = driver.findElement(By
-					.xpath(beginningStatusxOfCategory + titleCategory
-							+ endingStatusOfCategory));
-			String text = webElement.getAttribute("innerHTML");
-			// check the text with "Published" or "Unpublished"
-			Assert.assertTrue(text.equals(categoryStatusOfTable));
-		}
+		public boolean isCategoryPublishedOrNot(String categoryTitle,
+				String contactStatusOfTable) {
+			// Get webElement of span which is besides Category
+			try {
+				WebElement element = findElementByXPath(driver,
+						initialStringStatusxOfCategory, categoryTitle);
 
+				String text = element.getAttribute("innerHTML");
+				// Check the text with "Published" or "Unpublished"
+				
+				return text.equals(contactStatusOfTable);
+
+			} catch (Exception e) {
+				return false;
+			}
+		}
 	 
 		/**
 		 * @author Ha Nguyen 7/9
@@ -227,6 +246,38 @@ public class CategoryManagerPage extends AbstractPage {
 			selectOptionFromDropdownList(OPT_LEVEL, levelValue);
 		}
 		
+		
+		/**
+		 * 
+		 * @author Ha Nguyen
+		 * @description: Select Copy label
+		 */
+
+	 public CategoryManagerPage selectCopy(){
+	 click(LABEL_COPY);
+	 return new CategoryManagerPage(driver);
+	 }
+	 
+		/**
+		 * 
+		 * @author Ha Nguyen
+		 * @description: Click on button Process
+		 */
+
+	 public CategoryManagerPage clickOnbuttonProcess(){
+	 click(BTN_PROCESS);
+	 return new CategoryManagerPage(driver);
+	 }
+		
+	 /**
+		 * @author Ha Nguyen create 7/16
+		 * @param levelValue
+		 * @description Select Set Access Option in Access dropdownlist
+		 */
+		public void selectSetLevelAccessOption(String levelValue){
+		 selectOptionFromDropdownList(OPT_SETACCESS, levelValue);
+	 }
+	 
 		/**
 		 * @author Ha Nguyen create 07/06/2015
 		 * @param levelValue
@@ -239,27 +290,47 @@ public class CategoryManagerPage extends AbstractPage {
 		/**
 		 * @author Ha Nguyen create 07/06/2015
 		 * @param languageOption
+		 * @description Select Category for Move/Copy 
+		 */
+		public void selectCategoryForMoveOrCopy(String categoryOption) {
+			selectOptionFromDropdownList(OPT_MOVECOPY, categoryOption);
+		}
+		
+		/**
+		 * @author Ha Nguyen create 07/06/2015
+		 * @param languageOption
 		 * @description Select an language Option in Language dropdownlist
 		 */
 		public void selectLanguageOptionFromLanguageDropdown(String languageOption) {
 			selectOptionFromDropdownList(OPT_LANGUAGE, languageOption);
 		}
 		
+		/**
+		 * @author HaNguyen 7/15
+		 * @return
+		 */
+		public WebDriver getCategoryManagerPageDriver() {
+			return this.driver;
+		}
+		
+		public ArticlePage clickArticle()
+		{
+			click(BTN_ARTICLES);
+			return new ArticlePage(driver);
+		}
+		
 	private WebDriver driver;
 	
-	private String beginningButtonOnTopRightBar = "//li[@id='toolbar-";
-	private String endingButtonOnTopRightBar = "']/a/span";
+	private String initialStringButtonOnTopRightBar ="//li[@id='toolbar-%s']/a/span";
 	private String initialCategoryString = "//a[contains(text(),'%s')]";
 	private String initialCheckBoxCategory = "//a[contains(text(),'%s')]/../preceding-sibling::td/input";
-	private String beginningStatusxOfCategory = "//a[contains(text(),'";
-	private String endingStatusOfCategory = "')]/../following-sibling::td/a/span/span";
+	private String initialStringStatusxOfCategory = "//a[contains(text(),'%s')]/../following-sibling::td/a/span/span";
 	private String textCategorySavedSuccessfully = "Category successfully saved";
 	private String textArchiveSuccessfully = "1 category successfully archived";
 	private String textTrashSuccessfully = "1 category successfully trashed";
 	private String textkPublishSuccessfully = "1 category successfully published";
 	private String textcheckunPublishedSuccessfully ="1 category successfully unpublished";
-	
-	
+	private String textProcessSuccessfully ="Batch process completed successfully.";
 
 	@FindBy(xpath = "//li[@id='toolbar-new']/a/span")
 	private WebElement BTN_NEW;
@@ -290,5 +361,21 @@ public class CategoryManagerPage extends AbstractPage {
 
 	@FindBy(xpath = "//*[@id='filter-bar']/div[2]/select[4]")
 	WebElement OPT_LANGUAGE;
+	
+	@FindBy(xpath = "//select[@id='batch-category-id']")
+	WebElement OPT_MOVECOPY;
+	
+	@FindBy(xpath = "//button[contains(text(),'Process')]")
+	WebElement BTN_PROCESS;
+	
+	@FindBy(xpath = "//label[contains(text(),'Copy')]")
+	WebElement LABEL_COPY;
+	
+	@FindBy(xpath = "//*[@id='batch-access']")
+	WebElement OPT_SETACCESS;
+	
+	@FindBy(xpath="//a[text()='Articles']")
+	WebElement BTN_ARTICLES;
+	
 
 }

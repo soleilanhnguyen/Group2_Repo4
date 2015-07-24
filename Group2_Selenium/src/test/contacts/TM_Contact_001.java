@@ -28,6 +28,8 @@ public class TM_Contact_001 extends AbstractTest {
 		categoryValue2 = "- - Park Site";
 		buttonArchive = "archive";
 		optionArchive = "Archived";
+		buttonHelp = "help";
+		windowHelpTitle = "Joomla! Help";
 	}
 
 	@Test(description = "TC_Contact_001:User can create new contact with valid information")
@@ -90,9 +92,26 @@ public class TM_Contact_001 extends AbstractTest {
 		objContactsPage.deleteContact(contactName2);
 
 	}
+	
+	@Test(description = "User can access contact's help section")
+	public void TC_Contact_008() {
+		
+		objContactsPage.clickButtonOnTopRightToolbar(buttonHelp);
+
+		String windownWeblinkTitle = driver.getWindowHandle();
+
+		AssertTrue(checkWindownExist(driver, windowHelpTitle));
+
+		driver.close();
+
+		handleMultipleWindows(driver, windownWeblinkTitle);
+
+	}
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
+		logOut(driver);
+
 		closeBrowser(driver);
 	}
 
@@ -107,4 +126,6 @@ public class TM_Contact_001 extends AbstractTest {
 	private String contactName2;
 	private String buttonArchive;
 	private String optionArchive;
+	private String buttonHelp;
+	private String windowHelpTitle;
 }
