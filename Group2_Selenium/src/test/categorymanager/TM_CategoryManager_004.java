@@ -188,9 +188,9 @@ public class TM_CategoryManager_004 extends AbstractTest {
 
 		String color = objCreateNewCategory.getColorOfTitle();
 
-		AssertTrue(color.equalsIgnoreCase("colorRed"));
+		AssertTrue(color.equalsIgnoreCase("#FF0000"));
 		
-		
+		objCategoryManagerPage = objCreateNewCategory.clickCancelButton();		
 
 	}
 
