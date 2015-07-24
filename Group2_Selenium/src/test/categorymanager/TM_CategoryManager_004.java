@@ -1,6 +1,7 @@
 package categorymanager;
 
 import org.openqa.selenium.WebDriver;
+
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
@@ -10,6 +11,7 @@ import org.testng.annotations.Test;
 import pages.ArticlePage;
 import pages.CategoryManagerPage;
 import pages.CreateNewArticlePage;
+import pages.EditAritcalCategory;
 import pages.CreateNewCategory;
 import pages.HomePage;
 import pages.LoginPage;
@@ -47,23 +49,25 @@ public class TM_CategoryManager_004 extends AbstractTest {
 
 		objCreateNewCategory.typeCategoryName(categoryTitle1);
 
-		objCreateNewCategory.clickSaveButton();
-
-		AssertTrue(objCreateNewCategory.isCategorySavedSucessfyllyDisplayed());
-
-		objCreateNewCategory.typeCategoryName(categoryTitle2);
-
-		objCreateNewCategory.clickSaveAsButton();
+		objEditAritcalCategory = objCreateNewCategory.clickSaveButton();
 		
-		AssertTrue(objCreateNewCategory.isCategorySavedSucessfyllyDisplayed());
 		
-		objCreateNewCategory.clickCancelButton();
-		
-		objCategoryManagerPage.searchCategoryName(categoryTitle2);
 
-		AssertTrue(objCategoryManagerPage.isCategoryExist(categoryTitle2));
-		
-		objCategoryManagerPage.deleteCategory(categoryTitle2);
+//		AssertTrue(objCreateNewCategory.isCategorySavedSucessfyllyDisplayed());
+//
+//		objCreateNewCategory.typeCategoryName(categoryTitle2);
+//
+//		objCreateNewCategory.clickSaveAsButton();
+//		
+//		AssertTrue(objCreateNewCategory.isCategorySavedSucessfyllyDisplayed());
+//		
+//		objCreateNewCategory.clickCancelButton();
+//		
+//		objCategoryManagerPage.searchCategoryName(categoryTitle2);
+//
+//		AssertTrue(objCategoryManagerPage.isCategoryExist(categoryTitle2));
+//		
+//		objCategoryManagerPage.deleteCategory(categoryTitle2);
 	}
 
 	@Test(description = "TC_CategoryManager_014: User can move may articles to another category")
@@ -205,6 +209,7 @@ public class TM_CategoryManager_004 extends AbstractTest {
 	private CategoryManagerPage objCategoryManagerPage;
 	private CreateNewCategory objCreateNewCategory;
 	private CreateNewArticlePage objCreateNewArticlePage;
+	private EditAritcalCategory objEditAritcalCategory;
 	private ArticlePage objArticlePage;
 	private String categoryTitle1;
 	private String categoryTitle2;

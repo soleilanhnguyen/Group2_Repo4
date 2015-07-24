@@ -35,11 +35,11 @@ public class CreateNewCategory extends AbstractPage{
 	/**
 	 * 
 	 * @author Ha Nguyen
-	 * @description: Click Save and Close button "/"
+	 * @description: Click Save button "/"
 	 */
-	public CategoryManagerPage clickSaveButton(){
+	public EditAritcalCategory clickSaveButton(){
 		click(BTN_SAVE);
-		return new CategoryManagerPage(driver);
+		return new EditAritcalCategory(driver);
 	}
 		
 	/**
@@ -153,26 +153,7 @@ public class CreateNewCategory extends AbstractPage{
 		return this.driver;
 	}
 	
-	/**
-	 * 
-	 * @author Ha Nguyen
-	 * @description: Verify A message : "Category successfully saved" shows.
-	 */
-	
-	public boolean isCategorySavedSucessfyllyDisplayed() {
-		waitForControl(driver, POPUP_MESSAGE, timeout);
-		String message = POPUP_MESSAGE.getText();
-		boolean isShow = false;
-		if (message.equals(textCategorySaved))
-			isShow = true;
-		return isShow;
-	}
-	
-	
-	
 	private WebDriver driver;
-	
-	private String textCategorySaved = "Category successfully saved";
 	
 	@FindBy(xpath = "//input[@id='jform_title']")
 	private WebElement TXT_CATEGORYTITLE;
