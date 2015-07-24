@@ -145,12 +145,13 @@ public class TM_CategoryManager_002 extends AbstractTest {
 		driver.close();
 
 		driver.switchTo().window(windownCategoryManagerTitle);
+		
+		objCreateNewCategory.clickCancelButton();
 	}
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
 		logOut(driver);
-
 		closeBrowser(driver);
 	}
 

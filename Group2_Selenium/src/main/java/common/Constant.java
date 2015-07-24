@@ -4,8 +4,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class Constant {
-	public final static String url="http://localhost:8888/joomla/administrator/index.php";
-	public final static String adminUsername="admin";
+	public final static String url="http://192.168.190.135:8888/Joomla_2.5.28/administrator/";
+	public final static String adminUsername="seleniumadmin";
 	public final static String adminPassword="123456";
 	public final static String FIRE_FOX = "firefox";
 	public final static String CHROME = "chrome";

@@ -49,20 +49,27 @@ public class TM_CategoryManager_004 extends AbstractTest {
 
 		objCreateNewCategory.clickSaveButton();
 
-		AssertTrue(objCategoryManagerPage.isCategorySavedSucessfyllyDisplayed());
+		AssertTrue(objCreateNewCategory.isCategorySavedSucessfyllyDisplayed());
 
 		objCreateNewCategory.typeCategoryName(categoryTitle2);
 
 		objCreateNewCategory.clickSaveAsButton();
+		
+		AssertTrue(objCreateNewCategory.isCategorySavedSucessfyllyDisplayed());
+		
+		objCreateNewCategory.clickCancelButton();
+		
+		objCategoryManagerPage.searchCategoryName(categoryTitle2);
 
-		AssertTrue(objCategoryManagerPage.isCategorySavedSucessfyllyDisplayed());
-
+		AssertTrue(objCategoryManagerPage.isCategoryExist(categoryTitle2));
+		
+		objCategoryManagerPage.deleteCategory(categoryTitle2);
 	}
 
 	@Test(description = "TC_CategoryManager_014: User can move may articles to another category")
 	public void TC_CategoryManager_014() {
 
-		objCreateNewCategory.clickSaveNewButton();
+		objCategoryManagerPage.clickOnNewbutton();
 
 		objCreateNewCategory.typeCategoryName(categoryTitle3);
 
@@ -180,6 +187,8 @@ public class TM_CategoryManager_004 extends AbstractTest {
 		String color = objCreateNewCategory.getColorOfTitle();
 
 		AssertTrue(color.equalsIgnoreCase("colorRed"));
+		
+		
 
 	}
 

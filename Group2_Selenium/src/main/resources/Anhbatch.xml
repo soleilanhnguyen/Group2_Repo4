@@ -2,7 +2,7 @@
  
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Suite" parallel="none">
+<suite name="Suite">
 
 	<test name="FirefoxTest">
 
@@ -10,10 +10,7 @@
 
 		<classes>
 
-			<class name="article.TM_Article_002" />
-
-
-
+			<class name="categorymanager.TM_CategoryManager_004" />
 
 		</classes>
 
