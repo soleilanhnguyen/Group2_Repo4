@@ -87,6 +87,16 @@ public class CreateNewContactPage extends AbstractPage{
 		return new CreateNewCategory(driver);
 	}
 	
+	/**
+	 * 
+	 * @author Ha Nguyen
+	 * @description: Click on Close button
+	 */
+	public ContactsPage clickClosebutton(){
+		click(BTN_CLOSE);
+		return new ContactsPage(driver);
+	}
+	
 	private WebDriver driver;
 	
 	@FindBy(xpath = "//input[@id='jform_name']")
@@ -106,4 +116,8 @@ public class CreateNewContactPage extends AbstractPage{
 	
 	@FindBy(xpath = "//li[@id='toolbar-apply']/a")
 	private WebElement BTN_SAVE;
+	
+	@FindBy(xpath = "//li[@id='toolbar-cancel']/a/span")
+	private WebElement BTN_CLOSE;
+	
 }

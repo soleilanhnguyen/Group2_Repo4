@@ -32,8 +32,9 @@ public class TM_Contact_004 extends AbstractTest {
 		option = "All";
 	}
 
+	@Parameters("browser")
 	@Test(description = "TC_Contact_006:Verify user can check in an article")
-	public void TC_Contact_006(String browser) {
+	public void TC_Contact_006(String browser)throws Exception {
 
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
@@ -51,6 +52,8 @@ public class TM_Contact_004 extends AbstractTest {
 		objCreateNewContactPage.clickSavebutton();
 
 		AssertTrue(objContactsPage.isMsgContactSavedSucessfyllyDisplayed());
+		
+		objContactsPage = objCreateNewContactPage.clickClosebutton();
 
 		objContactsPage.searchContactName(contactName1);
 
