@@ -468,7 +468,7 @@ public class ContactsPage extends AbstractPage {
 	@FindBy(xpath = "//select[@id='limit' and @name='limit']")
 	private WebElement OPT_DISPLAY;
 	
-	@FindBy(xpath = "//table[@class='adminlist']/thead/tr/th[5]/a")
+	@FindBy(xpath = "//table[@class='adminlist']/thead/tr/th[7]/a")
 	private WebElement ID_COLUMN_ORDERING;
 	
 	@FindBy(xpath = "//table[@class='adminlist']/tbody")

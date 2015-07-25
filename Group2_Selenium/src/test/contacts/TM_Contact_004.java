@@ -115,7 +115,7 @@ public class TM_Contact_004 extends AbstractTest {
 
 		AssertTrue(objContactsPage.isContactExist(contactName3));
 
-		objContactsPage.searchContactName(textsearch);
+		objContactsPage.searchContactName("");
 
 		objContactsPage.selectDisplayDropdown(option);
 
@@ -165,7 +165,6 @@ public class TM_Contact_004 extends AbstractTest {
 		objContactsPage.searchContactName(contactName4);
 
 		objContactsPage.deleteContact(contactName4);
-
 	}
 
 	@AfterClass(alwaysRun = true)

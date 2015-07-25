@@ -10,7 +10,8 @@
 
 		<classes>
 
-			<class name="contacts.TM_Contact_004" />
+		<!-- 	<class name="contacts.TM_Contact_004" /> -->
+				<class name="contacts.TM_Contact_004" />
 
 		</classes>
 
