@@ -115,7 +115,7 @@ public class TM_Contact_004 extends AbstractTest {
 
 		AssertTrue(objContactsPage.isContactExist(contactName3));
 
-		objContactsPage.searchContactName("");
+		objContactsPage.searchContactName(textsearch);
 
 		objContactsPage.selectDisplayDropdown(option);
 
