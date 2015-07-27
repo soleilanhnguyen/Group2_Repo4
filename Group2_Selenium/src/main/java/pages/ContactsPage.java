@@ -435,8 +435,8 @@ public class ContactsPage extends AbstractPage {
 	private String initialDownArrowOrderingColumn ="//td[a[contains(text(),'%s')]]/../td//span[@class='state downarrow']";
 	private String featureIcon = "//a[contains(text(),'%s')]/../following-sibling::td[3]/a/img";
 	private String linkFeatureIcon = "//a[contains(text(),'%s')]/../following-sibling::td[3]/a";
-	public String featuredState = "Featured article";
-	public String unfeaturedState = "Unfeatured article";
+	public String featuredState = "Featured";
+	public String unfeaturedState = "Unfeatured contact";
 	
 	@FindBy(xpath = "//li[@id='toolbar-new']/a/span")
 	private WebElement BTN_NEW;
