@@ -385,8 +385,28 @@ public class BannerClientsPage extends AbstractPage {
 			return false;
 		}
 
+			
 	}
 
+	
+	/**
+	 * @author Anh Nguyen
+	 * @return
+	 */
+	public boolean isClientPageDisplayed() {
+
+		try{
+		String bodyText = driver.findElement(By.tagName("h2")).getText();
+		bodyText.contains(labelClient);
+			return true;
+		}catch(NoSuchElementException ex){
+			
+			return false;
+		}
+
+	}
+	
+	
 	private WebDriver driver;
 
 	@FindBy(xpath = "//li[@id='toolbar-new']/a/span")
@@ -437,4 +457,5 @@ public class BannerClientsPage extends AbstractPage {
 
 	private String statusPublished = "Published";
 	private String statusUnpublished = "Unpublished";
+	private String labelClient = "Banner Manager: Clients";
 }

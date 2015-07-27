@@ -433,8 +433,8 @@ public class ContactsPage extends AbstractPage {
 	private String initialFeatureContact = "//a[contains(text(),'%s')]/../following-sibling::td/a/span";
 	private String initialLinkCheckIn="//td[a[contains(text(),'%s')]]/../td/a/span[@class='state checkedout']";
 	private String initialDownArrowOrderingColumn ="//td[a[contains(text(),'%s')]]/../td//span[@class='state downarrow']";
-	private String featureIcon = "//a[contains(text(),'%s')]/../following-sibling::td[2]/a/img";
-	private String linkFeatureIcon = "//a[contains(text(),'%s')]/../following-sibling::td[2]/a";
+	private String featureIcon = "//a[contains(text(),'%s')]/../following-sibling::td[3]/a/img";
+	private String linkFeatureIcon = "//a[contains(text(),'%s')]/../following-sibling::td[3]/a";
 	public String featuredState = "Featured article";
 	public String unfeaturedState = "Unfeatured article";
 	
