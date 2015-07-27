@@ -55,7 +55,7 @@ public class TM_Weblink_001 extends AbstractTest {
 
 		objWeblinksPage = objCreateWebLinkPage.clickSaveCloseButton();
 
-		AssertTrue(objWeblinksPage.isWebLinkSavedSuccessfully());
+		AssertTrue(objWeblinksPage.isTextSavedSuccessfullyDisplayOnPopup());
 
 		objWeblinksPage.searchWeblink(weblinkTitle);
 
@@ -74,7 +74,7 @@ public class TM_Weblink_001 extends AbstractTest {
 
 		objCreateWebLinkPage.clickSaveButton();
 
-		AssertTrue(objCreateWebLinkPage.isWebLinkSavedSuccessfully());
+		AssertTrue(objCreateWebLinkPage.isTextSavedSuccessfullyDisplayOnPopup());
 
 		objWeblinksPage = objCreateWebLinkPage.clickCloseButton();
 

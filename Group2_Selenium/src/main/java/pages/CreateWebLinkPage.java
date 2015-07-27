@@ -62,7 +62,7 @@ public class CreateWebLinkPage extends AbstractPage {
 	 * @description check the text "Weblink successfully saved" display after
 	 *              creating new weblink successfully
 	 */
-	public boolean isWebLinkSavedSuccessfully() {
+	public boolean isTextSavedSuccessfullyDisplayOnPopup() {
 		try {
 			return POPUP_MESSAGE.getText().contains(
 					textWeblinkSavedSuccessfully);

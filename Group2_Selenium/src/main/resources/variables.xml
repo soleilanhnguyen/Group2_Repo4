@@ -1,16 +1,16 @@
 <variables>
 	<variable name="url">
-		<value>http://192.168.190.135:8888/Joomla_2.5.28/administrator/</value>
+		<value>http://localhost/test/administrator/</value>
 
 	</variable>
 
 	<variable name="adminUsername">
-		<value>seleniumadmin</value>
+		<value>admin</value>
 
 	</variable>
 
 	<variable name="adminPassword">
-		<value>123456</value>
+		<value>admin</value>
 
 	</variable>
 

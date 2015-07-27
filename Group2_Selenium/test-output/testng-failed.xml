@@ -5,13 +5,51 @@
   <test name="FirefoxTest(failed)" parallel="none">
     <parameter name="browser" value="firefox"/>
     <classes>
-      <class name="article.TM_Article_002">
+      <class name="weblinks.TM_Weblink_003">
         <methods>
-          <include name="TC_Article_011"/>
+          <include name="setup"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- weblinks.TM_Weblink_003 -->
+      <class name="weblinks.TM_Weblink_004">
+        <methods>
+          <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="TC_Weblink_016"/>
+          <include name="TC_Weblink_014"/>
+          <include name="TC_Weblink_015"/>
+        </methods>
+      </class> <!-- weblinks.TM_Weblink_004 -->
+      <class name="weblinks.TM_Weblink_001">
+        <methods>
+          <include name="setup"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- weblinks.TM_Weblink_001 -->
+      <class name="bannerclients.TM_BannerClient_003">
+        <methods>
+          <include name="setup"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- bannerclients.TM_BannerClient_003 -->
+      <class name="weblinks.TM_Weblink_002">
+        <methods>
+          <include name="setup"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- weblinks.TM_Weblink_002 -->
+      <class name="bannerclients.TM_BannerClient_002">
+        <methods>
           <include name="tearDown"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- article.TM_Article_002 -->
+      </class> <!-- bannerclients.TM_BannerClient_002 -->
+      <class name="bannerclients.TM_BannerClient_001">
+        <methods>
+          <include name="setup"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- bannerclients.TM_BannerClient_001 -->
     </classes>
   </test> <!-- FirefoxTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

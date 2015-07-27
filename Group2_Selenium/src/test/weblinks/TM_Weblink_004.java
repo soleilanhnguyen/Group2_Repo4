@@ -59,7 +59,7 @@ public class TM_Weblink_004 extends AbstractTest {
 
 		objCreateWebLinkPage.clickSaveButton();
 
-		AssertTrue(objCreateWebLinkPage.isWebLinkSavedSuccessfully());
+		AssertTrue(objCreateWebLinkPage.isTextSavedSuccessfullyDisplayOnPopup());
 
 		driver.close();
 
@@ -107,7 +107,7 @@ public class TM_Weblink_004 extends AbstractTest {
 
 		objWeblinksPage = objCreateWebLinkPage.clickSaveCloseButton();
 
-		AssertTrue(objWeblinksPage.isWebLinkSavedSuccessfully());
+		AssertTrue(objWeblinksPage.isTextSavedSuccessfullyDisplayOnPopup());
 
 		objWeblinksPage.selectDisplayDropdown("All");
 
@@ -120,7 +120,7 @@ public class TM_Weblink_004 extends AbstractTest {
 
 		objWeblinksPage = objCreateWebLinkPage.clickSaveCloseButton();
 
-		AssertTrue(objWeblinksPage.isWebLinkSavedSuccessfully());
+		AssertTrue(objWeblinksPage.isTextSavedSuccessfullyDisplayOnPopup());
 
 		objWeblinksPage.selectDisplayDropdown("All");
 
@@ -148,7 +148,7 @@ public class TM_Weblink_004 extends AbstractTest {
 
 		objWeblinksPage = objCreateWebLinkPage.clickSaveCloseButton();
 
-		AssertTrue(objWeblinksPage.isWebLinkSavedSuccessfully());
+		AssertTrue(objWeblinksPage.isTextSavedSuccessfullyDisplayOnPopup());
 
 		objWeblinksPage.searchWeblink(weblinkTitle4);
 
@@ -184,7 +184,7 @@ public class TM_Weblink_004 extends AbstractTest {
 
 		objCreateWebLinkPage.clickSaveAsCopyButton();
 
-		AssertTrue(objCreateWebLinkPage.isWebLinkSavedSuccessfully());
+		AssertTrue(objCreateWebLinkPage.isTextSavedSuccessfullyDisplayOnPopup());
 
 		objWeblinksPage = objCreateWebLinkPage.clickCloseButton();
 

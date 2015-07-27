@@ -14,7 +14,10 @@
 			<class name="weblinks.TM_Weblink_002" />
 			<class name="weblinks.TM_Weblink_003" />
 			<class name="weblinks.TM_Weblink_004" />
-			<class name="weblinks.TM_Weblink_005" />
+			
+			<class name="bannerclients.TM_BannerClient_001" />
+			<class name="bannerclients.TM_BannerClient_002" />
+			<class name="bannerclients.TM_BannerClient_003" />
 
 		</classes>
 

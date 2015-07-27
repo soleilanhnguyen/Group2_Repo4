@@ -406,7 +406,7 @@ public class WeblinksPage extends AbstractPage {
 	 * @description check the text "Weblink successfully saved" display after
 	 *              creating new weblink successfully
 	 */
-	public boolean isWebLinkSavedSuccessfully() {
+	public boolean isTextSavedSuccessfullyDisplayOnPopup() {
 
 		try {
 			
