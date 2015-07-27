@@ -158,7 +158,8 @@ public class CreateNewBannerClients extends AbstractPage {
 	@FindBy(xpath = "//dl[@id='system-message']/dd/ul")
 	private WebElement POPUP_MESSAGE;
 
-	@FindBy(xpath = "//div[@id='toolbar-box']/div/div[2]/h2")
+	//@FindBy(xpath = "//div[@id='toolbar-box']/div/div[2]/h2")
+	@FindBy(xpath = "//div[contains(@class,'pagetitle')]/h2")
 	private WebElement HEADER_PAGE;
 
 	private String textBannerClientSavedSuccessfully = "Client successfully saved";

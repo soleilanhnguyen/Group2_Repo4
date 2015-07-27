@@ -1,15 +1,14 @@
 package pages;
 
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.server.handler.FindElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+
+import common.Constant;
 
 public class BannerClientsPage extends AbstractPage {
 
@@ -345,7 +344,11 @@ public class BannerClientsPage extends AbstractPage {
 	 * @return object of CreateNewBannerClients
 	 */
 	public CreateNewBannerClients clickNewButton() {
+		
+		waitForControl(driver, BTN_NEW, Constant.longTimeOut);
+		
 		click(BTN_NEW);
+		
 		return new CreateNewBannerClients(driver);
 	}
 
@@ -382,8 +385,10 @@ public class BannerClientsPage extends AbstractPage {
 			return false;
 		}
 
+			
 	}
 
+	
 	/**
 	 * @author Anh Nguyen
 	 * @return
@@ -400,7 +405,8 @@ public class BannerClientsPage extends AbstractPage {
 		}
 
 	}
-
+	
+	
 	private WebDriver driver;
 
 	@FindBy(xpath = "//li[@id='toolbar-new']/a/span")

@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import common.Constant;
+
 public class CreateWebLinkPage extends AbstractPage {
 
 	/**
@@ -16,6 +18,22 @@ public class CreateWebLinkPage extends AbstractPage {
 	public CreateWebLinkPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+	}
+
+	/**
+	 * @author Dung Pham
+	 * @param weblinkTitle
+	 * @param weblinkURL
+	 * @param weblinkStatus
+	 * @param weblinkCategory
+	 * @description Type a new web link with title, url, status, category
+	 */
+	public void typeANewWeblinkWithCategory(String weblinkTitle,
+			String weblinkURL, String weblinkStatus, String weblinkCategory) {
+		type(TXT_TITLE, weblinkTitle);
+		type(TXT_URL, weblinkURL);
+		selectOptionFromStatusDropdownList(weblinkStatus);
+		selectOptionFromDropdownList(OPT_CATEGORY, weblinkCategory);
 	}
 
 	/**
@@ -77,7 +95,11 @@ public class CreateWebLinkPage extends AbstractPage {
 	 * author Dung Pham 07/04/2015
 	 */
 	public WeblinksPage clickCloseButton() {
+
+		waitForControl(driver, BTN_CLOSE, Constant.longTimeOut);
+
 		click(BTN_CLOSE);
+
 		return new WeblinksPage(driver);
 	}
 
@@ -89,8 +111,15 @@ public class CreateWebLinkPage extends AbstractPage {
 	 */
 	public void typeANewWeblink(String weblinkTitle, String weblinkURL,
 			String weblinkStatus) {
+
+		waitForControl(driver, TXT_TITLE, Constant.longTimeOut);
+
 		type(TXT_TITLE, weblinkTitle);
+
+		waitForControl(driver, TXT_URL, Constant.longTimeOut);
+
 		type(TXT_URL, weblinkURL);
+
 		selectOptionFromStatusDropdownList(weblinkStatus);
 	}
 
@@ -98,6 +127,9 @@ public class CreateWebLinkPage extends AbstractPage {
 	 * @author Dung Pham
 	 */
 	public void selectOptionFromStatusDropdownList(String options) {
+
+		waitForControl(driver, OPT_STATUS, Constant.longTimeOut);
+
 		selectOptionFromDropdownList(OPT_STATUS, options);
 
 	}
@@ -107,8 +139,13 @@ public class CreateWebLinkPage extends AbstractPage {
 	 * @return WeblinksPage
 	 */
 	public WeblinksPage clickSaveCloseButton() {
+
+		waitForControl(driver, BTN_SAVE_CLOSE, Constant.longTimeOut);
+
 		click(BTN_SAVE_CLOSE);
+
 		return new WeblinksPage(driver);
+
 	}
 
 	private WebDriver driver;
@@ -136,6 +173,9 @@ public class CreateWebLinkPage extends AbstractPage {
 
 	@FindBy(xpath = "//select[@id='jform_state']")
 	private WebElement OPT_STATUS;
+
+	@FindBy(xpath = "//select[@id='jform_catid']")
+	private WebElement OPT_CATEGORY;
 
 	@FindBy(xpath = "//input[@id='jform_alias']")
 	private WebElement TXT_ALIAS;

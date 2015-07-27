@@ -54,7 +54,7 @@ public class TM_Article_006 extends AbstractTest {
 		AssertTrue(objArticlePage.isArticlePublicAccess(txtTitle));
 	}
 
-	@Test(description = "Verify user can create a new article with 'Public' Access Level property")
+	@Test(description = "User can change the feature property of articles using the Featured column")
 	public void TC_Articles_016() {
 
 		objArticlePage.clickOnFeatureIcon(txtTitle);

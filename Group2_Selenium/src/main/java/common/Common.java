@@ -25,7 +25,7 @@ public class Common {
 	 * 
 	 * @param baseString
 	 * @author Ha Nguyen
-	 * @description: Get Current time Year, Month, Hour, Minute, Second "/"
+	 * @description: split a string using delimiter "/"
 	 */
 	 public static String getUniqueString(String baseString) {
 		  
@@ -43,7 +43,7 @@ public class Common {
 		  
 		  return baseString + day + month + year + second + minute + hour;
 		 }
-		 
+	
 	 /**
 	  * 
 	  * @param rgba
@@ -55,7 +55,7 @@ public class Common {
 	 	String hex = Color.fromString(rgba).asHex();
 	 	return hex;
 	 }
-
+	
 }
 
 
