@@ -27,9 +27,17 @@ public class TM_BannerClient_001 extends AbstractTest {
 				+ "@gmail.com";
 		contactStatus = "Unpublished";
 		option = "Archived";
+		optionOriginal = "- Select Status -";
 		bannerclientsHelpTitle = "Joomla! Help";
 		redColor = "rgba(255, 0, 0, 1)";
 		contactEmailIncorrect = "Email";
+
+		clientName2 = Common.getUniqueString("TC_BannerClient_009_Name");
+		contactName2 = Common.getUniqueString("TC_BannerClient_009_Contact");
+		contactEmail2 = Common.getUniqueString("TC_BannerClient_009_Name")
+				+ "@gmail.com";
+		contactStatusUnpublished = "Unpublished";
+		optionUnpublished = "Unpublished";
 
 	}
 
@@ -98,6 +106,39 @@ public class TM_BannerClient_001 extends AbstractTest {
 
 	}
 
+	@Test(description = "Verify that user can search a client  by using filter textbox")
+	public void TC_BannerClient_008() {
+
+		objBannerClientsPage.searchBannerClient(clientName);
+
+		AssertTrue(objBannerClientsPage.isBannerClientExist(clientName));
+
+		objBannerClientsPage.selectOptionFromStatusDropdown(optionOriginal);
+
+	}
+
+	@Test(description = "Verify that user can search a client by using filter dropdown lists")
+	public void TC_BannerClient_009() {
+
+		objCreateNewBannerClients = objBannerClientsPage.clickNewButton();
+
+		objCreateNewBannerClients.typeANewBannerClients(clientName2,
+				contactName2, contactEmail2, contactStatusUnpublished);
+
+		objBannerClientsPage = objCreateNewBannerClients.clickSaveCloseButton();
+
+		AssertTrue(objBannerClientsPage.isBannerClientSavedSuccessfully());
+
+		objBannerClientsPage.searchBannerClient(clientName2);
+
+		AssertTrue(objBannerClientsPage.isBannerClientExist(clientName2));
+
+		objBannerClientsPage.selectOptionFromStatusDropdown(optionUnpublished);
+
+		AssertTrue(objBannerClientsPage.isBannerClientExist(clientName2));
+
+	}
+
 	@Test(description = "Verify that user can not create a new client without entering the name of the client")
 	public void TC_BannerClient_014() {
 
@@ -140,6 +181,7 @@ public class TM_BannerClient_001 extends AbstractTest {
 
 	private String bannerclientsHelpTitle;
 	private String option;
+	private String optionOriginal;
 	private String redColor;
 
 	private WebDriver driver;
@@ -153,5 +195,11 @@ public class TM_BannerClient_001 extends AbstractTest {
 	private String contactEmail;
 	private String contactStatus;
 	private String contactEmailIncorrect;
+
+	private String clientName2;
+	private String contactName2;
+	private String contactEmail2;
+	private String contactStatusUnpublished;
+	private String optionUnpublished;
 
 }
