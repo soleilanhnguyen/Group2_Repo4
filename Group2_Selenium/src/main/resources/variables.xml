@@ -1,0 +1,17 @@
+<variables>
+	<variable name="url">
+		<value>http://localhost/test/administrator</value>
+
+	</variable>
+
+	<variable name="adminUsername">
+		<value>admin</value>
+
+	</variable>
+
+	<variable name="adminPassword">
+		<value>admin</value>
+
+	</variable>
+
+</variables>

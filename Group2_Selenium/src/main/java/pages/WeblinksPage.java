@@ -11,6 +11,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import common.Constant;
+
 public class WeblinksPage extends AbstractPage {
 
 	/**
@@ -200,6 +202,7 @@ public class WeblinksPage extends AbstractPage {
 	 * @description select a option from display dropdown
 	 */
 	public void selectDisplayDropdown(String option) {
+		waitForControl(driver, OPT_DISPLAY, Constant.longTimeOut);
 		selectOptionFromDropdownList(OPT_DISPLAY, option);
 	}
 
@@ -255,6 +258,8 @@ public class WeblinksPage extends AbstractPage {
 	 */
 	public boolean isSortedAscending() {
 
+		waitForControl(driver, TBL_WEBLINK, Constant.longTimeOut);
+		
 		List<WebElement> cells = TBL_WEBLINK.findElements(By
 				.xpath("tr/td[9]/a"));
 
@@ -275,6 +280,8 @@ public class WeblinksPage extends AbstractPage {
 	 */
 	public boolean isSortedDescending() {
 
+		waitForControl(driver, TBL_WEBLINK, Constant.longTimeOut);
+		
 		List<WebElement> cells = TBL_WEBLINK.findElements(By
 				.xpath("tr/td[9]/a"));
 
@@ -402,6 +409,9 @@ public class WeblinksPage extends AbstractPage {
 	public boolean isWebLinkSavedSuccessfully() {
 
 		try {
+			
+			waitForControl(driver, POPUP_MESSAGE, Constant.longTimeOut);
+			
 			return POPUP_MESSAGE.getText().contains(
 					textWeblinkSavedSuccessfully);
 		} catch (Exception e) {
@@ -421,6 +431,7 @@ public class WeblinksPage extends AbstractPage {
 		try {
 			WebElement element = findElementByXPath(driver,
 					initialWeblinkString, weblinkTitle);
+			waitForControl(driver, element, Constant.longTimeOut);
 			return element.isDisplayed();
 		} catch (Exception e) {
 			return false;
@@ -499,8 +510,16 @@ public class WeblinksPage extends AbstractPage {
 	 *              Search button
 	 */
 	public void searchWeblink(String weblinkTitle) {
+		
+		waitForControl(driver, TXT_SEARCH, Constant.longTimeOut);
+		
+		waitForControl(driver, BTN_SEARCH, Constant.longTimeOut);
+		
 		type(TXT_SEARCH, weblinkTitle);
+		
 		click(BTN_SEARCH);
+		
+		waitForControl(driver, TBL_WEBLINK, Constant.longTimeOut);
 	}
 
 	/**
@@ -528,7 +547,11 @@ public class WeblinksPage extends AbstractPage {
 	 * @return object of CreateWebLinkPage
 	 */
 	public CreateWebLinkPage clickNewButton() {
+		
+		waitForControl(driver, BTN_NEW, Constant.longTimeOut);
+		
 		click(BTN_NEW);
+		
 		return new CreateWebLinkPage(driver);
 	}
 

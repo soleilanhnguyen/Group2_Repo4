@@ -70,14 +70,6 @@ public class TM_BannerClient_002 extends AbstractTest {
 		objBannerClientsPage.searchBannerClient(clientNameEdited);
 
 		AssertTrue(objBannerClientsPage.isBannerClientExist(clientNameEdited));
-	}
-
-	@Test(description = "Verify that user can search a client  by using filter textbox")
-	public void TC_BannerClient_008() {
-
-		objBannerClientsPage.searchBannerClient(clientNameEdited);
-
-		AssertTrue(objBannerClientsPage.isBannerClientExist(clientNameEdited));
 
 	}
 

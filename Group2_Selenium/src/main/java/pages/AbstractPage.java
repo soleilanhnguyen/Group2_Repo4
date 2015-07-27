@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import common.Common;
+import common.Constant;
 
 public class AbstractPage {
 
@@ -19,11 +20,25 @@ public class AbstractPage {
 	 * @param option
 	 * @description select option from dropdown list
 	 */
-	public void selectOptionFromDropdownList(WebElement element, String option){
-		Select dropdown=new Select(element);
+	public void selectOptionFromDropdownList(WebElement element, String option) {
+		Select dropdown = new Select(element);
 		dropdown.selectByVisibleText(option);
 	}
+
 	
+	/**
+	 * @author Dung Pham
+	 * @param seconds
+	 */
+	public void sleepSeconds(int seconds) {
+		try {
+			Thread.sleep(seconds * 1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	/**
 	 * @description: type to a textfield
 	 * @param element
@@ -31,7 +46,9 @@ public class AbstractPage {
 	 * @author anh.nguyen
 	 */
 	public void type(WebElement element, String value) {
+
 		element.clear();
+
 		element.sendKeys(value);
 	}
 
@@ -41,6 +58,7 @@ public class AbstractPage {
 	 * @author anh.nguyen
 	 */
 	public static void click(WebElement element) {
+
 		element.click();
 	}
 
@@ -69,38 +87,38 @@ public class AbstractPage {
 					+ "does not exist");
 		}
 	}
-	
-	 /**
-	  * @author Dung Pham 07/07/2015 
-	  * @param driver
-	  * @param initialString
-	  * @param control
-	  * @return WebElement
-	  */
-	 public WebElement findElementByXPath(WebDriver driver, String initialString,
-	   String control) {
-	  String xpathControl = String.format(initialString, control);
-	  return driver.findElement(By.xpath(xpathControl));
-	 }
-	
-/**
- * @description wait for control
- * @param driver
- * @param element
- * @param timeout
- * @author anh.nguyen
- */
-	 public void waitForControl(WebDriver driver, WebElement element,long timeout){
-		 		 
-		 try {WebDriverWait wait = new WebDriverWait(driver, timeout);
-				wait.until(ExpectedConditions.visibilityOf(element));
-			} catch (Exception e) {
-				System.out.println("Element is not existed");
-			}
-	 }
-	 
-	 
-	 
+
+	/**
+	 * @author Dung Pham 07/07/2015
+	 * @param driver
+	 * @param initialString
+	 * @param control
+	 * @return WebElement
+	 */
+	public WebElement findElementByXPath(WebDriver driver,
+			String initialString, String control) {
+		String xpathControl = String.format(initialString, control);
+		return driver.findElement(By.xpath(xpathControl));
+	}
+
+	/**
+	 * @description wait for control
+	 * @param driver
+	 * @param element
+	 * @param timeout
+	 * @author anh.nguyen
+	 */
+	public void waitForControl(WebDriver driver, WebElement element,
+			long timeout) {
+
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, timeout);
+			wait.until(ExpectedConditions.visibilityOf(element));
+		} catch (Exception e) {
+			System.out.println("Element is not existed");
+		}
+	}
+
 	/**
 	 * @description Perform a click
 	 * @param driver
@@ -124,15 +142,18 @@ public class AbstractPage {
 
 		for (int i = 0; i < temp.length; i++) {
 			WebElement e;
-			
-if(temp[i].equals("CategoriesBanner")){
-	 e = driver.findElement(By.xpath(".//*[@id='menu-com-banners']/li[2]/a"));
-	
-}
-else{
-			 e = driver.findElement(By.xpath("//a[contains(text(),'"
-					+ temp[i] + "')]"));
-}
+
+			if (temp[i].equals("CategoriesBanner")) {
+				e = driver.findElement(By
+						.xpath(".//*[@id='menu-com-banners']/li[2]/a"));
+
+			} else {
+				e = driver.findElement(By.xpath("//a[contains(text(),'"
+						+ temp[i] + "')]"));
+			}
+
+			waitForControl(driver, e, Constant.longTimeOut);
+
 			mouseHoverOnWebElement(driver, e);
 
 		}
@@ -150,7 +171,7 @@ else{
 		Select select = new Select(ddlName);
 		select.selectByValue(value);
 	}
-	
+
 	/**
 	 * @description select a drop down list item by text
 	 * @param ddlName
@@ -159,34 +180,10 @@ else{
 	 */
 	public void selectDropDownListItemByText(WebElement ddlName, String text) {
 		Select select = new Select(ddlName);
-		select.selectByVisibleText(text);;
+		select.selectByVisibleText(text);
+		;
 	}
-		
-	
-	/**
-	 * @description  get Attribute of ddl
-	 * @param ddlName
-	 * @param att
-	 * @author Ha Nguyen
-	  */
-	
-	public String getAttribute(WebElement ddlName, String att)
-	{		
-		return ddlName.getAttribute(att);
-	}
-	
-	/**
-	 * @description  get Css of ddl
-	 * @param ddlName
-	 * @param att
-	 * @author Ha Nguyen
-	  */
-	
-	public String getControlCss(WebElement ddlName, String css)
-	{		
-		return ddlName.getCssValue(css);
-	}
-	
+
 	public final static int timeout = 15;
-	
+
 }

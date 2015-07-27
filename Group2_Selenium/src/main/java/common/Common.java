@@ -1,7 +1,6 @@
 package common;
 
 import java.util.Calendar;
-import org.openqa.selenium.support.Color;
 import java.util.GregorianCalendar;
 
 
@@ -25,7 +24,7 @@ public class Common {
 	 * 
 	 * @param baseString
 	 * @author Ha Nguyen
-	 * @description: Get Current time Year, Month, Hour, Minute, Second "/"
+	 * @description: split a string using delimiter "/"
 	 */
 	 public static String getUniqueString(String baseString) {
 		  
@@ -43,19 +42,9 @@ public class Common {
 		  
 		  return baseString + day + month + year + second + minute + hour;
 		 }
-		 
-	 /**
-	  * 
-	  * @param rgba
-	  * @author Ha Nguyen
-	  * @description: Convert rgba to hex
-	  */
-	 public static String convertRgbaToHex(String rgba)
-	 {
-	 	String hex = Color.fromString(rgba).asHex();
-	 	return hex;
-	 }
-
+	
+	
+	
 }
 
 

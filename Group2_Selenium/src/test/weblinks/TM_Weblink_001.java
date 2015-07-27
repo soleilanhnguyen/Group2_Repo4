@@ -28,6 +28,15 @@ public class TM_Weblink_001 extends AbstractTest {
 		webLinkTitle2 = Common.getUniqueString("TM_Weblink_001_edit");
 		webLinkUrl2 = "http://www.google.com";
 		windowHelpTitle = "Joomla! Help";
+		
+		weblinkTitle3 = Common.getUniqueString("TM_Weblink_001_3");
+		weblinkURL3 = "http://www.joomla.org";
+		weblinkStatus3 = "Published";
+		weblinkCategory3 = "- Sample Data-Weblinks";
+		
+		
+		optCategory = "Sample Data-Weblinks";
+		optStatus = "Published";
 
 	}
 
@@ -90,9 +99,43 @@ public class TM_Weblink_001 extends AbstractTest {
 
 	}
 
+	@Test(description = "Verify user can search for weblinks using the filter text field")
+	public void TC_Weblink_009() {
+
+		objWeblinksPage.searchWeblink("");
+		
+		objWeblinksPage.searchWeblink(webLinkTitle2);
+
+		AssertTrue(objWeblinksPage.isWeblinkExist(webLinkTitle2));
+
+	}
+	
+	@Test(description = "Verify user can search for weblinks using the filter dropdown lists")
+	public void TC_Weblink_010() {
+		
+		objCreateWebLinkPage = objWeblinksPage.clickNewButton();
+		
+		objCreateWebLinkPage.typeANewWeblinkWithCategory(weblinkTitle3, weblinkURL3, weblinkStatus3, weblinkCategory3);
+		
+		objWeblinksPage = objCreateWebLinkPage.clickSaveCloseButton();
+		
+		objWeblinksPage.searchWeblink("");
+		
+		objWeblinksPage.selectDisplayDropdown("All");
+
+		objWeblinksPage.selectOptionFromCategoryDropdown(optCategory);
+
+		objWeblinksPage.selectOptionFromStatusDropdown(optStatus);
+
+		AssertTrue(objWeblinksPage.isWeblinkExist(weblinkTitle3));
+
+	}
+	
 	@Test(description = "Verify user can sort the weblinks table by ID column")
 	public void TC_Weblink_011() {
 
+		objWeblinksPage.searchWeblink("");
+		
 		objWeblinksPage.selectDisplayDropdown("All");
 
 		objWeblinksPage.clickIDColumn();
@@ -125,5 +168,13 @@ public class TM_Weblink_001 extends AbstractTest {
 	private String webLinkTitle2;
 	private String webLinkUrl2;
 	private String windowHelpTitle;
+	
+	private String weblinkTitle3;
+	private String weblinkURL3;
+	private String weblinkStatus3;
+	private String weblinkCategory3;
+	
+	private String optStatus;
+	private String optCategory;
 
 }
