@@ -56,7 +56,7 @@ public class TM_BannerClient_001 extends AbstractTest {
 
 		objBannerClientsPage = objCreateNewBannerClients.clickSaveCloseButton();
 
-		AssertTrue(objBannerClientsPage.isBannerClientSavedSuccessfully());
+		AssertTrue(objBannerClientsPage.isTextBannerClientSavedSuccessfullyDisplayed());
 
 		objBannerClientsPage.searchBannerClient(clientName);
 
@@ -70,7 +70,7 @@ public class TM_BannerClient_001 extends AbstractTest {
 
 		objBannerClientsPage.clickPublishButton();
 
-		AssertTrue(objBannerClientsPage.isBannerClientPublishedSuccessfully());
+		AssertTrue(objBannerClientsPage.isTextBannerClientPublishedSuccessfullyDisplayed());
 
 		AssertTrue(objBannerClientsPage.isBannerClientPublished(clientName));
 
@@ -83,7 +83,7 @@ public class TM_BannerClient_001 extends AbstractTest {
 
 		objBannerClientsPage.clickArchiveButton();
 
-		AssertTrue(objBannerClientsPage.isBannerClientArchivedSuccessfully());
+		AssertTrue(objBannerClientsPage.isTextBannerClientArchivedSuccessfullyDisplayed());
 
 		objBannerClientsPage.selectOptionFromStatusDropdown(option);
 
@@ -127,7 +127,7 @@ public class TM_BannerClient_001 extends AbstractTest {
 
 		objBannerClientsPage = objCreateNewBannerClients.clickSaveCloseButton();
 
-		AssertTrue(objBannerClientsPage.isBannerClientSavedSuccessfully());
+		AssertTrue(objBannerClientsPage.isTextBannerClientSavedSuccessfullyDisplayed());
 
 		objBannerClientsPage.searchBannerClient(clientName2);
 
@@ -152,7 +152,7 @@ public class TM_BannerClient_001 extends AbstractTest {
 		AssertTrue(objCreateNewBannerClients.getColorClientName().contains(
 				redColor));
 
-		AssertFalse(objCreateNewBannerClients.isBannerClientSavedSuccessfully());
+		AssertFalse(objCreateNewBannerClients.isTextBannerClientSavedSuccessfullyDisplayed());
 
 		objBannerClientsPage = objCreateNewBannerClients.clickCancelButton();
 	}
@@ -168,7 +168,7 @@ public class TM_BannerClient_001 extends AbstractTest {
 
 		AssertTrue(objCreateNewBannerClients.getColorEmail().contains(redColor));
 
-		AssertFalse(objCreateNewBannerClients.isBannerClientSavedSuccessfully());
+		AssertFalse(objCreateNewBannerClients.isTextBannerClientSavedSuccessfullyDisplayed());
 
 		objBannerClientsPage = objCreateNewBannerClients.clickCancelButton();
 	}

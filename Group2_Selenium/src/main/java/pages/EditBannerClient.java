@@ -39,7 +39,7 @@ public class EditBannerClient extends AbstractPage {
 	/**
 	 * @author Dung Pham 07/12/2015
 	 */
-	public boolean isBannerClientSavedSuccessfully() {
+	public boolean isTextBannerClientSavedSuccessfullyDisplayed() {
 		try {
 			return POPUP_MESSAGE.getText().contains(
 					textBannerClientSavedSuccessfully);

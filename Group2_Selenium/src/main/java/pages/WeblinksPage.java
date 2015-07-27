@@ -2,7 +2,6 @@ package pages;
 
 import java.util.List;
 
-import org.apache.xalan.xsltc.compiler.sym;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -49,7 +48,7 @@ public class WeblinksPage extends AbstractPage {
 	 * @return boolean
 	 * @description check the popup text to make sure weblink is published
 	 */
-	public boolean isWeblinkPublishedSuccessfully() {
+	public boolean isTextPublishedSuccessfullyDisplayOnPopup() {
 
 		try {
 			return POPUP_MESSAGE.getText().contains(
@@ -73,7 +72,7 @@ public class WeblinksPage extends AbstractPage {
 	 * @return boolean
 	 * @description check the popup text to make sure weblink is trashed
 	 */
-	public boolean isWeblinkTrashedSuccessfully() {
+	public boolean isTextTrashedSuccessfullyDisplayOnPopup() {
 
 		try {
 			return POPUP_MESSAGE.getText().contains(
@@ -117,7 +116,7 @@ public class WeblinksPage extends AbstractPage {
 	 * @return boolean
 	 * @description check the text of popup to make sure weblink is unpublished
 	 */
-	public boolean isWeblinkUnpublishedSuccessfully() {
+	public boolean isTextUnpublishedSuccessfullyDisplayOnPopup() {
 
 		try {
 			return POPUP_MESSAGE.getText().contains(
@@ -141,7 +140,7 @@ public class WeblinksPage extends AbstractPage {
 	 * @return boolean
 	 * @description check the text of popup to make sure weblink is archived
 	 */
-	public boolean isWeblinkArchivedSuccessfully() {
+	public boolean isTextArchivedSuccessfullyDisplayOnPopup() {
 
 		try {
 			return POPUP_MESSAGE.getText().contains(
@@ -165,7 +164,7 @@ public class WeblinksPage extends AbstractPage {
 	 * @return boolean
 	 * @description check the text of popup to make sure weblink is checked in
 	 */
-	public boolean isWebLinkCheckinSuccessfully() {
+	public boolean isTextCheckinSuccessfullyDisplayOnPopup() {
 
 		try {
 			return POPUP_MESSAGE.getText().contains(
@@ -256,10 +255,10 @@ public class WeblinksPage extends AbstractPage {
 	 * @return boolean
 	 * @description check all weblinks are sort ascending
 	 */
-	public boolean isSortedAscending() {
+	public boolean isWeblinkSortedAscending() {
 
 		waitForControl(driver, TBL_WEBLINK, Constant.longTimeOut);
-		
+
 		List<WebElement> cells = TBL_WEBLINK.findElements(By
 				.xpath("tr/td[9]/a"));
 
@@ -278,10 +277,10 @@ public class WeblinksPage extends AbstractPage {
 	 * @return boolean
 	 * @description check all weblinks are sort descending
 	 */
-	public boolean isSortedDescending() {
+	public boolean isWeblinkSortedDescending() {
 
 		waitForControl(driver, TBL_WEBLINK, Constant.longTimeOut);
-		
+
 		List<WebElement> cells = TBL_WEBLINK.findElements(By
 				.xpath("tr/td[9]/a"));
 
@@ -409,9 +408,9 @@ public class WeblinksPage extends AbstractPage {
 	public boolean isTextSavedSuccessfullyDisplayOnPopup() {
 
 		try {
-			
+
 			waitForControl(driver, POPUP_MESSAGE, Constant.longTimeOut);
-			
+
 			return POPUP_MESSAGE.getText().contains(
 					textWeblinkSavedSuccessfully);
 		} catch (Exception e) {
@@ -510,15 +509,15 @@ public class WeblinksPage extends AbstractPage {
 	 *              Search button
 	 */
 	public void searchWeblink(String weblinkTitle) {
-		
+
 		waitForControl(driver, TXT_SEARCH, Constant.longTimeOut);
-		
+
 		waitForControl(driver, BTN_SEARCH, Constant.longTimeOut);
-		
+
 		type(TXT_SEARCH, weblinkTitle);
-		
+
 		click(BTN_SEARCH);
-		
+
 		waitForControl(driver, TBL_WEBLINK, Constant.longTimeOut);
 	}
 
@@ -547,11 +546,11 @@ public class WeblinksPage extends AbstractPage {
 	 * @return object of CreateWebLinkPage
 	 */
 	public CreateWebLinkPage clickNewButton() {
-		
+
 		waitForControl(driver, BTN_NEW, Constant.longTimeOut);
-		
+
 		click(BTN_NEW);
-		
+
 		return new CreateWebLinkPage(driver);
 	}
 

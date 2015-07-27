@@ -37,7 +37,7 @@ public class BannerClientsPage extends AbstractPage {
 	 * @description Check the text of Pop-up to make sure that banner is checked
 	 *              in successfully
 	 */
-	public boolean isBannerClientCheckinSuccessfully() {
+	public boolean isTextBannerClientCheckinSuccessfullyDisplayed() {
 
 		try {
 			return POPUP_MESSAGE.getText().contains(
@@ -83,7 +83,7 @@ public class BannerClientsPage extends AbstractPage {
 	 * @description Check the text of popup to make sure client is published
 	 *              successfully
 	 */
-	public boolean isBannerClientPublishedSuccessfully() {
+	public boolean isTextBannerClientPublishedSuccessfullyDisplayed() {
 		try {
 			return POPUP_MESSAGE.getText().contains(
 					textBannerClientPublishedSuccessfully);
@@ -129,7 +129,7 @@ public class BannerClientsPage extends AbstractPage {
 	 * @description Check the text of popup to make sure banner client is
 	 *              unpublished
 	 */
-	public boolean isBannerClientUnpublishedSuccessfully() {
+	public boolean isTextBannerClientUnpublishedSuccessfullyDisplayed() {
 		try {
 			return POPUP_MESSAGE.getText().contains(
 					textBannerClientUnpublishedSuccessfully);
@@ -175,7 +175,7 @@ public class BannerClientsPage extends AbstractPage {
 	 * @description Check the text of popup to make sure banner client is
 	 *              archived
 	 */
-	public boolean isBannerClientArchivedSuccessfully() {
+	public boolean isTextBannerClientArchivedSuccessfullyDisplayed() {
 		try {
 			return POPUP_MESSAGE.getText().contains(
 					textBannerClientArchivedSuccessfully);
@@ -200,7 +200,7 @@ public class BannerClientsPage extends AbstractPage {
 	 * @description check the text of pop up to make sure banner client is
 	 *              trashed
 	 */
-	public boolean isBannerClientTrashedSuccessfully() {
+	public boolean isTextBannerClientTrashedSuccessfullyDisplayed() {
 		try {
 			return POPUP_MESSAGE.getText().contains(
 					textBannerClientTrashedSuccessfully);
@@ -232,7 +232,7 @@ public class BannerClientsPage extends AbstractPage {
 	 * @return boolean
 	 * @description check the text of popup to make sure banner client is saved
 	 */
-	public boolean isBannerClientSavedSuccessfully() {
+	public boolean isTextBannerClientSavedSuccessfullyDisplayed() {
 		try {
 			return POPUP_MESSAGE.getText().contains(
 					textBannerClientSavedSuccessfully);

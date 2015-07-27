@@ -74,11 +74,12 @@ public class TM_BannerClient_003 extends AbstractTest {
 
 		objCreateNewBannerClients.clickSaveButton();
 
-		AssertTrue(objCreateNewBannerClients.isBannerClientSavedSuccessfully());
+		AssertTrue(objCreateNewBannerClients.isTextBannerClientSavedSuccessfullyDisplayed());
 
 		driver.close();
 
 		driver = openUrl(browser, Constant.url);
+		
 		objLoginPage = new LoginPage(driver);
 
 		objHomePage = objLoginPage.login(Constant.adminUsername,
@@ -92,7 +93,8 @@ public class TM_BannerClient_003 extends AbstractTest {
 
 		objBannerClientsPage.clickCheckinButton();
 
-		AssertTrue(objBannerClientsPage.isBannerClientCheckinSuccessfully());
+		AssertTrue(objBannerClientsPage.isTextBannerClientCheckinSuccessfullyDisplayed());
+		
 		AssertTrue(objBannerClientsPage.isBannerClientCheckin(clientName));
 
 	}
@@ -107,7 +109,7 @@ public class TM_BannerClient_003 extends AbstractTest {
 
 		objCreateNewBannerClients.clickSaveNewButton();
 
-		AssertTrue(objCreateNewBannerClients.isBannerClientSavedSuccessfully());
+		AssertTrue(objCreateNewBannerClients.isTextBannerClientSavedSuccessfullyDisplayed());
 
 		AssertTrue(objCreateNewBannerClients
 				.isCreateNewBannerClientPageDisplayed());
@@ -117,12 +119,14 @@ public class TM_BannerClient_003 extends AbstractTest {
 
 		objBannerClientsPage = objCreateNewBannerClients.clickSaveCloseButton();
 
-		AssertTrue(objBannerClientsPage.isBannerClientSavedSuccessfully());
+		AssertTrue(objBannerClientsPage.isTextBannerClientSavedSuccessfullyDisplayed());
 
 		objBannerClientsPage.searchBannerClient(clientName2);
+		
 		AssertTrue(objBannerClientsPage.isBannerClientExist(clientName2));
 
 		objBannerClientsPage.searchBannerClient(clientName3);
+		
 		AssertTrue(objBannerClientsPage.isBannerClientExist(clientName3));
 	}
 
@@ -158,9 +162,11 @@ public class TM_BannerClient_003 extends AbstractTest {
 		objBannerClientsPage = objEditBannerClient.clickCloseButton();
 		
 		objBannerClientsPage.searchBannerClient(clientName4);
+		
 		AssertTrue(objBannerClientsPage.isBannerClientExist(clientName4));
 		
 		objBannerClientsPage.searchBannerClient(clientName5);
+		
 		AssertTrue(objBannerClientsPage.isBannerClientExist(clientName5));
 	}
 

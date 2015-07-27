@@ -140,11 +140,11 @@ public class TM_Weblink_001 extends AbstractTest {
 
 		objWeblinksPage.clickIDColumn();
 
-		AssertTrue(objWeblinksPage.isSortedAscending());
+		AssertTrue(objWeblinksPage.isWeblinkSortedAscending());
 
 		objWeblinksPage.clickIDColumn();
 
-		AssertTrue(objWeblinksPage.isSortedDescending());
+		AssertTrue(objWeblinksPage.isWeblinkSortedDescending());
 
 	}
 

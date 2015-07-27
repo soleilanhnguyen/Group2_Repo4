@@ -78,7 +78,7 @@ public class TM_Weblink_004 extends AbstractTest {
 
 		objWeblinksPage.clickCheckinButton();
 
-		AssertTrue(objWeblinksPage.isWebLinkCheckinSuccessfully());
+		AssertTrue(objWeblinksPage.isTextCheckinSuccessfullyDisplayOnPopup());
 
 		AssertTrue(objWeblinksPage.isWeblinkCheckin(weblinkTitle));
 
@@ -160,7 +160,7 @@ public class TM_Weblink_004 extends AbstractTest {
 
 		AssertTrue(objWeblinksPage.isWeblinkUnpublished(weblinkTitle4));
 
-		AssertTrue(objWeblinksPage.isWeblinkUnpublishedSuccessfully());
+		AssertTrue(objWeblinksPage.isTextUnpublishedSuccessfullyDisplayOnPopup());
 
 		objWeblinksPage.clickOnCheckBoxWebLink(weblinkTitle4);
 
@@ -168,7 +168,7 @@ public class TM_Weblink_004 extends AbstractTest {
 
 		AssertTrue(objWeblinksPage.isWeblinkPublished(weblinkTitle4));
 
-		AssertTrue(objWeblinksPage.isWeblinkPublishedSuccessfully());
+		AssertTrue(objWeblinksPage.isTextPublishedSuccessfullyDisplayOnPopup());
 
 	}
 

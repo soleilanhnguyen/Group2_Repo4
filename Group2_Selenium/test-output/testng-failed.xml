@@ -9,45 +9,70 @@
         <methods>
           <include name="setup"/>
           <include name="tearDown"/>
+          <include name="TC_Weblink_005"/>
+          <include name="TC_Weblink_004"/>
         </methods>
       </class> <!-- weblinks.TM_Weblink_003 -->
+      <class name="bannerclients.TM_BannerClient_003">
+        <methods>
+          <include name="TC_BannerClient_011"/>
+          <include name="TC_BannerClient_010"/>
+          <include name="TC_BannerClient_013"/>
+          <include name="setup"/>
+          <include name="TC_BannerClient_012"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- bannerclients.TM_BannerClient_003 -->
+      <class name="weblinks.TM_Weblink_001">
+        <methods>
+          <include name="TC_Weblink_009"/>
+          <include name="TC_Weblink_011"/>
+          <include name="TC_Weblink_010"/>
+          <include name="setup"/>
+          <include name="TC_Weblink_008"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- weblinks.TM_Weblink_001 -->
       <class name="weblinks.TM_Weblink_004">
         <methods>
           <include name="setup"/>
           <include name="tearDown"/>
           <include name="TC_Weblink_016"/>
+          <include name="TC_Weblink_006" invocation-numbers="0"/>
           <include name="TC_Weblink_014"/>
           <include name="TC_Weblink_015"/>
+          <include name="TC_Weblink_012"/>
         </methods>
       </class> <!-- weblinks.TM_Weblink_004 -->
-      <class name="weblinks.TM_Weblink_001">
-        <methods>
-          <include name="setup"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- weblinks.TM_Weblink_001 -->
-      <class name="bannerclients.TM_BannerClient_003">
-        <methods>
-          <include name="setup"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- bannerclients.TM_BannerClient_003 -->
       <class name="weblinks.TM_Weblink_002">
         <methods>
           <include name="setup"/>
           <include name="tearDown"/>
+          <include name="TC_Weblink_007"/>
+          <include name="TC_Weblink_003"/>
         </methods>
       </class> <!-- weblinks.TM_Weblink_002 -->
       <class name="bannerclients.TM_BannerClient_002">
         <methods>
+          <include name="TC_BannerClient_002"/>
           <include name="tearDown"/>
+          <include name="TC_BannerClient_006"/>
           <include name="setup"/>
+          <include name="TC_BannerClient_004"/>
         </methods>
       </class> <!-- bannerclients.TM_BannerClient_002 -->
       <class name="bannerclients.TM_BannerClient_001">
         <methods>
+          <include name="TC_BannerClient_009"/>
+          <include name="TC_BannerClient_008"/>
           <include name="setup"/>
+          <include name="TC_BannerClient_001"/>
+          <include name="TC_BannerClient_003"/>
+          <include name="TC_BannerClient_014"/>
+          <include name="TC_BannerClient_005"/>
           <include name="tearDown"/>
+          <include name="TC_BannerClient_015"/>
+          <include name="TC_BannerClient_007"/>
         </methods>
       </class> <!-- bannerclients.TM_BannerClient_001 -->
     </classes>

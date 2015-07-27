@@ -56,7 +56,7 @@ public class TM_BannerClient_002 extends AbstractTest {
 
 		objEditBannerClient = objCreateNewBannerClients.clickSaveButton();
 
-		AssertTrue(objEditBannerClient.isBannerClientSavedSuccessfully());
+		AssertTrue(objEditBannerClient.isTextBannerClientSavedSuccessfullyDisplayed());
 
 		AssertTrue(objEditBannerClient.isEditBannerPageDisplayed());
 
@@ -65,7 +65,7 @@ public class TM_BannerClient_002 extends AbstractTest {
 
 		objBannerClientsPage = objEditBannerClient.clickSaveCloseButton();
 
-		AssertTrue(objBannerClientsPage.isBannerClientSavedSuccessfully());
+		AssertTrue(objBannerClientsPage.isTextBannerClientSavedSuccessfullyDisplayed());
 
 		objBannerClientsPage.searchBannerClient(clientNameEdited);
 
@@ -80,7 +80,7 @@ public class TM_BannerClient_002 extends AbstractTest {
 
 		objBannerClientsPage.clickUnpublishButton();
 
-		AssertTrue(objBannerClientsPage.isBannerClientUnpublishedSuccessfully());
+		AssertTrue(objBannerClientsPage.isTextBannerClientUnpublishedSuccessfullyDisplayed());
 
 		AssertTrue(objBannerClientsPage
 				.isBannerClientUnpublished(clientNameEdited));
@@ -94,7 +94,7 @@ public class TM_BannerClient_002 extends AbstractTest {
 
 		objBannerClientsPage.clickTrashButton();
 
-		AssertTrue(objBannerClientsPage.isBannerClientTrashedSuccessfully());
+		AssertTrue(objBannerClientsPage.isTextBannerClientTrashedSuccessfullyDisplayed());
 
 		objBannerClientsPage.selectOptionFromStatusDropdown(option);
 

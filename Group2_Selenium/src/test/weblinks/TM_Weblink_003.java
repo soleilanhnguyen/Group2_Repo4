@@ -55,7 +55,7 @@ public class TM_Weblink_003 extends AbstractTest {
 
 		AssertTrue(objWeblinksPage.isWeblinkUnpublished(weblinkTitle));
 
-		AssertTrue(objWeblinksPage.isWeblinkUnpublishedSuccessfully());
+		AssertTrue(objWeblinksPage.isTextUnpublishedSuccessfullyDisplayOnPopup());
 
 	}
 
@@ -68,7 +68,7 @@ public class TM_Weblink_003 extends AbstractTest {
 
 		objWeblinksPage.clickArchiveButton();
 
-		AssertTrue(objWeblinksPage.isWeblinkArchivedSuccessfully());
+		AssertTrue(objWeblinksPage.isTextArchivedSuccessfullyDisplayOnPopup());
 
 		objWeblinksPage.selectOptionFromStatusDropdown(optionArchive);
 

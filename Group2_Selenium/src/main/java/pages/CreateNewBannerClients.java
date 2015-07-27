@@ -74,7 +74,7 @@ public class CreateNewBannerClients extends AbstractPage {
 	 * @description check the text of popup to make sure the banner client is
 	 *              saved
 	 */
-	public boolean isBannerClientSavedSuccessfully() {
+	public boolean isTextBannerClientSavedSuccessfullyDisplayed() {
 		try {
 			return POPUP_MESSAGE.getText().contains(
 					textBannerClientSavedSuccessfully);
