@@ -101,7 +101,7 @@ public class TM_CategoryManager_001 extends AbstractTest {
 		AssertTrue(objCategoryManagerPage.isCategoryExist(categoryTitle2));
 	}
 	
-	@Test(description = "User can access contact's help section", dependsOnMethods = "TC_CategoryManager_008")
+	@Test(description = "TC_CategoryManager_007 User can access contact's help section")
 	public void TC_CategoryManager_007() {
 
 		objCategoryManagerPage.clickButtonOnTopRightToolbar(buttonHelp);
