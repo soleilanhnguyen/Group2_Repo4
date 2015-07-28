@@ -30,6 +30,8 @@ public class TM_Contact_001 extends AbstractTest {
 		optionArchive = "Archived";
 		buttonHelp = "help";
 		windowHelpTitle = "Joomla! Help";
+		buttonTrash = "trash";
+		optionTrash = "Trashed";
 	}
 
 	@Test(description = "TC_Contact_001:User can create new contact with valid information")
@@ -89,10 +91,23 @@ public class TM_Contact_001 extends AbstractTest {
 
 		AssertTrue(objContactsPage.isContactExist(contactName2));
 
-		objContactsPage.deleteContact(contactName2);
-
 	}
 	
+	@Test(description = "TC_Contact_007: User can move a contact to trash section", dependsOnMethods = "TC_Contact_015")
+	public void TC_Contact_007() {
+
+		objContactsPage.clickOnCheckContactPage(contactName2);
+
+		objContactsPage.clickButtonOnTopRightToolbar(buttonTrash);
+
+		AssertTrue(objContactsPage.isMsgContactTrashedSucessfyllyDisplayed());
+
+		objContactsPage.selectOptionFromStatusDropdown(optionTrash);
+
+		AssertTrue(objContactsPage.isContactExist(contactName2));
+
+	}
+
 	@Test(description = "User can access contact's help section")
 	public void TC_Contact_008() {
 		
@@ -128,4 +143,6 @@ public class TM_Contact_001 extends AbstractTest {
 	private String optionArchive;
 	private String buttonHelp;
 	private String windowHelpTitle;
+	private String buttonTrash;
+	private String optionTrash;
 }

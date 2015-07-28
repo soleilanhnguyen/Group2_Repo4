@@ -68,7 +68,7 @@ public class TM_Contact_002 extends AbstractTest {
 
 	}
 
-	@Test(description = "TC_Contact_004: User can unpublish a published contact")
+	@Test(description = "TC_Contact_004: User can unpublish a published contact", dependsOnMethods = "TC_Contact_003")
 	public void TC_Contact_004() {
 
 		objContactsPage.clickOnCheckContactPage(contactName);
@@ -82,7 +82,7 @@ public class TM_Contact_002 extends AbstractTest {
 				contactStatusOfTable2));
 	}
 
-	@Test(description = "TC_Contact_015:User can change the status of contacts using the Status column", dependsOnMethods = "TC_Contact_004")
+	@Test(description = "TC_Contact_015:User can change the status of contacts using the Status column")
 	public void TC_Contact_015() {
 
 		objContactsPage.clickOnCheckContactPage(contactName);
@@ -95,20 +95,6 @@ public class TM_Contact_002 extends AbstractTest {
 		AssertTrue(objContactsPage.isMsgContactPublishedSucessfyllyDisplayed());
 	}
 
-	@Test(description = "TC_Contact_007: User can move a contact to trash section", dependsOnMethods = "TC_Contact_015")
-	public void TC_Contact_007() {
-
-		objContactsPage.clickOnCheckContactPage(contactName);
-
-		objContactsPage.clickButtonOnTopRightToolbar(buttonTrash);
-
-		AssertTrue(objContactsPage.isMsgContactTrashedSucessfyllyDisplayed());
-
-		objContactsPage.selectOptionFromStatusDropdown(optionTrash);
-
-		AssertTrue(objContactsPage.isContactExist(contactName));
-
-	}
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
