@@ -31,7 +31,7 @@ public class TM_CategoryManager_003 extends AbstractTest {
 		optionUnpublished = "Unpublished";
 	}
 
-	@Test(description = "TC_CategoryManager_010: User can create many categories by using Save & New button")
+	@Test(description = "TC_CategoryManger_010: User can create many categories by using Save & New button")
 	public void TC_CategoryManager_010() {
 
 		objHomePage = objLoginPage.login(Constant.adminUsername,
@@ -68,7 +68,7 @@ public class TM_CategoryManager_003 extends AbstractTest {
 		AssertTrue(objCategoryManagerPage.isCategoryExist(categoryTitle2));
 	}
 
-	@Test(description = "TC_CategoryManager_009: User can search a category by using filter dropdown lists", dependsOnMethods = "TC_CategoryManager_010")
+	@Test(description = "TC_CategoryManager_009: User can search a category by using filter dropdown lists")
 	public void TC_CategoryManager_009() {
 
 		objCategoryManagerPage

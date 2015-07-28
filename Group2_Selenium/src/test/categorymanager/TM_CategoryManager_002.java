@@ -28,8 +28,7 @@ public class TM_CategoryManager_002 extends AbstractTest {
 		buttonunPublished = "unpublish";
 		categoryStatusOfTable1 = "Published";
 		categoryStatusOfTable2 = "Unpublished";
-		buttonHelp = "help";
-		windowHelpTitle = "Joomla! Help";
+
 	}
 
 	@Test(description = "TC_CategoryManager_003: Verify that user can publish a category")
@@ -65,7 +64,7 @@ public class TM_CategoryManager_002 extends AbstractTest {
 				categoryTitle, categoryStatusOfTable1));
 	}
 
-	@Test(description = "TC_CategoryManager_004: User can unpublish a category", dependsOnMethods = "TC_CategoryManager_003")
+	@Test(description = "TC_CategoryManager_004: User can unpublish a category")
 	public void TC_CategoryManager_004() {
 
 		objCategoryManagerPage.clickOnCheckCategory(categoryTitle);
@@ -79,21 +78,6 @@ public class TM_CategoryManager_002 extends AbstractTest {
 				categoryTitle, categoryStatusOfTable2));
 
 		objCategoryManagerPage.deleteCategory(categoryTitle);
-
-	}
-
-	@Test(description = "TC_CategoryManager_012: User can cancel adding action while adding a new create", dependsOnMethods = "TC_CategoryManager_004")
-	public void TC_CategoryManager_012() {
-
-		objCreateNewCategory = objCategoryManagerPage.clickOnNewbutton();
-
-		objCreateNewCategory.typeCategoryName(categoryTitle1);
-
-		objCreateNewCategory.clickCancelButton();
-
-		objCategoryManagerPage.searchCategoryName(categoryTitle1);
-
-		AssertFalse(objCategoryManagerPage.isCategoryExist(categoryTitle1));
 
 	}
 
@@ -113,42 +97,21 @@ public class TM_CategoryManager_002 extends AbstractTest {
 		AssertTrue(objCategoryManagerPage.isCategoryExist(categoryTitle1));
 	}
 
-	@Test(description = "User can access contact's help section", dependsOnMethods = "TC_CategoryManager_008")
-	public void TC_CategoryManager_007() {
-
-		objCategoryManagerPage.clickButtonOnTopRightToolbar(buttonHelp);
-
-		this.driver = objCategoryManagerPage.getCategoryManagerPageDriver();
-
-		String windownCategoryManagerTitle = driver.getWindowHandle();
-
-		AssertTrue(checkWindownExist(driver, windowHelpTitle));
-
-		driver.close();
-
-		driver.switchTo().window(windownCategoryManagerTitle);
-	}
-
-	@Test(description = "User can browse New Category help page", dependsOnMethods = "TC_CategoryManager_007")
-	public void TC_CategoryManager_011() {
+	@Test(description = "TC_CategoryManager_012: User can cancel adding action while adding a new create")
+	public void TC_CategoryManager_012() {
 
 		objCreateNewCategory = objCategoryManagerPage.clickOnNewbutton();
 
-		objCreateNewCategory.clickHelpButton();
+		objCreateNewCategory.typeCategoryName(categoryTitle1);
 
-		this.driver = objCategoryManagerPage.getCategoryManagerPageDriver();
-
-		String windownCategoryManagerTitle = driver.getWindowHandle();
-
-		AssertTrue(checkWindownExist(driver, windowHelpTitle));
-
-		driver.close();
-
-		driver.switchTo().window(windownCategoryManagerTitle);
-		
 		objCreateNewCategory.clickCancelButton();
-	}
 
+		objCategoryManagerPage.searchCategoryName(categoryTitle1);
+
+		AssertFalse(objCategoryManagerPage.isCategoryExist(categoryTitle1));
+
+	}
+	
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
 		logOut(driver);
@@ -166,7 +129,5 @@ public class TM_CategoryManager_002 extends AbstractTest {
 	private String categoryStatusOfTable2;
 	private String statustext;
 	private String categoryTitle;
-	private String buttonHelp;
-	private String windowHelpTitle;
 	private String categoryTitle1;
 }

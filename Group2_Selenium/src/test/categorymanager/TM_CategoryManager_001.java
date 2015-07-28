@@ -27,6 +27,8 @@ public class TM_CategoryManager_001 extends AbstractTest {
 		buttonArchive = "archive";
 		optionArchive = "Archived";
 		optionTrashed = "Trashed";
+		buttonHelp = "help";
+		windowHelpTitle = "Joomla! Help";
 
 	}
 
@@ -98,6 +100,42 @@ public class TM_CategoryManager_001 extends AbstractTest {
 
 		AssertTrue(objCategoryManagerPage.isCategoryExist(categoryTitle2));
 	}
+	
+	@Test(description = "User can access contact's help section", dependsOnMethods = "TC_CategoryManager_008")
+	public void TC_CategoryManager_007() {
+
+		objCategoryManagerPage.clickButtonOnTopRightToolbar(buttonHelp);
+
+		this.driver = objCategoryManagerPage.getCategoryManagerPageDriver();
+
+		String windownCategoryManagerTitle = driver.getWindowHandle();
+
+		AssertTrue(checkWindownExist(driver, windowHelpTitle));
+
+		driver.close();
+
+		driver.switchTo().window(windownCategoryManagerTitle);
+	}
+
+	@Test(description = "User can browse New Category help page")
+	public void TC_CategoryManager_011() {
+
+		objCreateNewCategory = objCategoryManagerPage.clickOnNewbutton();
+
+		objCreateNewCategory.clickHelpButton();
+
+		this.driver = objCategoryManagerPage.getCategoryManagerPageDriver();
+
+		String windownCategoryManagerTitle = driver.getWindowHandle();
+
+		AssertTrue(checkWindownExist(driver, windowHelpTitle));
+
+		driver.close();
+
+		driver.switchTo().window(windownCategoryManagerTitle);
+		
+		objCreateNewCategory.clickCancelButton();
+	}
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
@@ -115,5 +153,8 @@ public class TM_CategoryManager_001 extends AbstractTest {
 	private String buttonArchive;
 	private String optionArchive;
 	private String optionTrashed;
+	private String buttonHelp;
+	private String windowHelpTitle;
+	
 
 }
