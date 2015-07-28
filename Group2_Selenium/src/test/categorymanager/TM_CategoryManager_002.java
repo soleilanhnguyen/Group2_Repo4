@@ -23,6 +23,7 @@ public class TM_CategoryManager_002 extends AbstractTest {
 		objLoginPage = new LoginPage(driver);
 		categoryTitle = Common.getUniqueString("text_category1");
 		categoryTitle1 = Common.getUniqueString("text_category2");
+		categoryTitle2 = Common.getUniqueString("TC012");
 		statustext = "Unpublished";
 		buttonPublished = "publish";
 		buttonunPublished = "unpublish";
@@ -102,13 +103,13 @@ public class TM_CategoryManager_002 extends AbstractTest {
 
 		objCreateNewCategory = objCategoryManagerPage.clickOnNewbutton();
 
-		objCreateNewCategory.typeCategoryName(categoryTitle1);
+		objCreateNewCategory.typeCategoryName(categoryTitle2);
 
 		objCreateNewCategory.clickCancelButton();
 
-		objCategoryManagerPage.searchCategoryName(categoryTitle1);
+		objCategoryManagerPage.searchCategoryName(categoryTitle2);
 
-		AssertFalse(objCategoryManagerPage.isCategoryExist(categoryTitle1));
+		AssertFalse(objCategoryManagerPage.isCategoryExist(categoryTitle2));
 
 	}
 	
@@ -130,4 +131,5 @@ public class TM_CategoryManager_002 extends AbstractTest {
 	private String statustext;
 	private String categoryTitle;
 	private String categoryTitle1;
+	private String categoryTitle2;
 }

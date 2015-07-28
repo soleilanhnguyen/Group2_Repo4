@@ -69,7 +69,7 @@ public class TM_CategoryManager_003 extends AbstractTest {
 	}
 
 	@Test(description = "TC_CategoryManager_009: User can search a category by using filter dropdown lists")
-	public void TC_CategoryManager_009() {
+	public void TC_CategoryManger_009() {
 
 		objCategoryManagerPage
 				.selectOptionFromStatusDropdown(optionUnpublished);
