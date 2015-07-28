@@ -81,7 +81,7 @@ public class TM_CategoryManager_002 extends AbstractTest {
 
 	}
 
-	@Test(description = "TC_CategoryManager_008: User can search a category  by using filter textbox", dependsOnMethods = "TC_CategoryManager_012")
+	@Test(description = "TC_CategoryManager_008: User can search a category  by using filter textbox")
 	public void TC_CategoryManager_008() {
 
 		objCreateNewCategory = objCategoryManagerPage.clickOnNewbutton();
