@@ -68,7 +68,7 @@ public class TM_Contact_002 extends AbstractTest {
 
 	}
 
-	@Test(description = "TC_Contact_004: User can unpublish a published contact", dependsOnMethods = "TC_Contact_003")
+	@Test(description = "TC_Contact_004: User can unpublish a published contact")
 	public void TC_Contact_004() {
 
 		objContactsPage.clickOnCheckContactPage(contactName);

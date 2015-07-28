@@ -31,7 +31,7 @@ public class TM_Contact_003 extends AbstractTest {
 	}
 
 	@Test(description = "TC_Contact_010:User can search for contacts using the filter dropdown lists")
-	public void TC_Contacta_010() {
+	public void TC_Contact_010() {
 
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
@@ -62,7 +62,7 @@ public class TM_Contact_003 extends AbstractTest {
 	}
 
 	@Test(description = "TC_Contact_009:User can search for contacts using the filter text field")
-	public void TC_Contact_009() {
+	public void TC_Contacta_009() {
 
 		objCreateNewContactPage = objContactsPage.clickOnNewbutton();
 

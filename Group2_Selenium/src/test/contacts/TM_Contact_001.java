@@ -93,7 +93,7 @@ public class TM_Contact_001 extends AbstractTest {
 
 	}
 	
-	@Test(description = "TC_Contact_007: User can move a contact to trash section", dependsOnMethods = "TC_Contact_015")
+	@Test(description = "TC_Contact_007: User can move a contact to trash section")
 	public void TC_Contact_007() {
 
 		objContactsPage.clickOnCheckContactPage(contactName2);
@@ -108,7 +108,7 @@ public class TM_Contact_001 extends AbstractTest {
 
 	}
 
-	@Test(description = "User can access contact's help section")
+	@Test(description = "TC_Contact_008: User can access contact's help section")
 	public void TC_Contact_008() {
 		
 		objContactsPage.clickButtonOnTopRightToolbar(buttonHelp);
