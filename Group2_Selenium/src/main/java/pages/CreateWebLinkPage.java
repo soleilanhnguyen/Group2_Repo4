@@ -41,6 +41,7 @@ public class CreateWebLinkPage extends AbstractPage {
 	 * @param weblinkTitle
 	 * @param weblinkURL
 	 * @param weblinkStatus
+	 * @description Type a new web link with title, url, status, alias
 	 */
 	public void typeANewWeblink(String weblinkTitle, String weblinkURL,
 			String weblinkStatus, String weblinkAlias) {
@@ -51,7 +52,8 @@ public class CreateWebLinkPage extends AbstractPage {
 	}
 
 	/**
-	 * author Dung Pham 07/13/2015
+	 * @author Dung Pham 07/13/2015
+	 * @description click Save & Close button
 	 */
 	public void clickSaveAsCopyButton() {
 		click(BTN_SAVEASCOPY);
@@ -85,14 +87,16 @@ public class CreateWebLinkPage extends AbstractPage {
 	}
 
 	/**
-	 * author Dung Pham 07/04/2015
+	 * @author Dung Pham 07/04/2015
+	 * @description click Save button
 	 */
 	public void clickSaveButton() {
 		click(BTN_SAVE);
 	}
 
 	/**
-	 * author Dung Pham 07/04/2015
+	 * @author Dung Pham 07/04/2015
+	 * @description click Close button
 	 */
 	public WeblinksPage clickCloseButton() {
 
@@ -108,6 +112,7 @@ public class CreateWebLinkPage extends AbstractPage {
 	 * @param weblinkTitle
 	 * @param weblinkURL
 	 * @param weblinkStatus
+	 * @description type a new weblink with title, url, status
 	 */
 	public void typeANewWeblink(String weblinkTitle, String weblinkURL,
 			String weblinkStatus) {
@@ -125,6 +130,7 @@ public class CreateWebLinkPage extends AbstractPage {
 
 	/**
 	 * @author Dung Pham
+	 * @description select the option from Status dropdown
 	 */
 	public void selectOptionFromStatusDropdownList(String options) {
 
@@ -137,6 +143,7 @@ public class CreateWebLinkPage extends AbstractPage {
 	/**
 	 * @author Dung Pham 06/29/2015
 	 * @return WeblinksPage
+	 * @description click Save & Close button
 	 */
 	public WeblinksPage clickSaveCloseButton() {
 
