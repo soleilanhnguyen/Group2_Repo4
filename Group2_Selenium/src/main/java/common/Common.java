@@ -25,7 +25,7 @@ public class Common {
 	 * 
 	 * @param baseString
 	 * @author Ha Nguyen
-	 * @description: split a string using delimiter "/"
+	 * @description: get uniqueString by day, month, year, second, minute, hour "/"
 	 */
 	 public static String getUniqueString(String baseString) {
 		  
