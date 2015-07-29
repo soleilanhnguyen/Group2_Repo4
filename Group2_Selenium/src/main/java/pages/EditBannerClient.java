@@ -11,6 +11,7 @@ public class EditBannerClient extends AbstractPage {
 	/**
 	 * @author Dung Pham
 	 * @param driver
+	 * @description the contructor of EditBannerClient page
 	 */
 	public EditBannerClient(WebDriver driver) {
 		this.driver = driver;
@@ -19,6 +20,7 @@ public class EditBannerClient extends AbstractPage {
 
 	/**
 	 * @author Dung Pham 7/19/2015
+	 * @description click Save & Copy button
 	 */
 	public void clickSaveCopyButton() {
 		click(BTN_SAVECOPY);
@@ -28,6 +30,7 @@ public class EditBannerClient extends AbstractPage {
 	/**
 	 * @author Dung Pham 7/19/2015
 	 * @return BannerClientsPage
+	 * @description click Close button
 	 */
 	public BannerClientsPage clickCloseButton() {
 		click(BTN_CLOSE);
@@ -38,6 +41,7 @@ public class EditBannerClient extends AbstractPage {
 
 	/**
 	 * @author Dung Pham 07/12/2015
+	 * @description check the text banner client saved displaying on pop-up
 	 */
 	public boolean isTextBannerClientSavedSuccessfullyDisplayed() {
 		try {
@@ -51,6 +55,7 @@ public class EditBannerClient extends AbstractPage {
 
 	/**
 	 * @author Dung Pham
+	 * @description click Save button
 	 */
 	public void clickSaveButton() {
 		click(BTN_SAVE);
@@ -59,6 +64,7 @@ public class EditBannerClient extends AbstractPage {
 
 	/**
 	 * @author Dung Pham
+	 * 
 	 */
 	public void verifyBannerClientSavedSuccessfully() {
 		Assert.assertTrue(POPUP_MESSAGE.getText().contains(
@@ -67,8 +73,7 @@ public class EditBannerClient extends AbstractPage {
 	}
 
 	/**
-	 * author Dung Pham 07/10
-	 * 
+	 * @author Dung Pham 07/10
 	 * @return
 	 * @description: check the current window is Edit Banner Client page or not
 	 */
@@ -104,6 +109,7 @@ public class EditBannerClient extends AbstractPage {
 	/**
 	 * @author Dung Pham 07/10/2015
 	 * @return
+	 * @description click Save & Close button
 	 */
 	public BannerClientsPage clickSaveCloseButton() {
 		click(BTN_SAVECLOSE);
