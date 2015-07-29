@@ -94,7 +94,8 @@ public class TM_Weblink_004 extends AbstractTest {
 		AssertTrue(objWeblinksPage.is5WeblinksDisplaying());
 
 		objWeblinksPage.selectDisplayDropdown("All");
-		// AssertTrue(objWeblinksPage.isAllWeblinksDisplaying());
+		
+		AssertTrue(objWeblinksPage.isAllWeblinksDisplaying());
 	}
 
 	@Test(description = "Verify user can change the order of weblinks using the Ordering column")
