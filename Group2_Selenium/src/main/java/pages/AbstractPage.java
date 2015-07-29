@@ -208,7 +208,7 @@ public class AbstractPage {
 	/**
 	 * @description get Css of ddl
 	 * @param ddlName
-	 * @param att
+	 * @param css
 	 * @author Ha Nguyen
 	 */
 
