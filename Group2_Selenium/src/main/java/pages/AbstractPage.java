@@ -25,7 +25,6 @@ public class AbstractPage {
 		dropdown.selectByVisibleText(option);
 	}
 
-	
 	/**
 	 * @author Dung Pham
 	 * @param seconds
@@ -62,23 +61,33 @@ public class AbstractPage {
 		element.click();
 	}
 
-	// Dung Pham create 06/27/2015
-	// Move mouse hover on the web element
+	/**
+	 * @author Dung Pham
+	 * @param driver
+	 * @param e
+	 * @description mouse hover over on Web Element
+	 */
 	public void mouseHoverOnWebElement(WebDriver driver, WebElement e) {
 		Actions action = new Actions(driver);
 		action.moveToElement(e).perform();
 	}
 
-	// Dung Pham create 06/27/2015
-	// Move mouse hover on the web element, then click on this web element
+	/**
+	 * @author Dung Pham
+	 * @param driver
+	 * @param e
+	 * @description mouse hover over on Web Element then click on it
+	 */
 	public void mouseHoverOnWebElementandClick(WebDriver driver, WebElement e) {
 		Actions action = new Actions(driver);
 		action.moveToElement(e).perform();
 		action.click().perform();
 	}
 
-	// Dung Pham create 06/29/2015
-	// verify the web element exist
+	/**
+	 * @author Dung Pham
+	 * @param webElementLinkText
+	 */
 	public void verifyWebElementExist(WebElement webElementLinkText) {
 		try {
 			Assert.assertTrue(webElementLinkText.isDisplayed());
@@ -94,6 +103,7 @@ public class AbstractPage {
 	 * @param initialString
 	 * @param control
 	 * @return WebElement
+	 * @description find Element by Xpath
 	 */
 	public WebElement findElementByXPath(WebDriver driver,
 			String initialString, String control) {
@@ -183,28 +193,26 @@ public class AbstractPage {
 		select.selectByVisibleText(text);
 		;
 	}
-	
+
 	/**
-	 * @description  get Attribute of ddl
+	 * @description get Attribute of ddl
 	 * @param ddlName
 	 * @param att
 	 * @author Ha Nguyen
-	  */
-	
-	public String getAttribute(WebElement ddlName, String att)
-	{		
+	 */
+
+	public String getAttribute(WebElement ddlName, String att) {
 		return ddlName.getAttribute(att);
 	}
-	
+
 	/**
-	 * @description  get Css of ddl
+	 * @description get Css of ddl
 	 * @param ddlName
 	 * @param att
 	 * @author Ha Nguyen
-	  */
-	
-	public String getControlCss(WebElement ddlName, String css)
-	{		
+	 */
+
+	public String getControlCss(WebElement ddlName, String css) {
 		return ddlName.getCssValue(css);
 	}
 
