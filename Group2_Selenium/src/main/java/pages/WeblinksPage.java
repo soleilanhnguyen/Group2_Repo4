@@ -17,6 +17,7 @@ public class WeblinksPage extends AbstractPage {
 	/**
 	 * @author Dung Pham 06/28/2015
 	 * @param driver
+	 * @description this is contructor of page WeblinksPage
 	 */
 	public WeblinksPage(WebDriver driver) {
 		this.driver = driver;
@@ -61,6 +62,7 @@ public class WeblinksPage extends AbstractPage {
 
 	/**
 	 * @author Dung Pham 7/19/2015
+	 * @description click Trash button
 	 */
 	public void clickTrashButton() {
 		click(BTN_TRASH);
@@ -85,6 +87,7 @@ public class WeblinksPage extends AbstractPage {
 
 	/**
 	 * @author Dung Pham 7/19/2015
+	 * @description click Unpublish button
 	 */
 	public void clickUnpublishButton() {
 		click(BTN_UNPUBLISH);
@@ -129,6 +132,7 @@ public class WeblinksPage extends AbstractPage {
 
 	/**
 	 * @author Dung Pham 7/19/2015
+	 * @description clich Archive button
 	 */
 	public void clickArchiveButton() {
 		click(BTN_ARCHIVE);
@@ -153,6 +157,7 @@ public class WeblinksPage extends AbstractPage {
 
 	/**
 	 * @author Dung Pham 7/19/2015
+	 * @description click Check in button
 	 */
 	public void clickCheckinButton() {
 		click(BTN_CHECKIN);
@@ -245,6 +250,7 @@ public class WeblinksPage extends AbstractPage {
 
 	/**
 	 * @author Dung Pham 7/19/2015
+	 * @description click ID column
 	 */
 	public void clickIDColumn() {
 		click(ID_COLUMN_ICON);
@@ -296,6 +302,7 @@ public class WeblinksPage extends AbstractPage {
 
 	/**
 	 * @author Dung Pham 7/19/2015
+	 * @description click Ordering button column
 	 */
 	public void clickOrderingColumn() {
 		click(ID_COLUMN_ORDERING);
@@ -339,6 +346,7 @@ public class WeblinksPage extends AbstractPage {
 
 	/**
 	 * @author Dung Pham 07/18/2015
+	 * @description click Publish button
 	 */
 	public void clickPublishButton() {
 		click(BTN_PUBLISH);
@@ -347,6 +355,7 @@ public class WeblinksPage extends AbstractPage {
 
 	/**
 	 * @author Dung Pham 07/18/2015
+	 * @description click Help button
 	 */
 	public void clickHelpButton() {
 		click(BTN_HELP);
@@ -355,6 +364,7 @@ public class WeblinksPage extends AbstractPage {
 
 	/**
 	 * @author Dung Pham 07/13/2015
+	 * @description click on Status button at the table
 	 */
 	public void clickOnStatusWebLink(String weblinkTitle) {
 		WebElement webElement = findElementByXPath(driver,
@@ -382,6 +392,7 @@ public class WeblinksPage extends AbstractPage {
 	 * @author Dung Pham 07/12/2015
 	 * @param weblinkTitle
 	 * @param status
+	 * @description check the Weblink is Published or not
 	 */
 	public boolean isWeblinkIsPublishedOrNot(String weblinkTitle,
 			String weblinkStatusOfTable) {
@@ -425,6 +436,7 @@ public class WeblinksPage extends AbstractPage {
 	 * @author Dung Pham 07/07/2015
 	 * @param weblinkTitle
 	 * @return true/false
+	 * @description check the web link exist on the table
 	 */
 	public boolean isWeblinkExist(String weblinkTitle) {
 		try {
@@ -442,6 +454,7 @@ public class WeblinksPage extends AbstractPage {
 	 * @author Dung Pham
 	 * @param weblinkTitle
 	 * @return
+	 * @description delete a weblink
 	 */
 	public WeblinksPage deleteWeblink(String weblinkTitle) {
 		searchWeblink(weblinkTitle);
@@ -453,6 +466,7 @@ public class WeblinksPage extends AbstractPage {
 	/**
 	 * @author Dung Pham 07/06/2015
 	 * @return
+	 * @description return the driver of WeblinkPage
 	 */
 	public WebDriver getWeblinksPageDriver() {
 		return this.driver;
@@ -461,6 +475,7 @@ public class WeblinksPage extends AbstractPage {
 	/**
 	 * @author Dung Pham create 07/02/2015
 	 * @param option
+	 * @description select option from Status select at the top right screen
 	 */
 	public void selectOptionFromStatusDropdown(String option) {
 		selectOptionFromDropdownList(OPT_STATUS, option);
@@ -469,6 +484,7 @@ public class WeblinksPage extends AbstractPage {
 	/**
 	 * @author Dung Pham create 07/06/2015
 	 * @param option
+	 * @description select option from Category Dropdown at the top right screen
 	 */
 	public void selectOptionFromCategoryDropdown(String option) {
 		selectOptionFromDropdownList(OPT_CATEGORY, option);
@@ -527,6 +543,7 @@ public class WeblinksPage extends AbstractPage {
 	 *              Edit,.. button
 	 * @param String
 	 *            button
+	 * @description click the Button on the Top right toolbar
 	 */
 	public void clickButtonOnTopRightToolbar(String button) {
 		if (button != "options") {
@@ -544,6 +561,7 @@ public class WeblinksPage extends AbstractPage {
 	 * @author Dung Pham 06/28/2015
 	 * @description Create a new web link by clicking on icon New
 	 * @return object of CreateWebLinkPage
+	 * @description click on New button
 	 */
 	public CreateWebLinkPage clickNewButton() {
 
@@ -579,6 +597,7 @@ public class WeblinksPage extends AbstractPage {
 	/**
 	 * @author Dung Pham 06/28/2015
 	 * @return
+	 * @Description click on Edit button
 	 */
 	public CreateWebLinkPage clickEditButton() {
 		click(BTN_EDIT);
