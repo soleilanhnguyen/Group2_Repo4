@@ -102,7 +102,7 @@ public class TM_CategoryManager_001 extends AbstractTest {
 	}
 	
 	@Test(description = "TC_CategoryManager_007 User can access contact's help section")
-	public void TC_CategoryManager_007() {
+	public void TC_JOOMLA_CategoryManager_007() {
 
 		objCategoryManagerPage.clickButtonOnTopRightToolbar(buttonHelp);
 
