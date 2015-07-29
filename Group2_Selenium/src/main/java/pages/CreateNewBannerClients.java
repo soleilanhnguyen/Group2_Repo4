@@ -45,6 +45,7 @@ public class CreateNewBannerClients extends AbstractPage {
 
 	/**
 	 * @author Dung Pham 7/20/2015
+	 * @description click Save as New button
 	 */
 	public void clickSaveNewButton() {
 		click(BTN_SAVENEW);
@@ -87,6 +88,7 @@ public class CreateNewBannerClients extends AbstractPage {
 	/**
 	 * @author Dung Pham 7/20/2015
 	 * @return BannerClientsPage
+	 * @description click Cancel button
 	 */
 	public BannerClientsPage clickCancelButton() {
 		click(BTN_CANCEL);
@@ -99,6 +101,7 @@ public class CreateNewBannerClients extends AbstractPage {
 	 * @param contactName
 	 * @param contactEmail
 	 * @param contactStatus
+	 * @description type a new banner client with name, contact, email, status
 	 */
 	public void typeANewBannerClients(String clientName, String contactName,
 			String contactEmail, String contactStatus) {
@@ -110,7 +113,8 @@ public class CreateNewBannerClients extends AbstractPage {
 
 	/**
 	 * @author Dung Pham
-	 * @return
+	 * @return BannerClientsPage
+	 * @description click Save & Close button
 	 */
 	public BannerClientsPage clickSaveCloseButton() {
 		click(BTN_SAVECLOSE);
@@ -119,7 +123,8 @@ public class CreateNewBannerClients extends AbstractPage {
 
 	/**
 	 * @author Dung Pham
-	 * @return
+	 * @return EditBannerClient
+	 * @description click Save button
 	 */
 	public EditBannerClient clickSaveButton() {
 		click(BTN_SAVE);
@@ -158,7 +163,6 @@ public class CreateNewBannerClients extends AbstractPage {
 	@FindBy(xpath = "//dl[@id='system-message']/dd/ul")
 	private WebElement POPUP_MESSAGE;
 
-	//@FindBy(xpath = "//div[@id='toolbar-box']/div/div[2]/h2")
 	@FindBy(xpath = "//div[contains(@class,'pagetitle')]/h2")
 	private WebElement HEADER_PAGE;
 
