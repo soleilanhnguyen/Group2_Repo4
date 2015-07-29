@@ -222,6 +222,7 @@ public class BannerClientsPage extends AbstractPage {
 	/**
 	 * @author Dung Pham
 	 * @return WebDriver
+	 * @description get the driver of BannerClient page
 	 */
 	public WebDriver getBannerClientsPageDriver() {
 		return this.driver;
@@ -279,6 +280,7 @@ public class BannerClientsPage extends AbstractPage {
 	/**
 	 * @author Dung Pham 07/11/2015
 	 * @param option
+	 * @description select option from Status dropdown at top right screen
 	 */
 	public void selectOptionFromStatusDropdown(String option) {
 		selectOptionFromDropdownList(OPT_STATUS, option);
@@ -287,6 +289,7 @@ public class BannerClientsPage extends AbstractPage {
 	/**
 	 * @author Dung Pham 07/11/2015
 	 * @param clientName
+	 * @description click on check box in front of Banner client
 	 */
 	public void clickOnCheckBoxWebBannerClient(String clientName) {
 		WebElement webElement = findElementByXPath(driver,
@@ -344,16 +347,17 @@ public class BannerClientsPage extends AbstractPage {
 	 * @return object of CreateNewBannerClients
 	 */
 	public CreateNewBannerClients clickNewButton() {
-		
+
 		waitForControl(driver, BTN_NEW, Constant.longTimeOut);
-		
+
 		click(BTN_NEW);
-		
+
 		return new CreateNewBannerClients(driver);
 	}
 
 	/**
 	 * @author DungPham 07/06/2015
+	 * 
 	 */
 	public void verifyBannerClientSavedSuccessfully() {
 		Assert.assertTrue(POPUP_MESSAGE.getText().contains(
@@ -364,6 +368,7 @@ public class BannerClientsPage extends AbstractPage {
 	/**
 	 * @author Dung Pham
 	 * @param clientName
+	 * @description search a Banner Client
 	 */
 	public void searchBannerClient(String clientName) {
 		type(TXT_SEARCH, clientName);
@@ -373,7 +378,8 @@ public class BannerClientsPage extends AbstractPage {
 	/**
 	 * @author Dung Pham
 	 * @param clientName
-	 * @return
+	 * @return boolean
+	 * @description check the banner client displayed on table
 	 */
 	public boolean isBannerClientExist(String clientName) {
 		try {
@@ -385,28 +391,26 @@ public class BannerClientsPage extends AbstractPage {
 			return false;
 		}
 
-			
 	}
 
-	
 	/**
 	 * @author Anh Nguyen
-	 * @return
+	 * @return boolean
+	 * 
 	 */
 	public boolean isClientPageDisplayed() {
 
-		try{
-		String bodyText = driver.findElement(By.tagName("h2")).getText();
-		bodyText.contains(labelClient);
+		try {
+			String bodyText = driver.findElement(By.tagName("h2")).getText();
+			bodyText.contains(labelClient);
 			return true;
-		}catch(NoSuchElementException ex){
-			
+		} catch (NoSuchElementException ex) {
+
 			return false;
 		}
 
 	}
-	
-	
+
 	private WebDriver driver;
 
 	@FindBy(xpath = "//li[@id='toolbar-new']/a/span")
