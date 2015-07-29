@@ -33,7 +33,7 @@ public class TM_CategoryManager_001 extends AbstractTest {
 	}
 
 	@Test(description = "TC_CategoryManager_001: Verify that user can create a new category with valid information")
-	public void TC_CategoryManager_001() {
+	public void TC_JOOMLA_CategoryManager_001() {
 
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
@@ -54,7 +54,7 @@ public class TM_CategoryManager_001 extends AbstractTest {
 	}
 
 	@Test(description = "TC_CategoryManager_002: Verify that user can edit a category")
-	public void TC_CategoryManager_002() {
+	public void TC_JOOMLA_CategoryManager_002() {
 
 		objCategoryManagerPage.clickOnCheckCategory(categoryTitle1);
 
@@ -73,7 +73,7 @@ public class TM_CategoryManager_001 extends AbstractTest {
 	}
 
 	@Test(description = "TC_CategoryManager_005: Verify that user can archive a category")
-	public void TC_CategoryManager_005() {
+	public void TC_JOOMLA_CategoryManager_005() {
 
 		objCategoryManagerPage.clickOnCheckCategory(categoryTitle2);
 
@@ -89,7 +89,7 @@ public class TM_CategoryManager_001 extends AbstractTest {
 	}
 
 	@Test(description = "TC_CategoryManager_006: Verify that User can send a category to trash")
-	public void TC_CategoryManager_006() {
+	public void TC_JOOMLA_CategoryManager_006() {
 
 		objCategoryManagerPage.deleteCategory(categoryTitle2);
 
@@ -118,7 +118,7 @@ public class TM_CategoryManager_001 extends AbstractTest {
 	}
 
 	@Test(description = "User can browse New Category help page")
-	public void TC_CategoryManager_011() {
+	public void TC_JOOMLA_CategoryManager_011() {
 
 		objCreateNewCategory = objCategoryManagerPage.clickOnNewbutton();
 

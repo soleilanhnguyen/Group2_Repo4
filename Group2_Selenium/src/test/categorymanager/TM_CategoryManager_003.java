@@ -32,7 +32,7 @@ public class TM_CategoryManager_003 extends AbstractTest {
 	}
 
 	@Test(description = "TC_CategoryManger_010: User can create many categories by using Save & New button")
-	public void TC_CategoryManager_010() {
+	public void TC_JOOMLA_CategoryManager_010() {
 
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
@@ -69,7 +69,7 @@ public class TM_CategoryManager_003 extends AbstractTest {
 	}
 
 	@Test(description = "TC_CategoryManager_009: User can search a category by using filter dropdown lists")
-	public void TC_CategoryManger_009() {
+	public void TC_JOOMLA_CategoryManger_009() {
 
 		objCategoryManagerPage
 				.selectOptionFromStatusDropdown(optionUnpublished);

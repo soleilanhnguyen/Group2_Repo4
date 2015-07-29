@@ -35,7 +35,7 @@ public class TM_Contact_001 extends AbstractTest {
 	}
 
 	@Test(description = "TC_Contact_001:User can create new contact with valid information")
-	public void TC_Contact_001() {
+	public void TC_JOOMLA_Contact_001() {
 
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
@@ -59,7 +59,7 @@ public class TM_Contact_001 extends AbstractTest {
 	}
 
 	@Test(description = "TC_Contact_002: User can edit a contact")
-	public void TC_Contact_002() {
+	public void TC_JOOMLA_Contact_002() {
 
 		objContactsPage.clickOnCheckContactPage(contactName1);
 
@@ -79,7 +79,7 @@ public class TM_Contact_001 extends AbstractTest {
 	}
 
 	@Test(description = "TC_Contact_005: User can move a contact to the archive")
-	public void TC_Contact_005() {
+	public void TC_JOOMLA_Contact_005() {
 
 		objContactsPage.clickOnCheckContactPage(contactName2);
 
@@ -94,7 +94,7 @@ public class TM_Contact_001 extends AbstractTest {
 	}
 	
 	@Test(description = "TC_Contact_007: User can move a contact to trash section")
-	public void TC_Contact_007() {
+	public void TC_JOOMLA_Contact_007() {
 
 		objContactsPage.clickOnCheckContactPage(contactName2);
 
@@ -109,7 +109,7 @@ public class TM_Contact_001 extends AbstractTest {
 	}
 
 	@Test(description = "TC_Contact_008: User can access contact's help section")
-	public void TC_Contact_008() {
+	public void TC_JOOMLA_Contact_008() {
 		
 		objContactsPage.clickButtonOnTopRightToolbar(buttonHelp);
 

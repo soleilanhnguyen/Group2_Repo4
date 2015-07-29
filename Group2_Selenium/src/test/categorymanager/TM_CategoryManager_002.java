@@ -33,7 +33,7 @@ public class TM_CategoryManager_002 extends AbstractTest {
 	}
 
 	@Test(description = "TC_CategoryManager_003: Verify that user can publish a category")
-	public void TC_CategoryManager_003() {
+	public void TC_JOOMLA_CategoryManager_003() {
 
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
@@ -66,7 +66,7 @@ public class TM_CategoryManager_002 extends AbstractTest {
 	}
 
 	@Test(description = "TC_CategoryManager_004: User can unpublish a category")
-	public void TC_CategoryManager_004() {
+	public void TC_JOOMLA_CategoryManager_004() {
 
 		objCategoryManagerPage.clickOnCheckCategory(categoryTitle);
 
@@ -83,7 +83,7 @@ public class TM_CategoryManager_002 extends AbstractTest {
 	}
 
 	@Test(description = "TC_CategoryManager_008: User can search a category  by using filter textbox")
-	public void TC_CategoryManager_008() {
+	public void TC_JOOMLA_CategoryManager_008() {
 
 		objCreateNewCategory = objCategoryManagerPage.clickOnNewbutton();
 
@@ -99,7 +99,7 @@ public class TM_CategoryManager_002 extends AbstractTest {
 	}
 
 	@Test(description = "TC_CategoryManager_012: User can cancel adding action while adding a new create")
-	public void TC_CategoryManager_012() {
+	public void TC_JOOMLA_CategoryManager_012() {
 
 		objCreateNewCategory = objCategoryManagerPage.clickOnNewbutton();
 

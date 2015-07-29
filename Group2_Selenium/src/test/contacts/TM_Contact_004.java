@@ -34,7 +34,7 @@ public class TM_Contact_004 extends AbstractTest {
 
 	@Parameters("browser")
 	@Test(description = "TC_Contact_006:Verify user can check in an article")
-	public void TC_Contact_006(String browser)throws Exception {
+	public void TC_JOOMLA_Contact_006(String browser)throws Exception {
 
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
@@ -85,7 +85,7 @@ public class TM_Contact_004 extends AbstractTest {
 	}
 
 	@Test(description = "TC_Contact_014:Verify user can change the order of contacts using the Ordering column")
-	public void TC_Contact_014() {
+	public void TC_JOOMLA_Contact_014() {
 
 		objCreateNewContactPage = objContactsPage.clickOnNewbutton();
 
@@ -134,7 +134,7 @@ public class TM_Contact_004 extends AbstractTest {
 	}
 
 	@Test(description = "TC_Contact_016:User can change the feature property of contacts using the Featured column")
-	public void TC_Contact_016() {
+	public void TC_JOOMLA_Contact_016() {
 
 		objCreateNewContactPage = objContactsPage.clickOnNewbutton();
 

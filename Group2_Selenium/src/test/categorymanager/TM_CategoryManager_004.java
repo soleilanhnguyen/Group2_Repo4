@@ -34,11 +34,10 @@ public class TM_CategoryManager_004 extends AbstractTest {
 		Common.getUniqueString("COPY");
 		textsearch = Common.getUniqueString("");
 		levelValue = "Special";
-		colorRed = "#FF0000";
 	}
 
 	@Test(description = "TC_CategoryManager_013: User can creat a new category by using Save as Copy button")
-	public void TC_CategoryManager_013() {
+	public void TC_JOOMLA_CategoryManager_013() {
 
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
@@ -69,7 +68,7 @@ public class TM_CategoryManager_004 extends AbstractTest {
 	}
 
 	@Test(description = "TC_CategoryManager_014: User can move may articles to another category")
-	public void TC_CategoryManager_014() {
+	public void TC_JOOMLA_CategoryManager_014() {
 
 		objCategoryManagerPage.clickOnNewbutton();
 
@@ -116,7 +115,7 @@ public class TM_CategoryManager_004 extends AbstractTest {
 	}
 
 	@Test(description = "TC_CategoryManager_015: User can copy may articles to another category")
-	public void TC_CategoryManager_015() {
+	public void TC_JOOMLA_CategoryManager_015() {
 
 		objArticlePage.clickOnCheckBoxArticle(article1);
 
@@ -143,7 +142,7 @@ public class TM_CategoryManager_004 extends AbstractTest {
 	}
 
 	@Test(description = "TC_CategoryManager_016: User can change access level to may articles")
-	public void TC_CategoryManager_016() {
+	public void TC_JOOMLA_CategoryManager_016() {
 
 		objArticlePage.searchArticle(textsearch, categoryTitle1);
 
@@ -178,7 +177,7 @@ public class TM_CategoryManager_004 extends AbstractTest {
 	}
 
 	@Test(description = "TC_CategoryManager_017: User cannot create a new Category without entering the title of the category")
-	public void TC_CategoryManager_017() {
+	public void TC_JOOMLA_CategoryManager_017() {
 
 		objCreateNewCategory = objCategoryManagerPage.clickOnNewbutton();
 
@@ -216,5 +215,4 @@ public class TM_CategoryManager_004 extends AbstractTest {
 	private String levelValue;
 	private String article1;
 	private String article2;
-	private String colorRed;
 }

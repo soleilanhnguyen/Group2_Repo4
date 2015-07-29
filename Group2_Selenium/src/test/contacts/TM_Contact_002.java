@@ -29,12 +29,10 @@ public class TM_Contact_002 extends AbstractTest {
 		buttonunPublished = "unpublish";
 		contactStatusOfTable1 = "Published";
 		contactStatusOfTable2 = "Unpublished";
-		buttonTrash = "trash";
-		optionTrash = "Trashed";
 	}
 
 	@Test(description = "TC_Contact_003:Verify user can publish an unpublished contact")
-	public void TC_Contact_003() {
+	public void TC_JOOMLA_Contact_003() {
 
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
@@ -69,7 +67,7 @@ public class TM_Contact_002 extends AbstractTest {
 	}
 
 	@Test(description = "TC_Contact_004: User can unpublish a published contact")
-	public void TC_Contact_004() {
+	public void TC_JOOMLA_Contact_004() {
 
 		objContactsPage.clickOnCheckContactPage(contactName);
 
@@ -83,7 +81,7 @@ public class TM_Contact_002 extends AbstractTest {
 	}
 
 	@Test(description = "TC_Contact_015:User can change the status of contacts using the Status column")
-	public void TC_Contact_015() {
+	public void TC_JOOMLA_Contact_015() {
 
 		objContactsPage.clickOnCheckContactPage(contactName);
 
@@ -115,6 +113,4 @@ public class TM_Contact_002 extends AbstractTest {
 	private String contactStatusOfTable1;
 	private String contactStatusOfTable2;
 	private String statusUnpublishedtext;
-	private String buttonTrash;
-	private String optionTrash;
 }
