@@ -42,7 +42,7 @@ public class TM_BannerClient_002 extends AbstractTest {
 	}
 
 	@Test(description = "Verify that user can edit a client")
-	public void TC_BannerClient_002() {
+	public void TC_JOOMLA_BANNERS_CLIENTS_002() {
 
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
@@ -74,7 +74,7 @@ public class TM_BannerClient_002 extends AbstractTest {
 	}
 
 	@Test(description = "Verify that user can unpublish a client")
-	public void TC_BannerClient_004() {
+	public void TC_JOOMLA_BANNERS_CLIENTS_004() {
 
 		objBannerClientsPage.clickOnCheckBoxWebBannerClient(clientNameEdited);
 
@@ -88,7 +88,7 @@ public class TM_BannerClient_002 extends AbstractTest {
 	}
 
 	@Test(description = "Verify that user can send a client to trash")
-	public void TC_BannerClient_006() {
+	public void TC_JOOMLA_BANNERS_CLIENTS_006() {
 
 		objBannerClientsPage.clickOnCheckBoxWebBannerClient(clientNameEdited);
 

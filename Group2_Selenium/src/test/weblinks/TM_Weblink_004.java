@@ -45,7 +45,7 @@ public class TM_Weblink_004 extends AbstractTest {
 
 	@Parameters("browser")
 	@Test(description = "Verify user can check in a web link")
-	public void TC_Weblink_006(String browser) {
+	public void TC_JOOMLA_WEBLINKS_006(String browser) {
 
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
@@ -85,7 +85,7 @@ public class TM_Weblink_004 extends AbstractTest {
 	}
 
 	@Test(description = "Verify user can paging the weblinks using the paging control")
-	public void TC_Weblink_012() {
+	public void TC_JOOMLA_WEBLINKS_012() {
 
 		objWeblinksPage.searchWeblink("");
 
@@ -99,7 +99,7 @@ public class TM_Weblink_004 extends AbstractTest {
 	}
 
 	@Test(description = "Verify user can change the order of weblinks using the Ordering column")
-	public void TC_Weblink_014() {
+	public void TC_JOOMLA_WEBLINKS_014() {
 
 		objCreateWebLinkPage = objWeblinksPage.clickNewButton();
 
@@ -140,7 +140,7 @@ public class TM_Weblink_004 extends AbstractTest {
 	}
 
 	@Test(description = "User can change the status of weblinks using the Status column")
-	public void TC_Weblink_015() {
+	public void TC_JOOMLA_WEBLINKS_015() {
 
 		objCreateWebLinkPage = objWeblinksPage.clickNewButton();
 
@@ -174,7 +174,7 @@ public class TM_Weblink_004 extends AbstractTest {
 	}
 
 	@Test(description = "Verify user can create a copied version of an existed weblink")
-	public void TC_Weblink_016() {
+	public void TC_JOOMLA_WEBLINKS_016() {
 
 		objWeblinksPage.clickOnCheckBoxWebLink(weblinkTitle4);
 

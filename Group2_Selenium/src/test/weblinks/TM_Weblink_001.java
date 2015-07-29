@@ -41,7 +41,7 @@ public class TM_Weblink_001 extends AbstractTest {
 	}
 
 	@Test(description = "Verify user can create new web link with valid information")
-	public void TC_Weblink_001() {
+	public void TC_JOOMLA_WEBLINKS_001() {
 
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
@@ -63,7 +63,7 @@ public class TM_Weblink_001 extends AbstractTest {
 	}
 
 	@Test(description = "Verify user can edit a web link")
-	public void TC_Weblink_002() {
+	public void TC_JOOMLA_WEBLINKS_002() {
 
 		objWeblinksPage.clickOnCheckBoxWebLink(weblinkTitle);
 
@@ -85,7 +85,7 @@ public class TM_Weblink_001 extends AbstractTest {
 	}
 
 	@Test(description = "Verify user can access weblink's help section")
-	public void TC_Weblink_008() {
+	public void TC_JOOMLA_WEBLINKS_008() {
 
 		objWeblinksPage.clickHelpButton();
 
@@ -100,7 +100,7 @@ public class TM_Weblink_001 extends AbstractTest {
 	}
 
 	@Test(description = "Verify user can search for weblinks using the filter text field")
-	public void TC_Weblink_009() {
+	public void TC_JOOMLA_WEBLINKS_009() {
 
 		objWeblinksPage.searchWeblink("");
 		
@@ -111,7 +111,7 @@ public class TM_Weblink_001 extends AbstractTest {
 	}
 	
 	@Test(description = "Verify user can search for weblinks using the filter dropdown lists")
-	public void TC_Weblink_010() {
+	public void TC_JOOMLA_WEBLINKS_010() {
 		
 		objCreateWebLinkPage = objWeblinksPage.clickNewButton();
 		
@@ -132,7 +132,7 @@ public class TM_Weblink_001 extends AbstractTest {
 	}
 	
 	@Test(description = "Verify user can sort the weblinks table by ID column")
-	public void TC_Weblink_011() {
+	public void TC_JOOMLA_WEBLINKS_011() {
 
 		objWeblinksPage.searchWeblink("");
 		

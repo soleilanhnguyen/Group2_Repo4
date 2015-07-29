@@ -29,7 +29,7 @@ public class TM_Weblink_003 extends AbstractTest {
 	}
 
 	@Test(description = "Verify user can unpublish a published web link")
-	public void TC_Weblink_004() {
+	public void TC_JOOMLA_WEBLINKS_004() {
 
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
@@ -60,7 +60,7 @@ public class TM_Weblink_003 extends AbstractTest {
 	}
 
 	@Test(description = "Verify user can move a web link to the archive")
-	public void TC_Weblink_005() {
+	public void TC_JOOMLA_WEBLINKS_005() {
 
 		objWeblinksPage.searchWeblink(weblinkTitle);
 

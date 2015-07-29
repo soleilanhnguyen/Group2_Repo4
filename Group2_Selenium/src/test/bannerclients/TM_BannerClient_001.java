@@ -42,7 +42,7 @@ public class TM_BannerClient_001 extends AbstractTest {
 	}
 
 	@Test(description = "Verify that user can create a new client")
-	public void TC_BannerClient_001() {
+	public void TC_JOOMLA_BANNERS_CLIENTS_001() {
 
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
@@ -64,7 +64,7 @@ public class TM_BannerClient_001 extends AbstractTest {
 	}
 
 	@Test(description = "Verify that user can publish a client")
-	public void TC_BannerClient_003() {
+	public void TC_JOOMLA_BANNERS_CLIENTS_003() {
 
 		objBannerClientsPage.clickOnCheckBoxWebBannerClient(clientName);
 
@@ -77,7 +77,7 @@ public class TM_BannerClient_001 extends AbstractTest {
 	}
 
 	@Test(description = "Verify that user can archive a client")
-	public void TC_BannerClient_005() {
+	public void TC_JOOMLA_BANNERS_CLIENTS_005() {
 
 		objBannerClientsPage.clickOnCheckBoxWebBannerClient(clientName);
 
@@ -92,7 +92,7 @@ public class TM_BannerClient_001 extends AbstractTest {
 	}
 
 	@Test(description = "Verify that user can browse Banner client help page")
-	public void TC_BannerClient_007() {
+	public void TC_JOOMLA_BANNERS_CLIENTS_007() {
 
 		objBannerClientsPage.clickHelpButton();
 
@@ -107,7 +107,7 @@ public class TM_BannerClient_001 extends AbstractTest {
 	}
 
 	@Test(description = "Verify that user can search a client  by using filter textbox")
-	public void TC_BannerClient_008() {
+	public void TC_JOOMLA_BANNERS_CLIENTS_008() {
 
 		objBannerClientsPage.searchBannerClient(clientName);
 
@@ -118,7 +118,7 @@ public class TM_BannerClient_001 extends AbstractTest {
 	}
 
 	@Test(description = "Verify that user can search a client by using filter dropdown lists")
-	public void TC_BannerClient_009() {
+	public void TC_JOOMLA_BANNERS_CLIENTS_009() {
 
 		objCreateNewBannerClients = objBannerClientsPage.clickNewButton();
 
@@ -140,7 +140,7 @@ public class TM_BannerClient_001 extends AbstractTest {
 	}
 
 	@Test(description = "Verify that user can not create a new client without entering the name of the client")
-	public void TC_BannerClient_014() {
+	public void TC_JOOMLA_BANNERS_CLIENTS_014() {
 
 		objCreateNewBannerClients = objBannerClientsPage.clickNewButton();
 
@@ -158,7 +158,7 @@ public class TM_BannerClient_001 extends AbstractTest {
 	}
 
 	@Test(description = "Verify that user can not create a new client after entering invalid email address")
-	public void TC_BannerClient_015() {
+	public void TC_JOOMLA_BANNERS_CLIENTS_015() {
 		objCreateNewBannerClients = objBannerClientsPage.clickNewButton();
 
 		objCreateNewBannerClients.typeANewBannerClients(clientName,

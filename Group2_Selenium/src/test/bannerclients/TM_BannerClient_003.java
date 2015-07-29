@@ -60,7 +60,7 @@ public class TM_BannerClient_003 extends AbstractTest {
 
 	@Parameters("browser")
 	@Test(description = "Verify user can check in a web link")
-	public void TC_BannerClient_010(String browser) {
+	public void TC_JOOMLA_BANNERS_CLIENTS_010(String browser) {
 
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
@@ -100,7 +100,7 @@ public class TM_BannerClient_003 extends AbstractTest {
 	}
 
 	@Test(description = "Verify that user can create many clients by using Save& New button")
-	public void TC_BannerClient_011() {
+	public void TC_JOOMLA_BANNERS_CLIENTS_011() {
 
 		objCreateNewBannerClients = objBannerClientsPage.clickNewButton();
 
@@ -131,7 +131,7 @@ public class TM_BannerClient_003 extends AbstractTest {
 	}
 
 	@Test(description = "Verify that user can browse New Client help ")
-	public void TC_BannerClient_012() {
+	public void TC_JOOMLA_BANNERS_CLIENTS_012() {
 
 		objCreateNewBannerClients = objBannerClientsPage.clickNewButton();
 
@@ -148,7 +148,7 @@ public class TM_BannerClient_003 extends AbstractTest {
 	}
 	
 	@Test(description = "Verify that user can creat a new client by using Save as Copy button")
-	public void TC_BannerClient_013(){
+	public void TC_JOOMLA_BANNERS_CLIENTS_013(){
 		
 		objCreateNewBannerClients.typeANewBannerClients(clientName4,
 				contactName4, contactEmail4, contactStatus4);
