@@ -30,7 +30,7 @@ public class TM_Article_002 extends AbstractTest {
 		
 	
 	@Test(description = "User can move an article to the archive")
-	public void TC_Article_005(){
+	public void TC_JOOMLA_Article_005(){
 
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
@@ -63,7 +63,7 @@ public class TM_Article_002 extends AbstractTest {
 	}
 	
 	@Test(description = "Verify user can sort the article table by ID column")
-	public void TC_Article_011() {
+	public void TC_JOOMLA_Article_011() {
 		objArticlePage.searchArticle("");
 		objArticlePage.selectQuantity("All");
 
@@ -76,8 +76,6 @@ public class TM_Article_002 extends AbstractTest {
 		AssertTrue(objArticlePage.isSortedDescending());
 
 	}
-	
-	
 	
 	
 	@AfterClass(alwaysRun = true)

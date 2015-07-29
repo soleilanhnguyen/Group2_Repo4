@@ -39,7 +39,7 @@ public class TM_Banners_006 extends AbstractTest {
 
 	@Parameters("browser")
 	@Test(description = "Verify that user can create many banners by using Save & New button")
-	public void TC_Banner_011() {
+	public void TC_JOOMLA_Banner_011() {
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
 

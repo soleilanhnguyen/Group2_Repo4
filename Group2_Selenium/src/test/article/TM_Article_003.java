@@ -32,7 +32,7 @@ public class TM_Article_003 extends AbstractTest {
 	}
 
 	@Test(description = "Verify user can unpublish a published article")
-	public void TC_Article_004() {
+	public void TC_JOOMLA_Article_004() {
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
 		objArticlePage = objHomePage.gotoArticlePage(driver);
@@ -66,7 +66,7 @@ public class TM_Article_003 extends AbstractTest {
 	}
 
 	@Test(description = "Verify user can move an article to trash section")
-	public void TC_Article_007() {
+	public void TC_JOOMLA_Article_007() {
 		objArticlePage.moveArticleToTrash(txtTitle);
 		objArticlePage.selectStatus(trashStatus);
 		objArticlePage.searchArticle(txtTitle);
@@ -75,7 +75,6 @@ public class TM_Article_003 extends AbstractTest {
 
 	}
 
-	
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {

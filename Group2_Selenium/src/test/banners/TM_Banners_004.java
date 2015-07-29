@@ -37,7 +37,7 @@ public class TM_Banners_004 extends AbstractTest {
 
 	@Parameters("browser")
 	@Test(description = "Verify that user can check in a banner")
-	public void TC_Banner_010(String browser) {
+	public void TC_JOOMLA_Banner_010(String browser) {
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
 

@@ -38,7 +38,7 @@ public class TM_Banners_003 extends AbstractTest {
 	}
 
 	@Test(description = "Verify that user can create a new banner with unpublished status")
-	public void TC_Banner_003() {
+	public void TC_JOOMLA_Banner_003() {
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
 
@@ -86,7 +86,7 @@ public class TM_Banners_003 extends AbstractTest {
 	}
 
 	@Test(description = "Verify that user can send a banner to trash")
-	public void TC_Banner_006() {
+	public void TC_JOOMLA_Banner_006() {
 
 		objBannerPage.moveBannerToTrash(name);
 		objBannerPage.selectStatus(trashedStatus);
@@ -97,7 +97,7 @@ public class TM_Banners_003 extends AbstractTest {
 	}
 	
 	@Test(description = "Verify that user can browse Banner help page")
-	public void TC_Banner_007(){
+	public void TC_JOOMLA_Banner_007(){
 		objHomePage.gotoBannerPage(driver);
 		objBannerPage.openHelp();
 		this.driver = objBannerPage.getBannerPageDriver();

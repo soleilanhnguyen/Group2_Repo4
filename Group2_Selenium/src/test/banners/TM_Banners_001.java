@@ -37,7 +37,7 @@ public class TM_Banners_001 extends AbstractTest {
 	}
 
 	@Test(description = "Verify that user can create new banner")
-	public void TC_Banner_001() {
+	public void TC_JOOMLA_Banner_001() {
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
 
@@ -83,7 +83,7 @@ public class TM_Banners_001 extends AbstractTest {
 	}
 
 	@Test(description = "Verify that user can search a banner by using filter textbox")
-	public void TC_Banner_008() {
+	public void TC_JOOMLA_Banner_008() {
 		objBannerPage.searchBanner(name);
 
 		AssertTrue(objBannerPage.isBannerExist(name));
@@ -91,7 +91,7 @@ public class TM_Banners_001 extends AbstractTest {
 	}
 
 	@Test(description = "Verify that user can unpublish a banner")
-	public void TC_Banner_004() {
+	public void TC_JOOMLA_Banner_004() {
 
 		objBannerPage.unPublishedBanner(name);
 

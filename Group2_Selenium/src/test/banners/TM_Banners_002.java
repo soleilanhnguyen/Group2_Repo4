@@ -38,7 +38,7 @@ public class TM_Banners_002 extends AbstractTest {
 	}
 
 	@Test(description = "Verify that user can edit a banner")
-	public void TC_Banner_002() {
+	public void TC_JOOMLA_Banner_002() {
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
 
@@ -88,7 +88,7 @@ public class TM_Banners_002 extends AbstractTest {
 	}
 
 	@Test(description = "Verify that user can archive a banner")
-	public void TC_Banner_005() {
+	public void TC_JOOMLA_Banner_005() {
 
 		objBannerPage.archiveBanner(editBannerName);
 		objBannerPage.selectStatus(archivedStatus);

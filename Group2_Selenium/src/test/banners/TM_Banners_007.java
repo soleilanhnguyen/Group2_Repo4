@@ -39,7 +39,7 @@ public class TM_Banners_007 extends AbstractTest {
 	}
 
 	@Test(description = "Verify that user can browse New Banner help page in New banner page")
-	public void TC_Banner_013() {
+	public void TC_JOOMLA_Banner_013() {
 
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
@@ -99,7 +99,7 @@ public class TM_Banners_007 extends AbstractTest {
 	}
 
 	@Test(description = "Verify that user can browse New Banner help page in New banner page")
-	public void TC_Banners_012() {
+	public void TC_JOOMLA_Banners_012() {
 
 		objCreateNewBannerPage = objBannerPage.selectNewbutton();
 		objCreateNewBannerPage.openHelp();

@@ -34,7 +34,7 @@ public class TM_Article_001 extends AbstractTest {
 	}
 
 	@Test(description = "Verify user can create new article with valid information")
-	public void TC_Article_001() {
+	public void TC_JOOMLA_Article_001() {
 
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
@@ -58,7 +58,7 @@ public class TM_Article_001 extends AbstractTest {
 	}
 
 	@Test(description = "Verify user can edit an article")
-	public void TC_Article_002() {
+	public void TC_JOOMLA_Article_002() {
 
 		objArticlePage.clickOnCheckBoxArticle(txtTitle);
 		
@@ -77,7 +77,7 @@ public class TM_Article_001 extends AbstractTest {
 	}
 
 	@Test(description = "User can search for articles using the filter text field")
-	public void TC_Article_009() {
+	public void TC_JOOMLA_Article_009() {
 
 		objArticlePage = objHomePage.gotoArticlePage(driver);
 

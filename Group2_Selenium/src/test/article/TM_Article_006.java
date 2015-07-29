@@ -30,7 +30,7 @@ public class TM_Article_006 extends AbstractTest {
 	}
 
 	@Test(description = "Verify user can create a new article with 'Public' Access Level property")
-	public void TC_Article_017() {
+	public void TC_JOOMLA_Article_017() {
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
 		objArticlePage = objHomePage.gotoArticlePage(driver);
@@ -55,7 +55,7 @@ public class TM_Article_006 extends AbstractTest {
 	}
 
 	@Test(description = "User can change the feature property of articles using the Featured column")
-	public void TC_Articles_016() {
+	public void TC_JOOMLA_Articles_016() {
 
 		objArticlePage.clickOnFeatureIcon(txtTitle);
 

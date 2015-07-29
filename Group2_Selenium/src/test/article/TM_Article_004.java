@@ -32,7 +32,7 @@ public class TM_Article_004 extends AbstractTest {
 	}
 
 	@Test(description = "Verify user can publish an unpublished article")
-	public void TC_Article_003() {
+	public void TC_JOOMLA_Article_003() {
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
 		objArticlePage = objHomePage.gotoArticlePage(driver);
@@ -66,7 +66,7 @@ public class TM_Article_004 extends AbstractTest {
 	}
 
 	@Test(description = "Verify user can change the status of articles using the Status column")
-	public void TC_Article_015() {
+	public void TC_JOOMLA_Article_015() {
 		objArticlePage.clickOnStatusIcon(txtTitle);
 
 		AssertTrue(objArticlePage.isCorrectStatusIconDisplayed(

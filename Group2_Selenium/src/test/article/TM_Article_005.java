@@ -31,7 +31,7 @@ public class TM_Article_005 extends AbstractTest {
 
 	@Parameters("browser")
 	@Test(description = "Verify user can check in an article")
-	public void TC_Article_006(String browser) throws Exception {
+	public void TC_JOOMLA_Article_006(String browser) throws Exception {
 		objHomePage = objLoginPage.login(Constant.adminUsername,
 				Constant.adminPassword);
 		objArticlePage = objHomePage.gotoArticlePage(driver);
@@ -62,7 +62,7 @@ public class TM_Article_005 extends AbstractTest {
 	}
 
 	@Test(description = "Verify user can access article's help section")
-	public void TC_Article_008() {
+	public void TC_JOOMLA_Article_008() {
 
 		objArticlePage.openHelp();
 
