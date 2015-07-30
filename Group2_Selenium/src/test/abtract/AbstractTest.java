@@ -42,9 +42,13 @@ public class AbstractTest {
 		try {
 			driver.close();
 			if (driver.toString().toLowerCase().contains("chrome")) {
-				String cmd = "taskkill /IM chromedriver.exe /F";
+				String cmd = "taskkill /F /IM chromedriver.exe";
 				Process process = Runtime.getRuntime().exec(cmd);
 				process.waitFor();
+				
+				String cmd2 = "taskkill /F /IM chrome.exe";
+				Process process2 = Runtime.getRuntime().exec(cmd2);
+				process2.waitFor();
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

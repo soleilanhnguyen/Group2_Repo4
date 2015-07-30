@@ -105,8 +105,8 @@ public class HomePage extends AbstractPage {
 	private String weblinkPath = "Components/Weblinks/Links";
 	private String articlePath = "Content/Article Manager";
 	private String bannerPath = "Components/Banners/Banners";
-	private String categorybannerPath = "Components/Banners/CategoriesBanner";
-	private String contactPath = "Components/Contact/Contact";
+	private String categorybannerPath = "Components/Banners/Categories";
+	private String contactPath = "Components/Contacts/Contacts";
 	private String categorymanagertPath = "Content/Category Manager";
 
 	@FindBy(xpath = "//a[contains(text(),'Components')]")
