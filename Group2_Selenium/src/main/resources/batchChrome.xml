@@ -11,7 +11,7 @@
 		<classes>
 
 			<class name="article.TM_Article_001" />
-			<!-- <class name="article.TM_Article_002" />
+			<class name="article.TM_Article_002" />
 			<class name="article.TM_Article_003" />
 			<class name="article.TM_Article_004" />
 			<class name="article.TM_Article_005" />
@@ -44,7 +44,7 @@
 			<class name="weblinks.TM_Weblink_001" />
 			<class name="weblinks.TM_Weblink_002" />
 			<class name="weblinks.TM_Weblink_003" />
-			<class name="weblinks.TM_Weblink_004" /> -->
+			<class name="weblinks.TM_Weblink_004" />
 
 		</classes>
 

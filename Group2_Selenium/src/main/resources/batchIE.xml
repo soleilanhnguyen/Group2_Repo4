@@ -10,6 +10,25 @@
 
 		<classes>
 
+			<class name="weblinks.TM_Weblink_001" />
+			<class name="weblinks.TM_Weblink_002" />
+			<class name="weblinks.TM_Weblink_003" />
+			<class name="weblinks.TM_Weblink_004" />
+
+			<class name="bannerclients.TM_BannerClient_001" />
+			<class name="bannerclients.TM_BannerClient_002" />
+			<class name="bannerclients.TM_BannerClient_003" />
+
+			<class name="contacts.TM_Contact_001" />
+			<class name="contacts.TM_Contact_002" />
+			<class name="contacts.TM_Contact_003" />
+			<class name="contacts.TM_Contact_004" />
+
+			<class name="categorymanager.TM_CategoryManager_001" />
+			<class name="categorymanager.TM_CategoryManager_002" />
+			<class name="categorymanager.TM_CategoryManager_003" />
+			<class name="categorymanager.TM_CategoryManager_004" />
+
 			<class name="article.TM_Article_001" />
 			<class name="article.TM_Article_002" />
 			<class name="article.TM_Article_003" />
@@ -25,26 +44,6 @@
 			<class name="banners.TM_Banners_006" />
 			<class name="banners.TM_Banners_007" />
 			<class name="banners.TM_Banners_008" />
-
-			<class name="bannerclients.TM_BannerClient_001" />
-			<class name="bannerclients.TM_BannerClient_002" />
-			<class name="bannerclients.TM_BannerClient_003" />
-
-
-			<class name="categorymanager.TM_CategoryManager_001" />
-			<class name="categorymanager.TM_CategoryManager_002" />
-			<class name="categorymanager.TM_CategoryManager_003" />
-			<class name="categorymanager.TM_CategoryManager_004" />
-
-			<class name="contacts.TM_Contact_001" />
-			<class name="contacts.TM_Contact_002" />
-			<class name="contacts.TM_Contact_003" />
-			<class name="contacts.TM_Contact_004" />
-
-			<class name="weblinks.TM_Weblink_001" />
-			<class name="weblinks.TM_Weblink_002" />
-			<class name="weblinks.TM_Weblink_003" />
-			<class name="weblinks.TM_Weblink_004" />
 
 		</classes>
 

@@ -52,6 +52,19 @@ public class AbstractTest {
 				
 			
 			}
+			
+			if (driver.toString().toLowerCase().contains("iedriverserver")) {
+				String cmd3 = "taskkill /IM IEDriverServer.exe /F";
+				Process process3 = Runtime.getRuntime().exec(cmd3);
+				process3.waitFor();
+				
+				String cmd4 = "taskkill /IM iexplore.exe /F";
+				Process process4 = Runtime.getRuntime().exec(cmd4);
+				process4.waitFor();
+				
+			
+			}
+			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

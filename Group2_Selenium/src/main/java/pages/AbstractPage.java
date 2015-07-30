@@ -154,18 +154,22 @@ public class AbstractPage {
 			WebElement e;
 
 			if (temp[i].equals("CategoriesBanner")) {
+
 				e = driver.findElement(By
 						.xpath(".//*[@id='menu-com-banners']/li[2]/a"));
 
 			} else {
+
 				e = driver.findElement(By.xpath("//a[contains(text(),'"
 						+ temp[i] + "')]"));
+
 			}
 
 			waitForControl(driver, e, Constant.longTimeOut);
 
 			mouseHoverOnWebElement(driver, e);
 
+			// we have to sleep 1 s to run on IE
 			sleepSeconds(1);
 
 		}
