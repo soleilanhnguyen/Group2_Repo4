@@ -28,7 +28,7 @@ public class AbstractTest {
 		WebDriver driver = bm.launchBrowser(strBrowser);
 		driver.get(strUrl);
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
 		return driver;
 	}

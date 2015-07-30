@@ -3,10 +3,12 @@
 /bannerclients/
 /banners/
 /batchChrome.xml
+/batchFirefox.xml
+/batchIE.xml
 /categorymanager/
 /common/
 /config/
 /contacts/
+/pages/
 /variables.xml
 /weblinks/
-/pages/

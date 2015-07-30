@@ -43,6 +43,10 @@ public class BrowserManager {
 				String cmd = "taskkill /IM chromedriver.exe /F";
 				Process process = Runtime.getRuntime().exec(cmd);
 				process.waitFor();
+				
+				String cmd2 = "taskkill /IM chrome.exe /F";
+				Process process2 = Runtime.getRuntime().exec(cmd2);
+				process2.waitFor();
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
