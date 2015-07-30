@@ -5,14 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class EditArticlePage extends AbstractPage{
- public EditArticlePage(WebDriver driver){
-	
-			this.driver = driver;
-			PageFactory.initElements(driver, this);
-		}
+public class EditArticlePage extends AbstractPage {
+	public EditArticlePage(WebDriver driver) {
 
- /**
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+
+	/**
 	 * @description type to Title field
 	 * @param title
 	 * @author anh.nguyen
@@ -20,7 +20,7 @@ public class EditArticlePage extends AbstractPage{
 	public void typeTitle(String title) {
 		if (title != null)
 			TXT_TITLE.clear();
-			type(TXT_TITLE, title);
+		type(TXT_TITLE, title);
 	}
 
 	/**
@@ -55,7 +55,7 @@ public class EditArticlePage extends AbstractPage{
 	public void typeAlias(String alias) {
 		if (alias != null)
 			TXT_ALIAS.clear();
-			type(TXT_ALIAS, alias);
+		type(TXT_ALIAS, alias);
 	}
 
 	/**
@@ -125,51 +125,46 @@ public class EditArticlePage extends AbstractPage{
 
 	}
 
-	
 	/**
 	 * @description create a new article by Save and Close button
 	 * @param article
 	 * @return ArticlePage
 	 * @author anh.nguyen
 	 */
-	public ArticlePage editArticleBySaveAndClose(Article article) {
-		enterValueInToCreateArticleForm(article);
+	public ArticlePage editArticleBySaveAndClose() {
 		click(BTN_SAVEANDCLOSE);
 		return new ArticlePage(driver);
 	}
- 
- 
- 
-	private WebDriver driver; 
-	
-	@FindBy(xpath = ".//*[@id='jform_title']")
+
+	private WebDriver driver;
+
+	@FindBy(xpath = "//input[@id='jform_title']")
 	WebElement TXT_TITLE;
 
-	@FindBy(xpath = ".//*[@id='jform_alias']")
+	@FindBy(xpath = "//input[@id='jform_alias']")
 	WebElement TXT_ALIAS;
 
-	@FindBy(xpath = ".//*[@id='jform_catid']")
+	@FindBy(xpath = "//select[@id='jform_catid']")
 	WebElement DDL_CATEGORY;
 
-	@FindBy(xpath = ".//*[@id='jform_state']")
+	@FindBy(xpath = "//select[@id='jform_state']")
 	WebElement DDL_STATUS;
 
-	@FindBy(xpath = ".//*[@id='jform_access']")
+	@FindBy(xpath = "//select[@id='jform_access']")
 	WebElement DDL_ACCESS;
 
-	@FindBy(xpath = ".//*[@id='jform_featured']")
+	@FindBy(xpath = "//select[@id='jform_featured']")
 	WebElement DDL_FEATURE;
 
-	@FindBy(xpath = ".//*[@id='jform_language']")
+	@FindBy(xpath = "//select[@id='jform_language']")
 	WebElement DDL_LANGUAGE;
 
 	@FindBy(id = "tinymce")
 	WebElement TXT_ARTICLETEXT;
 
-	@FindBy(xpath = ".//*[@id='toolbar-save']/a")
+	@FindBy(xpath = "//li[@id='toolbar-save']/a")
 	WebElement BTN_SAVEANDCLOSE;
 
 	@FindBy(tagName = "iframe")
 	WebElement iFrame;;
- }
-
+}

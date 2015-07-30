@@ -166,6 +166,8 @@ public class AbstractPage {
 
 			mouseHoverOnWebElement(driver, e);
 
+			sleepSeconds(1);
+
 		}
 		clickAction(driver);
 

@@ -40,23 +40,17 @@ public class AbstractTest {
 	 */
 	protected void closeBrowser(WebDriver driver) {
 		try {
-			driver.close();
+			driver.quit();
 			if (driver.toString().toLowerCase().contains("chrome")) {
-				String cmd = "taskkill /F /IM chromedriver.exe *32";
+				String cmd = "taskkill /IM chromedriver.exe /F";
 				Process process = Runtime.getRuntime().exec(cmd);
 				process.waitFor();
 				
-				String cmd2 = "taskkill /F /IM chrome.exe *32";
+				String cmd2 = "taskkill /IM chrome.exe /F";
 				Process process2 = Runtime.getRuntime().exec(cmd2);
 				process2.waitFor();
 				
-				String cmd3 = "taskkill /F /IM chromedriver.exe";
-				Process process3 = Runtime.getRuntime().exec(cmd3);
-				process3.waitFor();
-				
-				String cmd4 = "taskkill /F /IM chrome.exe";
-				Process process4 = Runtime.getRuntime().exec(cmd4);
-				process4.waitFor();
+			
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

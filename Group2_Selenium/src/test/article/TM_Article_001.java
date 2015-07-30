@@ -64,11 +64,13 @@ public class TM_Article_001 extends AbstractTest {
 		
 		objEditArticlePage = objArticlePage.editArticleByEditIcon();
 		
-		objArticle.setTitle(txtEditTitle);
-		objArticle.setCategory(editCategoryValue);
-		objArticle.setArticleText(txteditArticleText);
-		objEditArticlePage.editArticleBySaveAndClose(objArticle);
 		
+		objEditArticlePage.typeTitle(txtEditTitle);
+		objEditArticlePage.selectCategory(editCategoryValue);
+		objEditArticlePage.typeArticleText(txteditArticleText);
+		objEditArticlePage.editArticleBySaveAndClose();
+		
+	
 		AssertTrue(objArticlePage.isMessageArticleDisplayed(objArticlePage.messageText));
 		
 		AssertTrue(objArticlePage.isArticleExist(txtTitle));
