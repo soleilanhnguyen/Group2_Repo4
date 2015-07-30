@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 
 import common.Constant;
 
@@ -245,27 +244,6 @@ public class BannerClientsPage extends AbstractPage {
 
 	/**
 	 * @author Dung Pham 07/12/2015
-	 * @param clientName
-	 * @param clientStatusOfTable
-	 */
-	public boolean isClientIsPublishedOrNot(String clientName,
-			String clientStatusOfTable) {
-		try {
-			WebElement element = findElementByXPath(driver,
-					initialStringStatusOfClient, clientName);
-
-			String text = element.getAttribute("innerHTML");
-
-			// check the text with "Published" or "Unpublished"
-			return text.equals(clientStatusOfTable);
-		} catch (Exception e) {
-			return false;
-		}
-
-	}
-
-	/**
-	 * @author Dung Pham 07/12/2015
 	 * @param textNeedToBeTested
 	 */
 	public boolean isTextDisPlayOnPopupMessage(String textNeedToBeTested) {
@@ -316,32 +294,6 @@ public class BannerClientsPage extends AbstractPage {
 	}
 
 	/**
-	 * @author Dung Pham 07/11/2015
-	 * @param textNeedToBeTested
-	 */
-	public void verifyTextDisPlayOnPopupMessage(String textNeedToBeTested) {
-		Assert.assertTrue(POPUP_MESSAGE.getText().contains(textNeedToBeTested));
-	}
-
-	/**
-	 * @author Dung Pham 07/11/2015
-	 * @param clientName
-	 * @param clientStatusOfTable
-	 */
-	public void verifyClientIsPublishedOrNot(String clientName,
-			String clientStatusOfTable) {
-
-		WebElement element = findElementByXPath(driver,
-				initialStringStatusOfClient, clientName);
-
-		String text = element.getAttribute("innerHTML");
-
-		// check the text with "Published" or "Unpublished"
-		Assert.assertTrue(text.equals(clientStatusOfTable));
-
-	}
-
-	/**
 	 * @author Dung Pham 07/06/2015
 	 * @description Create a new banner client by clicking on icon New
 	 * @return object of CreateNewBannerClients
@@ -353,16 +305,6 @@ public class BannerClientsPage extends AbstractPage {
 		click(BTN_NEW);
 
 		return new CreateNewBannerClients(driver);
-	}
-
-	/**
-	 * @author DungPham 07/06/2015
-	 * 
-	 */
-	public void verifyBannerClientSavedSuccessfully() {
-		Assert.assertTrue(POPUP_MESSAGE.getText().contains(
-				textBannerClientSavedSuccessfully));
-
 	}
 
 	/**

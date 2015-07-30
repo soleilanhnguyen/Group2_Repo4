@@ -69,20 +69,9 @@ public class CreateWebLinkPage extends AbstractPage {
 			return POPUP_MESSAGE.getText().contains(
 					textWeblinkSavedSuccessfully);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			return false;
 		}
-
-	}
-
-	/**
-	 * @author Dung Pham 07/04/2015
-	 * @description verify the text "Weblink successfully saved" display after
-	 *              creating new weblink successfully
-	 */
-	public void verifyWebLinkSavedSuccessfully() {
-		Assert.assertTrue(POPUP_MESSAGE.getText().contains(
-				textWeblinkSavedSuccessfully));
 
 	}
 

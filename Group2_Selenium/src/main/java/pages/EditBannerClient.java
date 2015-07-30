@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 
 public class EditBannerClient extends AbstractPage {
 
@@ -59,16 +58,6 @@ public class EditBannerClient extends AbstractPage {
 	 */
 	public void clickSaveButton() {
 		click(BTN_SAVE);
-
-	}
-
-	/**
-	 * @author Dung Pham
-	 * 
-	 */
-	public void verifyBannerClientSavedSuccessfully() {
-		Assert.assertTrue(POPUP_MESSAGE.getText().contains(
-				textBannerClientSavedSuccessfully));
 
 	}
 

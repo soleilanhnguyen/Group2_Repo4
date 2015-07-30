@@ -374,45 +374,6 @@ public class WeblinksPage extends AbstractPage {
 
 	/**
 	 * @author Dung Pham 07/12/2015
-	 * @param textNeedToBeTested
-	 * @description Test the text displaying on the pop up, the text is correct
-	 *              or not
-	 */
-	public boolean isTextDisPlayOnPopupMessage(String textNeedToBeTested) {
-		try {
-			return POPUP_MESSAGE.getText().contains(textNeedToBeTested);
-		} catch (Exception e) {
-
-			return false;
-		}
-
-	}
-
-	/**
-	 * @author Dung Pham 07/12/2015
-	 * @param weblinkTitle
-	 * @param status
-	 * @description check the Weblink is Published or not
-	 */
-	public boolean isWeblinkIsPublishedOrNot(String weblinkTitle,
-			String weblinkStatusOfTable) {
-		// get webelement of span which is besides weblinkTitle
-
-		try {
-			WebElement element = findElementByXPath(driver,
-					initialStringStatusxOfWeblink, weblinkTitle);
-
-			String text = element.getAttribute("innerHTML");
-			// check the text with "Published" or "Unpublished"
-			return text.equals(weblinkStatusOfTable);
-
-		} catch (Exception e) {
-			return false;
-		}
-	}
-
-	/**
-	 * @author Dung Pham 07/12/2015
 	 * @description check the text "Weblink successfully saved" display after
 	 *              creating new weblink successfully
 	 */
@@ -488,34 +449,6 @@ public class WeblinksPage extends AbstractPage {
 	 */
 	public void selectOptionFromCategoryDropdown(String option) {
 		selectOptionFromDropdownList(OPT_CATEGORY, option);
-	}
-
-	/**
-	 * @author Dung Pham 07/02/2015
-	 * @param textNeedToBeTested
-	 * @description Test the text displaying on the pop up, the text is correct
-	 *              or not
-	 */
-	public void verifyTextDisPlayOnPopupMessage(String textNeedToBeTested) {
-		Assert.assertTrue(POPUP_MESSAGE.getText().contains(textNeedToBeTested));
-
-	}
-
-	/**
-	 * @author Dung Pham 07/02/2015
-	 * @param weblinkTitle
-	 * @param status
-	 */
-	public void verifyWeblinkIsPublishedOrNot(String weblinkTitle,
-			String weblinkStatusOfTable) {
-		// get webelement of span which is besides weblinkTitle
-
-		WebElement element = findElementByXPath(driver,
-				initialStringStatusxOfWeblink, weblinkTitle);
-
-		String text = element.getAttribute("innerHTML");
-		// check the text with "Published" or "Unpublished"
-		Assert.assertTrue(text.equals(weblinkStatusOfTable));
 	}
 
 	/**
@@ -613,7 +546,6 @@ public class WeblinksPage extends AbstractPage {
 	private String initialStringStatusxOfWeblink = "//a[contains(text(),'%s')]/../following-sibling::td/a/span/span";
 	private String initialLinkCheckIn = "//td[a[contains(text(),'%s')]]/../td/a/span[@class='state checkedout']";
 	private String initialDownArrowOrderingColumn = "//td[a[contains(text(),'%s')]]/../td//span[@class='state downarrow']";
-	private String initialCellID = "//table[@class='adminlist']/tbody/tr[%s]/td[9]/a";
 
 	private String weblinkStatusPublished = "Published";
 	private String weblinkStatusUnpublished = "Unpublished";
