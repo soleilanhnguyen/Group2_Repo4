@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import common.Constant;
+
 
 public class LoginPage extends AbstractPage{
 	
@@ -22,6 +24,8 @@ public class LoginPage extends AbstractPage{
 	//Author: Anh Nguyen
 	public void typeUsername(String username) {
 
+		waitForControl(driver, TXT_USERNAME, Constant.longTimeOut);
+		
 		type(TXT_USERNAME, username);
 
 	}
@@ -29,6 +33,8 @@ public class LoginPage extends AbstractPage{
 	// Type password
 	//Author: Anh Nguyen
 	public void typePassword(String password) {
+		
+		waitForControl(driver, TXT_PASSWORD, Constant.longTimeOut);
 
 		type(TXT_PASSWORD, password);
 	}
@@ -36,6 +42,9 @@ public class LoginPage extends AbstractPage{
 	// Click login button
 	//Author: Anh Nguyen
 	public void clickLoginButton() {
+		
+		waitForControl(driver, BTN_LOGIN, Constant.longTimeOut);
+		
 		click(BTN_LOGIN);
 
 	}

@@ -9,33 +9,37 @@ import common.Constant;
 
 public class BrowserManager {
 
-	//Launch a browser
-	//Author: Ha Nguyen
+	/**
+	 * @author Ha Nguyen
+	 * @param browserName
+	 * @return
+	 */
 	public WebDriver launchBrowser(String browserName) {
-		try{
-		if (browserName.equals(Constant.FIRE_FOX)) {
-			driver = new FirefoxDriver();
-		} else if (browserName.equals(Constant.CHROME)) {
-			 System.setProperty("webdriver.chrome.driver","src/main/resources/chromedriver.exe");
-			 driver = new ChromeDriver();
-		} else {
-			System.setProperty("webdriver.ie.driver","src/main/resources/IEDriverServer.exe");
-			driver = new InternetExplorerDriver();
-		}
-		} catch(Exception ex)
-		{
+		try {
+			if (browserName.equals(Constant.FIRE_FOX)) {
+				driver = new FirefoxDriver();
+			} else if (browserName.equals(Constant.CHROME)) {
+				System.setProperty("webdriver.chrome.driver",
+						"src/main/resources/chromedriver.exe");
+				driver = new ChromeDriver();
+			} else {
+				System.setProperty("webdriver.ie.driver",
+						"src/main/resources/IEDriverServer.exe");
+				driver = new InternetExplorerDriver();
+			}
+		} catch (Exception ex) {
 			System.out.println(ex);
-			
+
 		}
-	return driver;
-		
+		return driver;
+
 	}
 
 	protected void closeBrowser(WebDriver driver) {
 		try {
 			driver.quit();
 			System.gc();
-			if(driver.toString().toLowerCase().contains("chrome")) {
+			if (driver.toString().toLowerCase().contains("chrome")) {
 				String cmd = "taskkill /IM chromedriver.exe /F";
 				Process process = Runtime.getRuntime().exec(cmd);
 				process.waitFor();
@@ -44,6 +48,6 @@ public class BrowserManager {
 			System.out.println(e.getMessage());
 		}
 	}
-	
+
 	private WebDriver driver = null;
 }
